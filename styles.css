@@ -792,6 +792,9 @@ input, button, textarea, select {
     gap: 12px;
     transform: translateY(100%);
     transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+    background: rgb(255, 252, 246) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
   .sidebar.drawer-open { transform: translateY(0); }
 
