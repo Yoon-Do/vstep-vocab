@@ -234,6 +234,11 @@ function switchView(nextView) {
   els.toggleQuizBtn.classList.toggle("hidden", isListOnlyTheme(theme));
   els.shuffleBtn.classList.toggle("hidden", isListOnlyTheme(theme));
 
+  // Sync mobile bottom nav with current view
+  document.querySelectorAll(".bnav-btn[data-view]").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.view === forcedView);
+  });
+
   els.cardsView.classList.toggle("hidden", forcedView !== "cards");
   els.listView.classList.toggle("hidden", forcedView !== "list");
   els.quizView.classList.toggle("hidden", forcedView !== "quiz");
@@ -260,6 +265,13 @@ function renderThemes() {
       render();
     });
   });
+
+  // Update mobile topbar label
+  const activeTh = getThemeById(state.activeTheme);
+  const mobileLabel = document.getElementById("mobileTopicLabel");
+  if (mobileLabel && activeTh) {
+    mobileLabel.textContent = `${activeTh.icon} ${activeTh.viTitle}`;
+  }
 }
 
 function renderSummary(words) {
@@ -687,6 +699,58 @@ function renderQuiz() {
   });
 }
 
+function initMobileDrawer() {
+  const sidebar = document.getElementById("sidebar");
+  const backdrop = document.getElementById("drawerBackdrop");
+  if (!sidebar || !backdrop) return;
+
+  function openDrawer() {
+    sidebar.classList.add("drawer-open");
+    backdrop.style.display = "block";
+    requestAnimationFrame(() => backdrop.classList.add("visible"));
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeDrawer() {
+    sidebar.classList.remove("drawer-open");
+    backdrop.classList.remove("visible");
+    document.body.style.overflow = "";
+    setTimeout(() => { backdrop.style.display = "none"; }, 340);
+  }
+
+  document.getElementById("openDrawerBtn")?.addEventListener("click", openDrawer);
+  document.getElementById("openDrawerBtnNav")?.addEventListener("click", openDrawer);
+  backdrop.addEventListener("click", closeDrawer);
+
+  // Swipe down to close
+  let touchStartY = 0;
+  let dragging = false;
+  sidebar.addEventListener("touchstart", e => {
+    touchStartY = e.touches[0].clientY;
+    dragging = false;
+  }, { passive: true });
+  sidebar.addEventListener("touchmove", e => {
+    const dy = e.touches[0].clientY - touchStartY;
+    if (dy > 0 && sidebar.scrollTop === 0) {
+      dragging = true;
+      sidebar.style.transform = `translateY(${dy}px)`;
+      backdrop.style.opacity = String(Math.max(0, 1 - dy / 200));
+    }
+  }, { passive: true });
+  sidebar.addEventListener("touchend", e => {
+    if (!dragging) return;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    sidebar.style.transform = "";
+    backdrop.style.opacity = "";
+    if (dy > 80) closeDrawer();
+  });
+
+  // Close when theme is selected on mobile
+  els.themeList.addEventListener("click", () => {
+    if (window.innerWidth <= 980) setTimeout(closeDrawer, 200);
+  });
+}
+
 function bindGlobalEvents() {
   els.searchInput.addEventListener("input", e => {
     state.search = e.target.value;
@@ -727,6 +791,20 @@ function bindGlobalEvents() {
       render();
     });
   });
+  // Bottom nav view switching
+  document.querySelectorAll(".bnav-btn[data-view]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const theme = getThemeById(state.activeTheme);
+      const nextView = isListOnlyTheme(theme) ? "list" : btn.dataset.view;
+      if (nextView === "quiz" && !state.quiz.items.length) {
+        state.quiz = { index: 0, score: 0, items: createQuizItems(), wrongKeys: [] };
+      }
+      switchView(nextView);
+      render();
+    });
+  });
+
+  initMobileDrawer();
 }
 
 function render() {

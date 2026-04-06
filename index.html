@@ -7,8 +7,12 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <!-- Mobile: drawer backdrop -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
   <div class="app-shell">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+      <div class="drawer-handle-bar"></div>
       <div class="brand">
         <p class="eyebrow">VSTEP</p>
         <h1>Từ vựng + Grammar + Link Words</h1>
@@ -39,6 +43,19 @@
     </aside>
 
     <main class="main">
+
+      <!-- Mobile-only topbar -->
+      <div class="mobile-topbar">
+        <div class="mobile-topbar-brand">
+          <p class="eyebrow" style="margin:0">VSTEP</p>
+          <strong class="mobile-brand-title">Vocabulary Studio</strong>
+        </div>
+        <button class="mobile-topic-pill" id="openDrawerBtn" aria-label="Chọn chủ đề">
+          <span id="mobileTopicLabel">Chọn chủ đề</span>
+          <span class="mobile-topic-arrow">›</span>
+        </button>
+      </div>
+
       <section class="hero panel">
         <div>
           <p class="eyebrow">Interactive Study</p>
@@ -74,6 +91,26 @@
       <section id="quizView" class="quiz-view hidden"></section>
     </main>
   </div>
+
+  <!-- Mobile bottom navigation -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <button class="bnav-btn" data-view="cards">
+      <span class="bnav-icon">🃏</span>
+      <span class="bnav-label">Cards</span>
+    </button>
+    <button class="bnav-btn" data-view="list">
+      <span class="bnav-icon">📋</span>
+      <span class="bnav-label">Danh sách</span>
+    </button>
+    <button class="bnav-btn" data-view="quiz">
+      <span class="bnav-icon">⚡</span>
+      <span class="bnav-label">Quiz</span>
+    </button>
+    <button class="bnav-btn" id="openDrawerBtnNav">
+      <span class="bnav-icon">📚</span>
+      <span class="bnav-label">Chủ đề</span>
+    </button>
+  </nav>
 
   <script src="./vocab-data.js"></script>
   <script src="./app.js"></script>
