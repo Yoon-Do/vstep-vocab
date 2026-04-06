@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VSTEP Vocabulary Studio</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">VSTEP</p>
+        <h1>Từ vựng + Grammar + Link Words</h1>
+        <p class="muted">Học theo kiểu 80/20: đủ từ, đủ khung câu, đủ từ nối để speaking và writing tròn ý hơn.</p>
+      </div>
+
+      <div class="panel sticky-panel">
+        <label class="label" for="searchInput">Tìm từ</label>
+        <input id="searchInput" class="search" type="text" placeholder="Ví dụ: environment, confident, climate change..." />
+
+        <div class="mini-stats">
+          <div>
+            <span class="mini-label">Chủ đề</span>
+            <strong id="themeCount">0</strong>
+          </div>
+          <div>
+            <span class="mini-label">Đang hiện</span>
+            <strong id="wordCount">0</strong>
+          </div>
+          <div>
+            <span class="mini-label">Đã thuộc</span>
+            <strong id="masteredCount">0</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="theme-list" id="themeList"></div>
+    </aside>
+
+    <main class="main">
+      <section class="hero panel">
+        <div>
+          <p class="eyebrow">Interactive Study</p>
+          <h2 id="heroTitle">Chọn một chủ đề để bắt đầu</h2>
+          <p id="heroDesc" class="muted">Từ/cụm quan trọng cho speaking và writing sẽ được ưu tiên hiển thị trước.</p>
+        </div>
+        <div class="hero-actions">
+          <button class="btn ghost" id="shuffleBtn">Đảo thẻ</button>
+          <button class="btn" id="toggleQuizBtn">Bật quiz</button>
+        </div>
+      </section>
+
+      <section class="controls panel">
+        <div class="chips" id="filterChips">
+          <button class="chip active" data-filter="all">Tất cả</button>
+          <button class="chip" data-filter="priority">Ưu tiên VSTEP</button>
+          <button class="chip" data-filter="unmastered">Chưa thuộc</button>
+          <button class="chip" data-filter="mastered">Đã thuộc</button>
+          <button class="chip" data-filter="favorites">Đánh dấu</button>
+        </div>
+
+        <div class="view-switch">
+          <button class="seg active" data-view="cards">Flashcards</button>
+          <button class="seg" data-view="list">Danh sách</button>
+          <button class="seg" data-view="quiz">Quiz</button>
+        </div>
+      </section>
+
+      <section id="summaryBar" class="summary-bar"></section>
+
+      <section id="cardsView" class="cards-grid"></section>
+      <section id="listView" class="list-view hidden"></section>
+      <section id="quizView" class="quiz-view hidden"></section>
+    </main>
+  </div>
+
+  <script src="./vocab-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
