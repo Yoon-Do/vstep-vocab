@@ -1,4 +1,16 @@
-const allThemes = window.VSTEP_VOCAB || [];
+const THEME_ORDER = [
+  "grammar", "linking-words",
+  "environment", "education", "technology", "health", "community",
+  "work", "city", "transport", "people", "travel",
+  "countryside", "food", "sports", "hobbies",
+  "weather", "foreign-language", "accommodation", "art"
+];
+
+const allThemes = (window.VSTEP_VOCAB || []).slice().sort((a, b) => {
+  const ai = THEME_ORDER.indexOf(a.id);
+  const bi = THEME_ORDER.indexOf(b.id);
+  return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+});
 
 const HIGH_VALUE_TERMS = new Set([
   "infrastructure", "destination", "public transport", "reduce air pollution from vehicle emissions",
