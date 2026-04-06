@@ -530,6 +530,136 @@ input, button, textarea, select {
 .option.correct { background: rgba(29, 107, 98, 0.14); border-color: rgba(29, 107, 98, 0.35); }
 .option.wrong { background: rgba(163, 75, 42, 0.14); border-color: rgba(163, 75, 42, 0.35); }
 
+.option-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--line);
+  font-size: 11px;
+  font-weight: 800;
+  margin-right: 10px;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+/* Quiz mode tabs */
+.quiz-mode-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.mode-tab {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.76);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.mode-tab.active {
+  background: var(--ink);
+  color: white;
+  border-color: transparent;
+}
+
+.mode-tab:hover:not(.active) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Fill-in mode */
+.fill-area {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.fill-input {
+  flex: 1;
+  min-width: 0;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 16px;
+  background: white;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.fill-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(163, 75, 42, 0.08);
+}
+
+.fill-input.fill-correct {
+  border-color: var(--accent-2);
+  background: rgba(29, 107, 98, 0.06);
+}
+
+.fill-input.fill-wrong {
+  border-color: var(--accent);
+  background: rgba(163, 75, 42, 0.06);
+}
+
+.fill-answer {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: rgba(163, 75, 42, 0.08);
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--accent);
+  width: 100%;
+}
+
+/* Wrong words review */
+.wrong-review {
+  margin: 16px 0;
+  padding: 16px;
+  background: rgba(163, 75, 42, 0.06);
+  border-radius: 16px;
+  border: 1px solid rgba(163, 75, 42, 0.14);
+}
+
+.wrong-list {
+  display: grid;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.wrong-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: white;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.wrong-en {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.wrong-vi {
+  color: var(--muted);
+  text-align: right;
+}
+
 .quiz-footer {
   display: flex;
   justify-content: space-between;

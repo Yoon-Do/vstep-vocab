@@ -58,12 +58,18 @@ const state = {
   view: "cards",
   mastered: new Set(storage.get("vstep-mastered", [])),
   favorites: new Set(storage.get("vstep-favorites", [])),
+  shuffledOrders: {},
+  quizMode: storage.get("vstep-quiz-mode", "en-vi"),
+  wrongCounts: storage.get("vstep-wrong", {}),
   quiz: {
     index: 0,
     score: 0,
-    items: []
+    items: [],
+    wrongKeys: []
   }
 };
+
+let _quizKeyHandler = null;
 
 const els = {
   themeList: document.getElementById("themeList"),
@@ -189,10 +195,20 @@ function getVisibleWords() {
     words = words.filter(word => state.favorites.has(keyFor(word)));
   }
 
-  words.sort((a, b) => {
-    if (b.score !== a.score) return b.score - a.score;
-    return a.en.localeCompare(b.en, "vi");
-  });
+  const shuffled = state.shuffledOrders[state.activeTheme];
+  if (shuffled) {
+    const orderMap = new Map(shuffled.map((w, i) => [keyFor(w), i]));
+    words.sort((a, b) => {
+      const ai = orderMap.get(keyFor(a)) ?? 9999;
+      const bi = orderMap.get(keyFor(b)) ?? 9999;
+      return ai - bi;
+    });
+  } else {
+    words.sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return a.en.localeCompare(b.en, "vi");
+    });
+  }
 
   return words;
 }
@@ -200,6 +216,8 @@ function getVisibleWords() {
 function persist() {
   storage.set("vstep-mastered", [...state.mastered]);
   storage.set("vstep-favorites", [...state.favorites]);
+  storage.set("vstep-wrong", state.wrongCounts);
+  storage.set("vstep-quiz-mode", state.quizMode);
 }
 
 function switchView(nextView) {
@@ -238,7 +256,7 @@ function renderThemes() {
     btn.addEventListener("click", () => {
       state.activeTheme = btn.dataset.theme;
       if (isListOnlyTheme(state.activeTheme)) state.view = "list";
-      state.quiz = { index: 0, score: 0, items: [] };
+      state.quiz = { index: 0, score: 0, items: [], wrongKeys: [] };
       render();
     });
   });
@@ -435,92 +453,235 @@ function renderList(words) {
   bindWordActionButtons(els.listView, words);
 }
 
-function createQuizItems() {
+function createQuizItems(sourceWords) {
   const theme = getThemeById(state.activeTheme);
-  const base = withThemeWords(theme).sort((a, b) => b.score - a.score);
-  return shuffle(base.slice(0, Math.min(16, base.length))).slice(0, Math.min(10, base.length)).map(word => {
-    const distractors = shuffle(base.filter(item => item.en !== word.en).map(item => item.vi)).slice(0, 3);
-    const options = shuffle([word.vi, ...distractors]);
-    return { word, options, answered: false };
+  const base = sourceWords || withThemeWords(theme).sort((a, b) => {
+    const aWrong = state.wrongCounts[keyFor(a)] || 0;
+    const bWrong = state.wrongCounts[keyFor(b)] || 0;
+    if (bWrong !== aWrong) return bWrong - aWrong;
+    return b.score - a.score;
+  });
+
+  const pool = shuffle(base.slice(0, Math.min(20, base.length)));
+  const selected = pool.slice(0, Math.min(10, pool.length));
+
+  return selected.map(word => {
+    if (state.quizMode === "vi-en") {
+      const distractors = shuffle(base.filter(w => w.en !== word.en).map(w => w.en)).slice(0, 3);
+      const options = shuffle([word.en, ...distractors]);
+      return { word, options, mode: "vi-en", answered: false, correct: null };
+    } else if (state.quizMode === "fill") {
+      return { word, options: null, mode: "fill", answered: false, correct: null };
+    } else {
+      const distractors = shuffle(base.filter(w => w.en !== word.en).map(w => w.vi)).slice(0, 3);
+      const options = shuffle([word.vi, ...distractors]);
+      return { word, options, mode: "en-vi", answered: false, correct: null };
+    }
   });
 }
 
 function renderQuiz() {
+  // Clean up any stale keyboard listener from previous render
+  if (_quizKeyHandler) {
+    document.removeEventListener("keydown", _quizKeyHandler);
+    _quizKeyHandler = null;
+  }
+
   if (!state.quiz.items.length) {
-    state.quiz = { index: 0, score: 0, items: createQuizItems() };
+    state.quiz = { index: 0, score: 0, items: createQuizItems(), wrongKeys: [] };
   }
 
   const total = state.quiz.items.length;
   const current = state.quiz.items[state.quiz.index];
 
+  // ── End screen ──────────────────────────────────────────────────────────────
   if (!current) {
+    const allWords = withThemeWords(getThemeById(state.activeTheme));
+    const wrongWords = state.quiz.wrongKeys
+      .map(k => allWords.find(w => keyFor(w) === k))
+      .filter(Boolean);
+
     els.quizView.innerHTML = `
       <div class="quiz-card">
         <div class="quiz-top">
-          <h3>Hoàn thành quiz</h3>
+          <h3>Hoàn thành! 🎉</h3>
           <span class="word-type">${state.quiz.score}/${total} đúng</span>
         </div>
-        <p class="muted">Quiz hiện ưu tiên các từ/cụm mạnh cho speaking và writing.</p>
-        <div class="quiz-footer">
-          <button class="btn" id="retryQuizBtn">Làm lại quiz</button>
-          <button class="btn ghost" id="backToCardsBtn">Về flashcards</button>
+        <div class="progress">
+          <div class="progress-bar" style="width:${(state.quiz.score / total) * 100}%"></div>
+        </div>
+        ${wrongWords.length ? `
+          <div class="wrong-review">
+            <p class="eyebrow" style="margin:0 0 10px">Cần ôn lại (${wrongWords.length} từ)</p>
+            <div class="wrong-list">
+              ${wrongWords.map(w => `
+                <div class="wrong-item">
+                  <span class="wrong-en">${w.en}</span>
+                  <span class="wrong-vi">${w.vi}</span>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        ` : `<p class="muted" style="text-align:center;padding:16px 0">🏆 Tuyệt vời! Không có từ sai.</p>`}
+        <div class="quiz-footer" style="margin-top:20px;flex-wrap:wrap;gap:10px">
+          ${wrongWords.length ? `<button class="btn" id="reviewWrongBtn">Ôn lại từ sai (${wrongWords.length})</button>` : ""}
+          <button class="btn ghost" id="retryQuizBtn">Làm lại</button>
+          <button class="btn ghost" id="backToCardsBtn">Flashcards</button>
         </div>
       </div>
     `;
 
+    if (wrongWords.length) {
+      document.getElementById("reviewWrongBtn").addEventListener("click", () => {
+        state.quiz = { index: 0, score: 0, items: createQuizItems(wrongWords), wrongKeys: [] };
+        render();
+      });
+    }
     document.getElementById("retryQuizBtn").addEventListener("click", () => {
-      state.quiz = { index: 0, score: 0, items: createQuizItems() };
+      state.quiz = { index: 0, score: 0, items: createQuizItems(), wrongKeys: [] };
       render();
     });
-
     document.getElementById("backToCardsBtn").addEventListener("click", () => {
       switchView("cards");
       render();
     });
-
     return;
   }
 
+  // ── Active question ──────────────────────────────────────────────────────────
   const progress = (state.quiz.index / total) * 100;
+  const isFill = current.mode === "fill";
+  const isViEn = current.mode === "vi-en";
+  const promptWord = (isFill || isViEn) ? current.word.vi : current.word.en;
+  const modeHint = isFill ? "Gõ từ tiếng Anh" : isViEn ? "Chọn từ tiếng Anh đúng" : "Chọn nghĩa đúng";
+
   els.quizView.innerHTML = `
     <div class="quiz-card">
       <div class="quiz-top">
-        <h3>Quiz nhanh</h3>
+        <h3>Quiz</h3>
         <span class="word-type">Câu ${state.quiz.index + 1}/${total}</span>
       </div>
-      <div class="progress"><div class="progress-bar" style="width:${progress}%"></div></div>
-      <p class="eyebrow">Chọn nghĩa đúng</p>
-      <div class="quiz-word">${current.word.en}</div>
-      <p class="quiz-hint">${current.word.bandLabel} · ${current.word.skillTags.join(" + ") || "Cốt lõi"}</p>
-      <div class="quiz-options">
-        ${current.options.map(option => `<button class="option" data-option="${option.replace(/"/g, '&quot;')}">${option}</button>`).join("")}
+
+      <div class="quiz-mode-tabs">
+        <button class="mode-tab ${state.quizMode === "en-vi" ? "active" : ""}" data-mode="en-vi">Anh → Việt</button>
+        <button class="mode-tab ${state.quizMode === "vi-en" ? "active" : ""}" data-mode="vi-en">Việt → Anh</button>
+        <button class="mode-tab ${state.quizMode === "fill" ? "active" : ""}" data-mode="fill">Điền từ</button>
       </div>
+
+      <div class="progress"><div class="progress-bar" style="width:${progress}%"></div></div>
+
+      <p class="eyebrow">${modeHint}</p>
+      <div class="quiz-word">${promptWord}</div>
+      <p class="quiz-hint">${current.word.bandLabel} · ${current.word.skillTags.join(" + ") || "Cốt lõi"}</p>
+
+      ${isFill ? `
+        <div class="fill-area">
+          <input id="fillInput" class="fill-input" type="text"
+            placeholder="Gõ từ tiếng Anh..."
+            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          <button class="btn" id="fillSubmitBtn">Kiểm tra</button>
+        </div>
+      ` : `
+        <div class="quiz-options">
+          ${current.options.map((opt, i) => `
+            <button class="option" data-option="${opt.replace(/"/g, "&quot;")}">
+              <span class="option-key">${i + 1}</span>${opt}
+            </button>
+          `).join("")}
+        </div>
+      `}
+
       <div class="quiz-footer">
-        <span class="muted">Điểm hiện tại: ${state.quiz.score}</span>
+        <span class="muted">Điểm: ${state.quiz.score}/${state.quiz.index}</span>
         <button class="btn ghost" id="skipQuizBtn">Bỏ qua</button>
       </div>
     </div>
   `;
 
-  els.quizView.querySelectorAll(".option").forEach(btn => {
+  // Mode tab switching — restart quiz with new mode
+  els.quizView.querySelectorAll(".mode-tab").forEach(btn => {
     btn.addEventListener("click", () => {
-      if (current.answered) return;
-      current.answered = true;
-      const isCorrect = btn.dataset.option === current.word.vi;
-      els.quizView.querySelectorAll(".option").forEach(optionBtn => {
-        if (optionBtn.dataset.option === current.word.vi) optionBtn.classList.add("correct");
-        if (optionBtn === btn && !isCorrect) optionBtn.classList.add("wrong");
-        optionBtn.disabled = true;
-      });
-      if (isCorrect) state.quiz.score += 1;
-      setTimeout(() => {
-        state.quiz.index += 1;
-        render();
-      }, 700);
+      state.quizMode = btn.dataset.mode;
+      persist();
+      state.quiz = { index: 0, score: 0, items: createQuizItems(), wrongKeys: [] };
+      render();
     });
   });
 
+  function markAnswer(isCorrect) {
+    if (current.answered) return;
+    current.answered = true;
+    current.correct = isCorrect;
+    if (isCorrect) {
+      state.quiz.score += 1;
+    } else {
+      const key = keyFor(current.word);
+      state.wrongCounts[key] = (state.wrongCounts[key] || 0) + 1;
+      if (!state.quiz.wrongKeys.includes(key)) state.quiz.wrongKeys.push(key);
+      persist();
+    }
+    setTimeout(() => { state.quiz.index += 1; render(); }, 900);
+  }
+
+  // ── Fill mode ────────────────────────────────────────────────────────────────
+  if (isFill) {
+    const fillInput = document.getElementById("fillInput");
+    const submitBtn = document.getElementById("fillSubmitBtn");
+    fillInput.focus();
+
+    function checkFill() {
+      if (current.answered) return;
+      const answer = fillInput.value.trim().toLowerCase();
+      const correct = current.word.en.toLowerCase();
+      const isCorrect = answer === correct;
+      fillInput.disabled = true;
+      submitBtn.disabled = true;
+      fillInput.classList.add(isCorrect ? "fill-correct" : "fill-wrong");
+      if (!isCorrect) {
+        fillInput.insertAdjacentHTML("afterend",
+          `<div class="fill-answer">Đáp án đúng: <strong>${current.word.en}</strong></div>`);
+      }
+      markAnswer(isCorrect);
+    }
+
+    submitBtn.addEventListener("click", checkFill);
+    fillInput.addEventListener("keydown", e => { if (e.key === "Enter") checkFill(); });
+
+  // ── Multiple choice ──────────────────────────────────────────────────────────
+  } else {
+    const correctAnswer = isViEn ? current.word.en : current.word.vi;
+
+    els.quizView.querySelectorAll(".option").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (current.answered) return;
+        const isCorrect = btn.dataset.option === correctAnswer;
+        els.quizView.querySelectorAll(".option").forEach(o => {
+          if (o.dataset.option === correctAnswer) o.classList.add("correct");
+          if (o === btn && !isCorrect) o.classList.add("wrong");
+          o.disabled = true;
+        });
+        markAnswer(isCorrect);
+      });
+    });
+
+    // Keyboard shortcut: press 1–4 to pick option
+    _quizKeyHandler = e => {
+      if (current.answered) return;
+      const n = parseInt(e.key);
+      if (n >= 1 && n <= 4) {
+        const opts = els.quizView.querySelectorAll(".option");
+        if (opts[n - 1]) opts[n - 1].click();
+      }
+    };
+    document.addEventListener("keydown", _quizKeyHandler);
+  }
+
   document.getElementById("skipQuizBtn").addEventListener("click", () => {
+    if (!current.answered) {
+      current.answered = true;
+      const key = keyFor(current.word);
+      if (!state.quiz.wrongKeys.includes(key)) state.quiz.wrongKeys.push(key);
+    }
     state.quiz.index += 1;
     render();
   });
@@ -535,14 +696,14 @@ function bindGlobalEvents() {
   els.shuffleBtn.addEventListener("click", () => {
     const theme = getThemeById(state.activeTheme);
     if (isListOnlyTheme(theme)) return;
-    theme.words = shuffle(theme.words);
+    state.shuffledOrders[state.activeTheme] = shuffle(withThemeWords(theme));
     render();
   });
 
   els.toggleQuizBtn.addEventListener("click", () => {
     const theme = getThemeById(state.activeTheme);
     if (isListOnlyTheme(theme)) return;
-    state.quiz = { index: 0, score: 0, items: createQuizItems() };
+    state.quiz = { index: 0, score: 0, items: createQuizItems(), wrongKeys: [] };
     switchView("quiz");
     render();
   });
@@ -560,7 +721,7 @@ function bindGlobalEvents() {
       const theme = getThemeById(state.activeTheme);
       const nextView = isListOnlyTheme(theme) ? "list" : btn.dataset.view;
       if (nextView === "quiz" && !state.quiz.items.length) {
-        state.quiz = { index: 0, score: 0, items: createQuizItems() };
+        state.quiz = { index: 0, score: 0, items: createQuizItems(), wrongKeys: [] };
       }
       switchView(nextView);
       render();
