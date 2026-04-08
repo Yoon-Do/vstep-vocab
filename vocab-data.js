@@ -7,7 +7,7 @@ window.VSTEP_VOCAB = [
     "description": "Từ và cụm quan trọng về phương tiện, di chuyển và giao thông công cộng.",
     "words": [
       {
-        "en": "and fast",
+        "en": "convenient and fast",
         "vi": "tiện lợi và nhanh chóng",
         "type": "phrase"
       },
@@ -33,13 +33,13 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "Commuter",
-        "vi": "Người đi làm (thường xuyên đi lại giữa nhà và nơi làm việc)",
+        "vi": "Người đi làm hằng ngày",
         "type": "noun"
       },
       {
-        "en": "conditions",
-        "vi": "cơ sở hạ tầng giao thông tồi tệ",
-        "type": "noun"
+        "en": "poor transport conditions",
+        "vi": "điều kiện giao thông tồi tệ",
+        "type": "phrase"
       },
       {
         "en": "Cycle lane",
@@ -112,8 +112,8 @@ window.VSTEP_VOCAB = [
         "type": "noun"
       },
       {
-        "en": "run slowly",
-        "vi": "chạy chậm",
+        "en": "buses run slowly",
+        "vi": "xe buýt chạy chậm",
         "type": "phrase"
       },
       {
@@ -127,7 +127,7 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "time for the bus",
+        "en": "wait a long time for the bus",
         "vi": "đợi xe buýt lâu",
         "type": "phrase"
       },
@@ -202,8 +202,8 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "cost of living",
-        "vi": "chi phí sinh hoạt đắt đỏ",
-        "type": "phrase"
+        "vi": "chi phí sinh hoạt",
+        "type": "noun"
       },
       {
         "en": "drug addiction",
@@ -216,14 +216,14 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "evils",
-        "vi": "tệ nạn xã hội: drinking, drug, gambling",
+        "en": "social evils",
+        "vi": "tệ nạn xã hội",
         "type": "noun"
       },
       {
         "en": "gambling",
         "vi": "cờ bạc",
-        "type": "verb"
+        "type": "noun"
       },
       {
         "en": "have high crime rates",
@@ -435,8 +435,8 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "more friendly/opener",
-        "vi": "người dân thân thiện, cởi mở hơn",
+        "en": "more friendly and open",
+        "vi": "người dân thân thiện và cởi mở hơn",
         "type": "phrase"
       },
       {
@@ -559,11 +559,6 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "drink more water everyday",
-        "vi": "uống nhiều nước mỗi ngày",
-        "type": "phrase"
-      },
-      {
         "en": "drink too much alcohol",
         "vi": "uống quá nhiều rượu",
         "type": "phrase"
@@ -576,7 +571,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "encourage",
         "vi": "khuyến khích",
-        "type": "noun"
+        "type": "verb"
       },
       {
         "en": "endurance",
@@ -614,16 +609,6 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "Get enough sleep -",
-        "vi": "ngủ đủ giấc",
-        "type": "phrase"
-      },
-      {
-        "en": "have a regular health check-up",
-        "vi": "khám sức khỏe định kỳ",
-        "type": "phrase"
-      },
-      {
         "en": "have regular health check-ups",
         "vi": "khám sức khỏe định kỳ",
         "type": "phrase"
@@ -651,7 +636,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "immune",
         "vi": "miễn dịch",
-        "type": "noun"
+        "type": "adj"
       },
       {
         "en": "Immunity",
@@ -681,12 +666,12 @@ window.VSTEP_VOCAB = [
       {
         "en": "involve",
         "vi": "liên quan / bao gồm",
-        "type": "noun"
+        "type": "verb"
       },
       {
         "en": "jogging",
         "vi": "chạy bộ",
-        "type": "verb"
+        "type": "noun"
       },
       {
         "en": "Lose weight",
@@ -741,12 +726,12 @@ window.VSTEP_VOCAB = [
       {
         "en": "recover",
         "vi": "hồi phục",
-        "type": "noun"
+        "type": "verb"
       },
       {
         "en": "rejuvenate",
         "vi": "trẻ hóa / làm mới lại",
-        "type": "noun"
+        "type": "verb"
       },
       {
         "en": "Relieve stress",
@@ -761,11 +746,6 @@ window.VSTEP_VOCAB = [
       {
         "en": "skip meals",
         "vi": "bỏ bữa",
-        "type": "phrase"
-      },
-      {
-        "en": "sleep disturbance",
-        "vi": "rối loạn giấc ngủ",
         "type": "phrase"
       },
       {
@@ -1007,8 +987,8 @@ window.VSTEP_VOCAB = [
         "type": "verb"
       },
       {
-        "en": "Connect to Wi",
-        "vi": "Fi - Kết nối với Wi-Fi",
+        "en": "Connect to Wi-Fi",
+        "vi": "Kết nối Wi-Fi",
         "type": "phrase"
       },
       {
@@ -1048,11 +1028,6 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "increase the unemployment rate",
-        "vi": "tăng tỷ lệ thất nghiệp",
-        "type": "phrase"
-      },
-      {
-        "en": "increase unemployment rate",
         "vi": "tăng tỷ lệ thất nghiệp",
         "type": "phrase"
       },
@@ -1203,12 +1178,12 @@ window.VSTEP_VOCAB = [
       {
         "en": "Enroll",
         "vi": "đăng ký",
-        "type": "noun"
+        "type": "verb"
       },
       {
         "en": "Extracurricular",
         "vi": "hoạt động ngoại khóa",
-        "type": "noun"
+        "type": "adj"
       },
       {
         "en": "Grades",
@@ -1286,7 +1261,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "ask for directions easily",
-        "vi": "hỏi đường dễ",
+        "vi": "hỏi đường dễ dàng",
         "type": "phrase"
       },
       {
@@ -1336,8 +1311,8 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "society",
-        "vi": "văn hóa, con người, xã hội",
-        "type": "adj"
+        "vi": "xã hội",
+        "type": "noun"
       },
       {
         "en": "the high cost of living and tuition fees",
@@ -1350,7 +1325,7 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "without an interpreter",
+        "en": "work without an interpreter",
         "vi": "làm việc không cần thông dịch viên",
         "type": "phrase"
       }
@@ -1385,7 +1360,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "conserve natural resources",
-        "vi": "Chúng ta phải bảo tồn tài nguyên thiên nhiên để đảm bảo nguồn cung lâu dài",
+        "vi": "bảo tồn tài nguyên thiên nhiên",
         "type": "phrase"
       },
       {
@@ -1419,14 +1394,14 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "less energy/save energy",
+        "en": "save energy",
         "vi": "tiết kiệm năng lượng",
         "type": "phrase"
       },
       {
         "en": "natural resources",
-        "vi": "bảo tồn tài nguyên thiên nhiên",
-        "type": "phrase"
+        "vi": "tài nguyên thiên nhiên",
+        "type": "noun"
       },
       {
         "en": "Plant trees",
@@ -1474,13 +1449,8 @@ window.VSTEP_VOCAB = [
         "type": "adj"
       },
       {
-        "en": "reusable products",
-        "vi": "dùng sản phẩm có thể tái sử dụng",
-        "type": "phrase"
-      },
-      {
-        "en": "Save energy",
-        "vi": "Tiết kiệm năng lượng",
+        "en": "use reusable products",
+        "vi": "dùng sản phẩm tái sử dụng được",
         "type": "phrase"
       },
       {
@@ -1528,8 +1498,8 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "broaden the horizon",
-        "vi": "mở rộng kiến thức",
+        "en": "broaden one's horizons",
+        "vi": "mở rộng tầm nhìn",
         "type": "phrase"
       },
       {
@@ -1699,7 +1669,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "lobster",
-        "vi": "tôm",
+        "vi": "tôm hùm",
         "type": "noun"
       },
       {
@@ -1774,7 +1744,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "snail",
-        "vi": "ốc sên",
+        "vi": "ốc",
         "type": "noun"
       },
       {
@@ -1803,8 +1773,8 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "take natural pictures",
-        "vi": "chụp ảnh tự nhiên",
+        "en": "take photos in nature",
+        "vi": "chụp ảnh thiên nhiên",
         "type": "phrase"
       },
       {
@@ -2156,7 +2126,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "coding and programming",
-        "vi": "lập trình và mã hóa",
+        "vi": "lập trình",
         "type": "phrase"
       },
       {
@@ -2182,7 +2152,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "decision-making",
         "vi": "ra quyết định",
-        "type": "verb"
+        "type": "noun"
       },
       {
         "en": "develop imagination and creativity",
@@ -2241,12 +2211,12 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "fundraising",
-        "vi": "gây quỹ",
-        "type": "verb"
+        "vi": "gây quỹ từ thiện",
+        "type": "noun"
       },
       {
         "en": "go jogging",
-        "vi": "đi bộ đường dài",
+        "vi": "chạy bộ",
         "type": "phrase"
       },
       {
@@ -2327,7 +2297,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "problem-solving",
         "vi": "giải quyết vấn đề",
-        "type": "verb"
+        "type": "noun"
       },
       {
         "en": "Pursue",
@@ -2355,11 +2325,6 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "school",
-        "vi": "học hành ngày càng tệ",
-        "type": "noun"
-      },
-      {
         "en": "set specific schedules for gaming",
         "vi": "thiết lập thời gian cụ thể cho việc chơi game",
         "type": "phrase"
@@ -2371,7 +2336,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "skills",
-        "vi": "phát triển kỹ năng nhận thức",
+        "vi": "kỹ năng",
         "type": "noun"
       },
       {
@@ -2388,11 +2353,6 @@ window.VSTEP_VOCAB = [
         "en": "Spend time wisely",
         "vi": "Sử dụng thời gian hợp lý",
         "type": "phrase"
-      },
-      {
-        "en": "stress",
-        "vi": "giảm căng thẳng",
-        "type": "noun"
       },
       {
         "en": "stretch regularly",
@@ -2422,7 +2382,12 @@ window.VSTEP_VOCAB = [
       {
         "en": "volunteering",
         "vi": "tình nguyện",
-        "type": "verb"
+        "type": "noun"
+      },
+      {
+        "en": "reduce stress",
+        "vi": "giảm căng thẳng",
+        "type": "phrase"
       }
     ]
   },
@@ -2434,28 +2399,18 @@ window.VSTEP_VOCAB = [
     "description": "Từ vựng trọng tâm về nghề nghiệp, trách nhiệm, môi trường làm việc và thăng tiến.",
     "words": [
       {
-        "en": "a third-year student",
-        "vi": "sinh viên năm ba",
-        "type": "phrase"
-      },
-      {
         "en": "accountant",
         "vi": "kế toán",
         "type": "noun"
       },
       {
-        "en": "Application 9n)",
-        "vi": "đơn xin việc",
-        "type": "phrase"
+        "en": "Application (n)",
+        "vi": "Đơn xin việc",
+        "type": "noun"
       },
       {
         "en": "Apply for a job",
         "vi": "xin việc",
-        "type": "phrase"
-      },
-      {
-        "en": "attend classes",
-        "vi": "đi học",
         "type": "phrase"
       },
       {
@@ -2484,11 +2439,6 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "collaborate with classmates on group projects",
-        "vi": "làm việc nhóm với bạn cùng lớp",
-        "type": "phrase"
-      },
-      {
         "en": "collaborate with other departments",
         "vi": "phối hợp với các phòng ban khác",
         "type": "phrase"
@@ -2504,18 +2454,8 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "complete homework",
-        "vi": "hoàn thành bài tập về nhà",
-        "type": "phrase"
-      },
-      {
         "en": "Develop leadership skills",
         "vi": "phát triển kỹ năng lãnh đạo",
-        "type": "phrase"
-      },
-      {
-        "en": "do homework",
-        "vi": "làm bài tập",
         "type": "phrase"
       },
       {
@@ -2550,7 +2490,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "Gain experience",
-        "vi": "thực tập",
+        "vi": "Tích lũy kinh nghiệm",
         "type": "phrase"
       },
       {
@@ -2579,19 +2519,14 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "Interview (n)",
-        "vi": "phỏng vấn",
-        "type": "verb"
+        "en": "Interview",
+        "vi": "Phỏng vấn",
+        "type": "noun"
       },
       {
         "en": "Job satisfaction",
         "vi": "sự hài lòng với công việc",
         "type": "noun"
-      },
-      {
-        "en": "join clubs",
-        "vi": "tham gia câu lạc bộ",
-        "type": "phrase"
       },
       {
         "en": "learn from one another's experiences",
@@ -2605,17 +2540,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "Network with professionals",
-        "vi": "mạng lưới với các chuyên gia",
-        "type": "phrase"
-      },
-      {
-        "en": "overloaded",
-        "vi": "cảm thấy quá tải",
-        "type": "noun"
-      },
-      {
-        "en": "prepare for exams",
-        "vi": "ôn thi",
+        "vi": "Kết nối với các chuyên gia",
         "type": "phrase"
       },
       {
@@ -2680,8 +2605,8 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "third-year student",
-        "vi": "sinh viên năm 3",
-        "type": "phrase"
+        "vi": "sinh viên năm ba",
+        "type": "noun"
       },
       {
         "en": "utilize my specialized knowledge and skills in my job",
@@ -2820,7 +2745,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "good-looking",
         "vi": "ưa nhìn",
-        "type": "verb"
+        "type": "adj"
       },
       {
         "en": "have a sunny smile",
@@ -2835,7 +2760,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "honest",
         "vi": "thật thà",
-        "type": "noun"
+        "type": "adj"
       },
       {
         "en": "keep going despite setbacks",
@@ -2865,7 +2790,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "medium-height",
         "vi": "cao trung bình",
-        "type": "noun"
+        "type": "adj"
       },
       {
         "en": "meet at a coffee shop",
@@ -2875,7 +2800,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "middle-aged",
         "vi": "trung niên",
-        "type": "noun"
+        "type": "adj"
       },
       {
         "en": "optimistic",
@@ -2929,8 +2854,8 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "sincere",
-        "vi": "thật thà",
-        "type": "noun"
+        "vi": "chân thành",
+        "type": "adj"
       },
       {
         "en": "solve problems with a positive mindset",
@@ -2999,7 +2924,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "cramped",
         "vi": "chật chội",
-        "type": "noun"
+        "type": "adj"
       },
       {
         "en": "drafty",
@@ -3034,7 +2959,7 @@ window.VSTEP_VOCAB = [
       {
         "en": "quiet",
         "vi": "yên tĩnh",
-        "type": "noun"
+        "type": "adj"
       },
       {
         "en": "read bedtime stories",
@@ -3215,8 +3140,8 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "center",
-        "vi": "đưa tội phạm đến trung tâm cải tạo",
+        "en": "rehabilitation center",
+        "vi": "trung tâm cải tạo",
         "type": "noun"
       },
       {
@@ -3476,7 +3401,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "set a good example",
-        "vi": "làm gương tốt cho con cái",
+        "vi": "làm gương tốt",
         "type": "phrase"
       },
       {
@@ -3516,7 +3441,7 @@ window.VSTEP_VOCAB = [
       },
       {
         "en": "those who commit a crime",
-        "vi": "trừng phạt kẻ phạm tội",
+        "vi": "những người phạm tội",
         "type": "phrase"
       },
       {
