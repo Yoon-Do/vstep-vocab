@@ -451,7 +451,7 @@ function renderList(words) {
         </div>
         <div>
           <div class="vi">${word.vi}</div>
-          ${booster && word.example ? `
+          ${word.example ? `
             <div class="example-box">
               <span class="example-label">Ví dụ</span>
               <div class="example-text">${word.example}</div>

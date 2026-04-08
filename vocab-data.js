@@ -9,157 +9,188 @@ window.VSTEP_VOCAB = [
       {
         "en": "convenient and fast",
         "vi": "tiện lợi và nhanh chóng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Taking the train is convenient and fast for daily commuters."
       },
       {
         "en": "be inconvenient",
         "vi": "bất tiện",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It can be inconvenient to travel by bus when you live far from the city center."
       },
       {
         "en": "be pretty crowded at rush hours",
         "vi": "khá đông đúc vào giờ cao điểm",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The subway tends to be pretty crowded at rush hours every morning."
       },
       {
         "en": "be safer",
         "vi": "an toàn hơn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Traveling by train is considered to be safer than riding a motorbike."
       },
       {
         "en": "Catch a bus",
         "vi": "bắt xe buýt",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "I usually catch a bus to work because it is cheaper than driving."
       },
       {
         "en": "Commuter",
         "vi": "Người đi làm hằng ngày",
-        "type": "noun"
+        "type": "noun",
+        "example": "Many commuters spend more than two hours traveling to work every day."
       },
       {
         "en": "poor transport conditions",
         "vi": "điều kiện giao thông tồi tệ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The poor transport conditions in rural areas make it hard for people to travel."
       },
       {
         "en": "Cycle lane",
         "vi": "Làn đường cho xe đạp",
-        "type": "noun"
+        "type": "noun",
+        "example": "The city has built a new cycle lane to encourage people to ride bicycles."
       },
       {
         "en": "Drive safely",
         "vi": "lái xe an toàn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "You should always drive safely and wear your seatbelt while on the road."
       },
       {
         "en": "feel comfortable and relaxed",
         "vi": "cảm thấy thoải mái và thư giãn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Passengers can feel comfortable and relaxed when traveling by train."
       },
       {
         "en": "Follow traffic rules",
         "vi": "Tuân thủ luật giao thông",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Everyone should follow traffic rules to prevent accidents on the road."
       },
       {
         "en": "Get stuck in traffic",
         "vi": "Bị kẹt xe",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "I often get stuck in traffic on my way to work in the morning."
       },
       {
         "en": "have fewer accidents",
         "vi": "ít tai nạn hơn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Countries with strict driving laws tend to have fewer accidents each year."
       },
       {
         "en": "Highway",
         "vi": "Đường cao tốc",
-        "type": "noun"
+        "type": "noun",
+        "example": "The new highway has reduced travel time between the two cities."
       },
       {
         "en": "never think about the weather",
         "vi": "không phải lo về thời tiết",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "When you take the subway, you never think about the weather outside."
       },
       {
         "en": "Park the car",
         "vi": "đỗ xe",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It is difficult to park the car in the city center during weekends."
       },
       {
         "en": "Parking space",
         "vi": "Chỗ đỗ xe",
-        "type": "noun"
+        "type": "noun",
+        "example": "Finding a parking space near the shopping mall is always a challenge."
       },
       {
         "en": "Pedestrian",
         "vi": "Người đi bộ",
-        "type": "noun"
+        "type": "noun",
+        "example": "The driver stopped his car to let the pedestrian cross the street safely."
       },
       {
         "en": "Public transport",
         "vi": "Giao thông công cộng",
-        "type": "noun"
+        "type": "noun",
+        "example": "Using public transport is a good way to reduce air pollution in big cities."
       },
       {
         "en": "Reduce traffic congestion",
         "vi": "Giảm ùn tắc giao thông",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Building more roads can help reduce traffic congestion in urban areas."
       },
       {
         "en": "Road safety",
         "vi": "An toàn đường bộ",
-        "type": "noun"
+        "type": "noun",
+        "example": "The government has launched a new campaign to improve road safety for everyone."
       },
       {
         "en": "buses run slowly",
         "vi": "xe buýt chạy chậm",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "During peak hours, buses run slowly because of the heavy traffic."
       },
       {
         "en": "Rush hour",
         "vi": "Giờ cao điểm",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It takes much longer to get home if you drive during rush hour."
       },
       {
         "en": "Speed limit",
         "vi": "Giới hạn tốc độ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The speed limit on this road is 60 kilometers per hour."
       },
       {
         "en": "wait a long time for the bus",
         "vi": "đợi xe buýt lâu",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Sometimes passengers have to wait a long time for the bus in the evening."
       },
       {
         "en": "Traffic accident",
         "vi": "Tai nạn giao thông",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The traffic accident on the main road caused a long delay this morning."
       },
       {
         "en": "Traffic congestion",
         "vi": "Sự ùn tắc giao thông",
-        "type": "noun"
+        "type": "noun",
+        "example": "Traffic congestion is a serious problem in most large cities around the world."
       },
       {
         "en": "Traffic light",
         "vi": "Đèn giao thông",
-        "type": "noun"
+        "type": "noun",
+        "example": "Always stop your vehicle when the traffic light turns red."
       },
       {
         "en": "transport systems are quite bad",
         "vi": "hệ thống giao thông công cộng khá tệ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many people complain that transport systems are quite bad in this area."
       },
       {
         "en": "Use public transport",
         "vi": "Sử dụng giao thông công cộng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "People should use public transport more often to protect the environment."
       },
       {
         "en": "Vehicle",
         "vi": "Phương tiện",
-        "type": "noun"
+        "type": "noun",
+        "example": "Every vehicle must be registered before it can be driven on public roads."
       }
     ]
   },
@@ -501,307 +532,350 @@ window.VSTEP_VOCAB = [
       {
         "en": "asthma",
         "vi": "hen suyễn",
-        "type": "noun"
+        "type": "noun",
+        "example": "Many children in big cities develop asthma because of air pollution."
       },
       {
         "en": "boost mood",
         "vi": "mang lại tâm trạng tốt",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Regular exercise can boost mood and help you feel more positive."
       },
       {
         "en": "Build muscle",
         "vi": "Tăng cơ bắp",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Lifting weights at the gym is a great way to build muscle."
       },
       {
         "en": "build muscles",
         "vi": "xây dựng cơ bắp",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Eating enough protein is important if you want to build muscles."
       },
       {
         "en": "cancer",
         "vi": "ung thư",
-        "type": "noun"
+        "type": "noun",
+        "example": "Early detection of cancer can greatly improve the chances of successful treatment."
       },
       {
         "en": "cause headaches",
         "vi": "gây đau đầu",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Staring at a computer screen for too long can cause headaches."
       },
       {
         "en": "damage the liver",
         "vi": "làm hại gan",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Drinking too much alcohol over a long period can damage the liver."
       },
       {
         "en": "diabetes",
         "vi": "tiểu đường",
-        "type": "noun"
-      },
-      {
-        "en": "Diet",
-        "vi": "Chế độ ăn",
-        "type": "noun"
+        "type": "noun",
+        "example": "People with diabetes need to be careful about what they eat every day."
       },
       {
         "en": "dietary",
         "vi": "(thuộc về) chế độ ăn uống",
-        "type": "adj"
+        "type": "adj",
+        "example": "Making dietary changes can help you manage your weight more effectively."
       },
       {
         "en": "don't exercise regularly",
         "vi": "không tập thể dục thường xuyên",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "People who don't exercise regularly are more likely to develop health problems."
       },
       {
         "en": "drink more water every day",
         "vi": "uống nhiều nước mỗi ngày",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Doctors recommend that you drink more water every day to stay healthy."
       },
       {
         "en": "drink too much alcohol",
         "vi": "uống quá nhiều rượu",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "People who drink too much alcohol may face serious health risks."
       },
       {
         "en": "eat healthy food",
         "vi": "ăn uống lành mạnh",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Parents should encourage their children to eat healthy food from a young age."
       },
       {
         "en": "encourage",
         "vi": "khuyến khích",
-        "type": "verb"
-      },
-      {
-        "en": "endurance",
-        "vi": "sức bền",
-        "type": "noun"
+        "type": "verb",
+        "example": "Teachers should encourage students to take part in sports activities at school."
       },
       {
         "en": "engage in physical activities",
         "vi": "tham gia hoạt động thể chất",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It is important for adults to engage in physical activities at least three times a week."
       },
       {
         "en": "Exercise",
         "vi": "Tập thể dục",
-        "type": "noun"
+        "type": "noun",
+        "example": "Regular exercise is one of the best ways to maintain good health."
       },
       {
         "en": "exercise regularly",
         "vi": "tập thể dục thường xuyên",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "People who exercise regularly tend to have more energy throughout the day."
       },
       {
         "en": "Fitness",
         "vi": "Sự khỏe mạnh, cân đối",
-        "type": "noun"
+        "type": "noun",
+        "example": "Joining a fitness center can help you stay motivated to work out."
       },
       {
         "en": "Follow a balanced diet",
         "vi": "Tuân theo chế độ ăn cân bằng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Nutritionists advise everyone to follow a balanced diet for better health."
       },
       {
         "en": "get enough sleep",
         "vi": "ngủ đủ giấc",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Getting enough sleep is essential for your body to recover and function well."
       },
       {
         "en": "have regular health check-ups",
         "vi": "khám sức khỏe định kỳ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Adults over forty should have regular health check-ups at least once a year."
       },
       {
         "en": "heart disease",
         "vi": "bệnh tim mạch",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Smoking and poor diet are major causes of heart disease worldwide."
       },
       {
         "en": "high blood pressure",
         "vi": "cao huyết áp",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Eating too much salt can lead to high blood pressure."
       },
       {
         "en": "hurt lungs",
         "vi": "làm hại phổi",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Smoking cigarettes for many years can hurt lungs and cause breathing problems."
       },
       {
         "en": "illness",
         "vi": "sự ốm yếu / bệnh tật",
-        "type": "noun"
+        "type": "noun",
+        "example": "A balanced diet and regular exercise can help prevent many types of illness."
       },
       {
         "en": "immune",
         "vi": "miễn dịch",
-        "type": "adj"
+        "type": "adj",
+        "example": "A strong immune system helps your body fight off infections and diseases."
       },
       {
         "en": "Immunity",
         "vi": "Hệ miễn dịch",
-        "type": "noun"
+        "type": "noun",
+        "example": "Getting vaccinated is an effective way to strengthen your immunity against diseases."
       },
       {
         "en": "Improve mental health",
         "vi": "Cải thiện sức khỏe tinh thần",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Talking to friends and family can improve mental health and reduce anxiety."
       },
       {
         "en": "improve overall health",
         "vi": "cải thiện sức khỏe toàn diện",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Walking for thirty minutes a day can improve overall health significantly."
       },
       {
         "en": "increase cholesterol levels in the blood",
         "vi": "làm tăng mức cholesterol trong máu",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Eating too much fast food can increase cholesterol levels in the blood."
       },
       {
         "en": "increase the risk of health problems",
         "vi": "tăng nguy cơ mắc các vấn đề sức khỏe",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "A sedentary lifestyle can increase the risk of health problems such as obesity."
       },
       {
         "en": "involve",
         "vi": "liên quan / bao gồm",
-        "type": "verb"
+        "type": "verb",
+        "example": "A healthy lifestyle should involve both good nutrition and regular physical activity."
       },
       {
         "en": "jogging",
         "vi": "chạy bộ",
-        "type": "noun"
+        "type": "noun",
+        "example": "Jogging in the park every morning is a simple way to stay fit."
       },
       {
         "en": "Lose weight",
         "vi": "Giảm cân",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Combining a healthy diet with exercise is the safest way to lose weight."
       },
       {
         "en": "Maintain a healthy lifestyle",
         "vi": "Duy trì lối sống lành mạnh",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It takes discipline and effort to maintain a healthy lifestyle in modern society."
       },
       {
         "en": "make it hard to breathe",
         "vi": "khó thở",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Air pollution can make it hard to breathe, especially for elderly people."
       },
       {
         "en": "make it hard to stay energized all day",
         "vi": "khó duy trì năng lượng cả ngày",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Skipping breakfast can make it hard to stay energized all day."
       },
       {
         "en": "meditation",
         "vi": "thiền định",
-        "type": "noun"
+        "type": "noun",
+        "example": "Practicing meditation for ten minutes a day can help reduce stress effectively."
       },
       {
         "en": "not sleep enough",
         "vi": "không ngủ đủ giấc",
-        "type": "phrase"
-      },
-      {
-        "en": "Nutrition",
-        "vi": "Dinh dưỡng",
-        "type": "noun"
+        "type": "phrase",
+        "example": "Students who not sleep enough often have difficulty concentrating in class."
       },
       {
         "en": "Obesity",
         "vi": "Béo phì",
-        "type": "noun"
+        "type": "noun",
+        "example": "Obesity has become a serious health issue among children in many countries."
       },
       {
         "en": "Prevent illness",
         "vi": "Ngăn ngừa bệnh tật",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Washing your hands regularly is a simple way to prevent illness."
       },
       {
         "en": "proper hydration",
         "vi": "cung cấp đủ nước",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Drinking water throughout the day ensures proper hydration during exercise."
       },
       {
         "en": "recover",
         "vi": "hồi phục",
-        "type": "verb"
+        "type": "verb",
+        "example": "It usually takes a few days to recover from a common cold."
       },
       {
         "en": "rejuvenate",
         "vi": "trẻ hóa / làm mới lại",
-        "type": "verb"
+        "type": "verb",
+        "example": "A short vacation can rejuvenate your mind and help you work more efficiently."
       },
       {
         "en": "Relieve stress",
         "vi": "Giảm căng thẳng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Listening to calm music is a simple way to relieve stress after a long day."
       },
       {
         "en": "sedentary lifestyle",
         "vi": "lối sống ít vận động",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "A sedentary lifestyle can lead to many health problems if not changed early."
       },
       {
         "en": "skip meals",
         "vi": "bỏ bữa",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many busy workers tend to skip meals, which is bad for their health."
       },
       {
         "en": "sleep disturbances",
         "vi": "rối loạn giấc ngủ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "High stress levels often cause sleep disturbances that affect daily performance."
       },
       {
         "en": "stay dehydrated",
         "vi": "bị mất nước",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Athletes who stay dehydrated during training may experience dizziness and fatigue."
       },
       {
         "en": "Stay in shape",
         "vi": "Giữ dáng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Swimming and cycling are excellent activities to stay in shape after thirty."
       },
       {
         "en": "Stress",
         "vi": "Căng thẳng",
-        "type": "noun"
+        "type": "noun",
+        "example": "Too much stress at work can lead to both physical and mental health problems."
       },
       {
         "en": "stroke",
         "vi": "đột quỵ",
-        "type": "noun"
+        "type": "noun",
+        "example": "A stroke can happen suddenly and requires immediate medical attention."
       },
       {
         "en": "supplement",
         "vi": "(thực phẩm) bổ sung",
-        "type": "noun"
+        "type": "noun",
+        "example": "Many people take a vitamin supplement during winter to support their health."
       },
       {
         "en": "Take regular exercise",
         "vi": "Tập thể dục đều đặn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Doctors strongly advise older adults to take regular exercise to stay healthy."
       },
       {
         "en": "visit a doctor regularly",
         "vi": "đi khám bác sĩ thường xuyên",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "You should visit a doctor regularly even when you feel completely fine."
       },
       {
         "en": "vital",
         "vi": "thiết yếu / quan trọng",
-        "type": "adj"
+        "type": "adj",
+        "example": "Getting enough sleep is vital for students to focus well during exams."
       },
       {
         "en": "Well-being",
         "vi": "Sự khỏe mạnh, hạnh phúc",
-        "type": "noun"
+        "type": "noun",
+        "example": "Employers should care about the physical and mental well-being of their staff."
       },
       {
         "en": "Workout",
         "vi": "Buổi tập luyện/Tập luyện",
-        "type": "noun"
+        "type": "noun",
+        "example": "A thirty-minute workout at the gym can make you feel refreshed and energetic."
       }
     ]
   },
@@ -924,217 +998,260 @@ window.VSTEP_VOCAB = [
       {
         "en": "Access the internet",
         "vi": "truy cập internet",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Students need to access the internet every day to do their homework and research."
       },
       {
         "en": "App (Application)",
         "vi": "Ứng dụng",
-        "type": "noun"
+        "type": "noun",
+        "example": "I downloaded a useful app that helps me learn English vocabulary every day."
       },
       {
         "en": "Artificial intelligence (AI)",
         "vi": "Trí tuệ nhân tạo",
-        "type": "noun"
+        "type": "noun",
+        "example": "Artificial intelligence is changing the way we work and communicate with each other."
       },
       {
         "en": "avoid doing things manually",
         "vi": "tránh làm mọi việc bằng tay",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many companies use software to avoid doing things manually and save time."
       },
       {
         "en": "Battery",
         "vi": "Pin, năng lượng",
-        "type": "noun"
+        "type": "noun",
+        "example": "My phone battery runs out very quickly when I watch videos for a long time."
       },
       {
         "en": "Be careful with suspicious links",
         "vi": "Hãy cẩn thận với các liên kết đáng ngờ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "You should be careful with suspicious links in emails from unknown senders."
       },
       {
         "en": "Browse the internet",
         "vi": "duyệt internet",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many people browse the internet in the evening to read news and watch videos."
       },
       {
         "en": "cause distractions",
         "vi": "gây xao nhãng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Mobile phones can cause distractions during class if students do not turn them off."
       },
       {
         "en": "Charge the battery",
         "vi": "Sạc pin",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "I always charge the battery of my laptop before I go to university."
       },
       {
         "en": "Charger",
         "vi": "Bộ sạc",
-        "type": "noun"
+        "type": "noun",
+        "example": "I forgot to bring my charger to school, so my phone died in the afternoon."
       },
       {
         "en": "communicate instantly with people far away",
         "vi": "Giao tiếp tức thì với những người ở xa",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Thanks to technology, we can communicate instantly with people far away around the world."
       },
       {
         "en": "complete tasks faster and more efficiently",
         "vi": "hoàn thành nhiệm vụ nhanh hơn và hiệu quả hơn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Computers help workers complete tasks faster and more efficiently than doing them by hand."
       },
       {
         "en": "Connect",
         "vi": "Kết nối",
-        "type": "verb"
+        "type": "verb",
+        "example": "You need to connect your printer to the computer before you can print documents."
       },
       {
         "en": "Connect to Wi-Fi",
         "vi": "Kết nối Wi-Fi",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Please connect to Wi-Fi so that you can download the files from the internet."
       },
       {
         "en": "create strong passwords",
         "vi": "tạo mật khẩu mạnh",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It is important to create strong passwords to protect your online accounts from hackers."
       },
       {
         "en": "depend too much on machines",
         "vi": "quá phụ thuộc vào máy móc",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Some people depend too much on machines and forget how to do basic tasks."
       },
       {
         "en": "Device",
         "vi": "Thiết bị",
-        "type": "noun"
+        "type": "noun",
+        "example": "Every student in my class uses at least one electronic device for studying."
       },
       {
         "en": "Download an app",
         "vi": "Tải xuống ứng dụng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "You can download an app from the store to practise listening skills at home."
       },
       {
         "en": "Gadget",
         "vi": "Đồ dùng công nghệ",
-        "type": "noun"
+        "type": "noun",
+        "example": "My brother loves buying the latest gadgets whenever a new one comes on the market."
       },
       {
         "en": "get instant access to information",
         "vi": "Truy cập thông tin tức thì",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The internet allows us to get instant access to information on almost any topic."
       },
       {
         "en": "have many entertainment options",
         "vi": "có nhiều lựa chọn giải trí",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "With a smartphone, you have many entertainment options like games, music, and movies."
       },
       {
         "en": "increase the unemployment rate",
         "vi": "tăng tỷ lệ thất nghiệp",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Some people worry that robots and AI could increase the unemployment rate in the future."
       },
       {
         "en": "install antivirus software",
         "vi": "cài đặt phần mềm diệt virus",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "You should install antivirus software on your computer to protect it from viruses."
       },
       {
         "en": "keep in touch with friends and family through social media",
         "vi": "Giữ liên lạc với bạn bè và gia đình thông qua mạng xã hội",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many young people keep in touch with friends and family through social media every day."
       },
       {
         "en": "Keep up with technology",
         "vi": "Theo kịp công nghệ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It can be difficult for older people to keep up with technology as it changes fast."
       },
       {
         "en": "lead to eye strain",
         "vi": "dẫn đến mỏi mắt",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Looking at a computer screen all day can lead to eye strain and headaches."
       },
       {
         "en": "learn how to use technology wisely",
         "vi": "Hãy học cách sử dụng công nghệ một cách khôn ngoan",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Schools should teach students to learn how to use technology wisely and safely."
       },
       {
         "en": "limit screen time",
         "vi": "hạn chế thời gian sử dụng màn hình",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Parents should limit screen time for young children to protect their health and eyes."
       },
       {
         "en": "lose focus on important tasks",
         "vi": "mất tập trung vào các nhiệm vụ quan trọng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Social media notifications can make you lose focus on important tasks at work."
       },
       {
         "en": "make us feel lonely and disconnected",
         "vi": "Khiến chúng ta cảm thấy cô đơn và bị cô lập",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Spending too much time online can make us feel lonely and disconnected from real life."
       },
       {
         "en": "privacy concerns",
         "vi": "mối quan ngại về quyền riêng tư",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many people have privacy concerns about sharing their personal information on the internet."
       },
       {
         "en": "protect personal information",
         "vi": "bảo vệ thông tin cá nhân",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Everyone should take steps to protect personal information when shopping online."
       },
       {
         "en": "reduce face-to-face interactions",
         "vi": "giảm thiểu tương tác trực tiếp",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Using phones too much can reduce face-to-face interactions between family members."
       },
       {
         "en": "rely too much on technology",
         "vi": "phụ thuộc quá nhiều vào công nghệ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "People who rely too much on technology may struggle when devices stop working."
       },
       {
         "en": "Run out of battery",
         "vi": "Hết pin",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "My phone always runs out of battery when I need it the most during the day."
       },
       {
         "en": "Signal",
         "vi": "Tín hiệu",
-        "type": "noun"
+        "type": "noun",
+        "example": "The internet signal in my village is very weak, so it takes a long time to load pages."
       },
       {
         "en": "staring at screens for long periods",
         "vi": "nhìn chằm chằm vào màn hình trong thời gian dài",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Staring at screens for long periods can damage your eyes and affect your sleep."
       },
       {
         "en": "stay connected with people around the world",
         "vi": "Giữ liên lạc với mọi người trên khắp thế giới",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The internet helps us stay connected with people around the world easily and cheaply."
       },
       {
         "en": "Stay in touch",
         "vi": "Giữ liên lạc",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "After graduation, we still stay in touch through messaging apps and video calls."
       },
       {
         "en": "Tech-savvy",
         "vi": "Am hiểu công nghệ",
-        "type": "adj"
+        "type": "adj",
+        "example": "Young people today are generally more tech-savvy than their parents and grandparents."
       },
       {
         "en": "Turn on/off a device",
         "vi": "Bật/tắt thiết bị",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Please turn off your device before the plane takes off for safety reasons."
       },
       {
         "en": "Update",
         "vi": "Cập nhật",
-        "type": "verb"
+        "type": "verb",
+        "example": "You should update your phone software regularly to keep it safe and working well."
       },
       {
         "en": "Use a gadget for work/study",
         "vi": "Sử dụng thiết bị cho công việc/học tập",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many students use a gadget for study, such as a tablet or a laptop."
       }
     ]
   },
@@ -1148,102 +1265,122 @@ window.VSTEP_VOCAB = [
       {
         "en": "Ask questions",
         "vi": "đặt câu hỏi",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Students should not be afraid to ask questions during the lesson."
       },
       {
         "en": "Assignment",
         "vi": "bài tập",
-        "type": "noun"
+        "type": "noun",
+        "example": "The teacher gave us a difficult assignment that is due next Monday."
       },
       {
         "en": "Attend classes",
         "vi": "tham dự lớp học",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It is important to attend classes regularly if you want to pass the exam."
       },
       {
         "en": "Classroom",
         "vi": "lớp học",
-        "type": "noun"
+        "type": "noun",
+        "example": "The new classroom is equipped with a projector and a whiteboard."
       },
       {
         "en": "Curriculum",
         "vi": "chương trình học",
-        "type": "noun"
+        "type": "noun",
+        "example": "The school has updated its curriculum to include more technology courses."
       },
       {
         "en": "Do homework",
         "vi": "làm bài tập về nhà",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Students who do homework every day tend to get better grades."
       },
       {
         "en": "Enroll",
         "vi": "đăng ký",
-        "type": "verb"
+        "type": "verb",
+        "example": "She decided to enroll in an English course to improve her language skills."
       },
       {
         "en": "Extracurricular",
         "vi": "hoạt động ngoại khóa",
-        "type": "adj"
+        "type": "adj",
+        "example": "Participating in extracurricular activities helps students develop important social skills."
       },
       {
         "en": "Grades",
         "vi": "điểm số",
-        "type": "noun"
+        "type": "noun",
+        "example": "She was very happy because she got good grades in all her subjects."
       },
       {
         "en": "Graduation",
         "vi": "tốt nghiệp",
-        "type": "noun"
+        "type": "noun",
+        "example": "After graduation, many students look for jobs in their field of study."
       },
       {
         "en": "Join a club",
         "vi": "tham gia câu lạc bộ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "I decided to join a club to meet new friends at university."
       },
       {
         "en": "Lecture",
         "vi": "bài giảng",
-        "type": "noun"
+        "type": "noun",
+        "example": "The professor gave an interesting lecture on the history of science."
       },
       {
         "en": "Participate in discussions",
         "vi": "tham gia thảo luận",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It is helpful to participate in discussions to improve your speaking skills."
       },
       {
         "en": "Prepare a presentation",
         "vi": "chuẩn bị bài thuyết trình",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "We need to prepare a presentation about environmental protection for next week."
       },
       {
         "en": "Prepare for exams",
         "vi": "chuẩn bị cho kỳ thi",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Students should start to prepare for exams at least two weeks in advance."
       },
       {
         "en": "Scholarship",
         "vi": "học bổng",
-        "type": "noun"
+        "type": "noun",
+        "example": "She received a scholarship to study at one of the best universities in the country."
       },
       {
         "en": "Submit assignments",
         "vi": "nộp bài tập",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "You must submit assignments on time or you will lose marks."
       },
       {
         "en": "Take a course",
         "vi": "tham gia khóa học",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "I plan to take a course in computer science during the summer."
       },
       {
         "en": "Take notes",
         "vi": "ghi chú",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It is important to take notes during the lecture so you can review later."
       },
       {
         "en": "Tutor",
         "vi": "gia sư",
-        "type": "noun"
+        "type": "noun",
+        "example": "My parents hired a tutor to help me with mathematics before the exam."
       }
     ]
   },
@@ -1341,127 +1478,152 @@ window.VSTEP_VOCAB = [
       {
         "en": "Cause pollution",
         "vi": "Gây ra ô nhiễm",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Factory waste dumped into rivers can cause pollution that harms aquatic life."
       },
       {
         "en": "Climate",
         "vi": "Khí hậu",
-        "type": "noun"
+        "type": "noun",
+        "example": "The climate in southern Vietnam is tropical with high humidity all year."
       },
       {
         "en": "Combat climate change",
         "vi": "Chống lại biến đổi khí hậu",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Governments around the world are working together to combat climate change."
       },
       {
         "en": "Conservation",
         "vi": "Bảo tồn",
-        "type": "noun"
+        "type": "noun",
+        "example": "Wildlife conservation programs help protect endangered animals from extinction."
       },
       {
         "en": "conserve natural resources",
         "vi": "bảo tồn tài nguyên thiên nhiên",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Everyone should try to conserve natural resources by using less water and electricity."
       },
       {
         "en": "Cut down trees",
         "vi": "Chặt cây",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "When companies cut down trees illegally, they destroy the homes of many animals."
       },
       {
         "en": "Deforestation",
         "vi": "Nạn phá rừng",
-        "type": "noun"
+        "type": "noun",
+        "example": "Deforestation in the Amazon rainforest is a major environmental concern today."
       },
       {
         "en": "Ecosystem",
         "vi": "Hệ sinh thái",
-        "type": "noun"
+        "type": "noun",
+        "example": "Every living organism plays an important role in maintaining a healthy ecosystem."
       },
       {
         "en": "Environment",
         "vi": "Môi trường",
-        "type": "noun"
+        "type": "noun",
+        "example": "We all have a responsibility to protect the environment for future generations."
       },
       {
         "en": "Habitat",
         "vi": "Môi trường sống",
-        "type": "noun"
+        "type": "noun",
+        "example": "Pollution and deforestation are destroying the natural habitat of many species."
       },
       {
         "en": "increase greenhouse gas emissions",
         "vi": "tăng khí thải nhà kính",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Burning fossil fuels can increase greenhouse gas emissions and worsen global warming."
       },
       {
         "en": "save energy",
         "vi": "tiết kiệm năng lượng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Turning off lights when you leave the room is a simple way to save energy."
       },
       {
         "en": "natural resources",
         "vi": "tài nguyên thiên nhiên",
-        "type": "noun"
+        "type": "noun",
+        "example": "Oil and coal are examples of natural resources that cannot be replaced quickly."
       },
       {
         "en": "Plant trees",
         "vi": "Trồng cây",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Communities should plant trees in urban areas to improve air quality."
       },
       {
         "en": "Pollution",
         "vi": "Sự ô nhiễm",
-        "type": "noun"
+        "type": "noun",
+        "example": "Air pollution in major cities is causing serious health problems for millions of people."
       },
       {
         "en": "Promote recycling",
         "vi": "Khuyến khích tái chế",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Schools can promote recycling by placing bins in classrooms and hallways."
       },
       {
         "en": "Protect the environment",
         "vi": "Bảo vệ môi trường",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Everyone can protect the environment by reducing the use of plastic bags."
       },
       {
         "en": "Protect wildlife",
         "vi": "Bảo vệ động vật hoang dã",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "National parks were created to protect wildlife and preserve natural landscapes."
       },
       {
         "en": "Raise awareness",
         "vi": "Nâng cao nhận thức",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Social media campaigns can raise awareness about environmental issues among young people."
       },
       {
         "en": "Recycling",
         "vi": "Tái chế",
-        "type": "noun"
+        "type": "noun",
+        "example": "Recycling paper and plastic can significantly reduce the amount of waste in landfills."
       },
       {
         "en": "Reduce waste",
         "vi": "Giảm rác thải",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Families can reduce waste by buying only what they need and reusing containers."
       },
       {
         "en": "Renewable",
         "vi": "Có thể tái tạo",
-        "type": "adj"
+        "type": "adj",
+        "example": "Solar and wind power are renewable energy sources that do not harm the environment."
       },
       {
         "en": "use reusable products",
         "vi": "dùng sản phẩm tái sử dụng được",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Consumers are encouraged to use reusable products instead of single-use plastics."
       },
       {
         "en": "sort trash",
         "vi": "phân loại rác",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Sorting trash into different categories makes the recycling process much easier."
       },
       {
         "en": "Wildlife",
         "vi": "Động vật hoang dã",
-        "type": "noun"
+        "type": "noun",
+        "example": "The destruction of forests threatens the survival of many wildlife species around the world."
       }
     ]
   },
@@ -1475,362 +1637,434 @@ window.VSTEP_VOCAB = [
       {
         "en": "Accommodation",
         "vi": "Chỗ ở",
-        "type": "noun"
+        "type": "noun",
+        "example": "We found affordable accommodation near the city center for our summer holiday."
       },
       {
         "en": "Adventure",
         "vi": "Cuộc phiêu lưu",
-        "type": "noun"
+        "type": "noun",
+        "example": "Going camping in the forest was a great adventure for the whole family."
       },
       {
         "en": "attract foreign investment",
         "vi": "thu hút đầu tư",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Developing tourist attractions can help attract foreign investment to the local area."
       },
       {
         "en": "Book in advance",
         "vi": "Đặt trước",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "You should book in advance to get the best hotel rooms during the holiday season."
       },
       {
         "en": "breathtaking mountains",
         "vi": "những ngọn núi hùng vĩ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The breathtaking mountains in Sapa attract thousands of visitors every year."
       },
       {
         "en": "broaden one's horizons",
         "vi": "mở rộng tầm nhìn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Traveling to different countries is a wonderful way to broaden one's horizons."
       },
       {
         "en": "build sandcastles",
         "vi": "xây lâu đài cát",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Children love to build sandcastles on the beach during their summer vacation."
       },
       {
         "en": "Buy souvenirs",
         "vi": "mua kỷ niệm phẩm",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Tourists often buy souvenirs at local markets to remember their trip."
       },
       {
         "en": "connect with loved ones",
         "vi": "kết nối với những người thân yêu",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Family holidays are a great opportunity to connect with loved ones and share happy moments."
       },
       {
         "en": "construct accommodations and roads",
         "vi": "xây dựng chỗ ở và đường xá",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The government plans to construct accommodations and roads to support the growing tourism industry."
       },
       {
         "en": "cook meals over an open fire",
         "vi": "nấu ăn trên lửa trại",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "When we go camping, we enjoy cooking meals over an open fire in the evening."
       },
       {
         "en": "crab",
         "vi": "cua",
-        "type": "noun"
+        "type": "noun",
+        "example": "We ordered fresh crab at a seafood restaurant near the beach."
       },
       {
         "en": "create unforgettable memories",
         "vi": "tạo nên những kỷ niệm khó quên",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "A family trip to the countryside can create unforgettable memories for everyone."
       },
       {
         "en": "Destination",
         "vi": "Điểm đến",
-        "type": "noun"
+        "type": "noun",
+        "example": "Da Nang is one of the most popular travel destinations in Vietnam."
       },
       {
         "en": "destroy natural habitats",
         "vi": "phá hủy môi trường sống tự nhiên",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Building too many hotels can destroy natural habitats and harm wildlife."
       },
       {
         "en": "develop themselves",
         "vi": "tự phát triển",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Traveling allows young people to develop themselves by facing new challenges."
       },
       {
         "en": "do sunbathing",
         "vi": "tắm nắng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many tourists enjoy doing sunbathing on the white sand beach in the morning."
       },
       {
         "en": "enhance infrastructure development",
         "vi": "cải thiện phát triển cơ sở hạ tầng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Tourism revenue can help enhance infrastructure development in rural areas."
       },
       {
         "en": "enhance their quality of life",
         "vi": "cải thiện chất lượng cuộc sống của họ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Better jobs in tourism help local people enhance their quality of life significantly."
       },
       {
         "en": "Enjoy the scenery",
         "vi": "thưởng thức phong cảnh",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "We stopped by the lake to enjoy the scenery before continuing our journey."
       },
       {
         "en": "escape from their daily routines",
         "vi": "thoát khỏi những thói quen thường nhật của họ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many people travel to escape from their daily routines and reduce stress."
       },
       {
         "en": "experience the vibrant nightlife",
         "vi": "Trải nghiệm cuộc sống về đêm sôi động",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Visitors to Ho Chi Minh City can experience the vibrant nightlife at many rooftop bars."
       },
       {
         "en": "Explore",
         "vi": "Khám phá",
-        "type": "verb"
+        "type": "verb",
+        "example": "We decided to explore the old town and discover its hidden streets."
       },
       {
         "en": "explore iconic landmarks and historical sites",
         "vi": "Khám phá những địa danh nổi tiếng và di tích lịch sử",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Tourists can explore iconic landmarks and historical sites when they visit the capital city."
       },
       {
         "en": "explore the natural surroundings on foot",
         "vi": "khám phá khung cảnh thiên nhiên xung quanh bằng cách đi bộ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The best way to explore the natural surroundings on foot is by following the trail."
       },
       {
         "en": "fresh and pure air",
         "vi": "không khí trong lành, thuần khiết",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The countryside offers fresh and pure air that is good for your health."
       },
       {
         "en": "gain a deeper understanding of history",
         "vi": "hiểu rõ hơn về lịch sử",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Visiting museums helps students gain a deeper understanding of history and culture."
       },
       {
         "en": "generate more job opportunities",
         "vi": "tạo thêm cơ hội việc làm",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The tourism industry can generate more job opportunities for local residents."
       },
       {
         "en": "go camping",
         "vi": "đi cắm trại",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "My family likes to go camping in the mountains during the summer holiday."
       },
       {
         "en": "Go on an adventure",
         "vi": "Tham gia một cuộc phiêu lưu",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many young people want to go on an adventure and explore unknown places."
       },
       {
         "en": "green hills",
         "vi": "những ngọn đồi xanh",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The green hills in the countryside look very peaceful in the early morning."
       },
       {
         "en": "harm the environment",
         "vi": "gây hại đến môi trường",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Too many tourists can harm the environment if they do not behave responsibly."
       },
       {
         "en": "have a stable job",
         "vi": "có công việc ổn định",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Working in the hotel industry allows many people to have a stable job all year round."
       },
       {
         "en": "have valuable opportunities",
         "vi": "có những cơ hội quý giá",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Travelers have valuable opportunities to learn about different cultures and traditions."
       },
       {
         "en": "improve language skills",
         "vi": "cải thiện kỹ năng ngôn ngữ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Studying abroad is a great way to improve language skills and gain confidence."
       },
       {
         "en": "interact with foreign tourists",
         "vi": "giao tiếp với khách du lịch nước ngoài",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Local guides interact with foreign tourists every day and practice their English."
       },
       {
         "en": "Itinerary",
         "vi": "Lịch trình",
-        "type": "noun"
+        "type": "noun",
+        "example": "Our travel agent prepared a detailed itinerary for our five-day trip to Thailand."
       },
       {
         "en": "Journey",
         "vi": "Hành trình",
-        "type": "noun"
+        "type": "noun",
+        "example": "The journey from Hanoi to Hue by train takes about twelve hours."
       },
       {
         "en": "live music venues",
         "vi": "địa điểm biểu diễn nhạc sống",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The city is famous for its live music venues that attract tourists every weekend."
       },
       {
         "en": "lobster",
         "vi": "tôm hùm",
-        "type": "noun"
+        "type": "noun",
+        "example": "We tried grilled lobster at a famous seafood restaurant by the sea."
       },
       {
         "en": "Local cuisine",
         "vi": "ẩm thực địa phương",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Trying the local cuisine is one of the best parts of visiting a new place."
       },
       {
         "en": "local customs",
         "vi": "phong tục tập quán",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Tourists should respect local customs when visiting temples and religious sites."
       },
       {
         "en": "multinational corporations",
         "vi": "tập đoàn đa quốc gia",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Several multinational corporations have invested in hotel chains across the country."
       },
       {
         "en": "offer a variety of food",
         "vi": "cung cấp nhiều loại thực phẩm",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The night market offers a variety of food that tourists can enjoy at low prices."
       },
       {
         "en": "Pack your suitcase",
         "vi": "Chuẩn bị hành lý",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Make sure to pack your suitcase at least one day before your flight."
       },
       {
         "en": "peaceful rivers",
         "vi": "những dòng sông yên bình",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The peaceful rivers in the Mekong Delta make it a perfect destination for relaxation."
       },
       {
         "en": "Plan a trip",
         "vi": "Lên kế hoạch cho chuyến đi",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It is important to plan a trip carefully to avoid unexpected problems."
       },
       {
         "en": "play football and volleyball",
         "vi": "chơi bóng đá và bóng chuyền",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many tourists play football and volleyball on the beach during their summer holiday."
       },
       {
         "en": "recommend beautiful and affordable places to visit",
         "vi": "Gợi ý những địa điểm đẹp và giá cả phải chăng để tham quan",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Travel blogs can recommend beautiful and affordable places to visit for budget travelers."
       },
       {
         "en": "Relax on the beach",
         "vi": "Thư giãn trên bãi biển",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "After a long week of work, I just want to relax on the beach and read a book."
       },
       {
         "en": "rooftop lounges",
         "vi": "khu vực tiếp khách trên sân thượng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many hotels have rooftop lounges where guests can enjoy beautiful city views."
       },
       {
         "en": "sample local and international cuisine",
         "vi": "Thưởng thức ẩm thực địa phương và quốc tế",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Food festivals allow visitors to sample local and international cuisine in one place."
       },
       {
         "en": "shift to service-oriented jobs",
         "vi": "chuyển sang công việc trong ngành dịch vụ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many farmers have shifted to service-oriented jobs in the tourism industry."
       },
       {
         "en": "Sightseeing",
         "vi": "Tham quan/Ngắm cảnh",
-        "type": "noun"
+        "type": "noun",
+        "example": "We spent the whole morning sightseeing around the historic old quarter."
       },
       {
         "en": "snail",
         "vi": "ốc",
-        "type": "noun"
+        "type": "noun",
+        "example": "Grilled snail with chili sauce is a popular street food in Vietnam."
       },
       {
         "en": "Souvenir",
         "vi": "Quà lưu niệm",
-        "type": "noun"
+        "type": "noun",
+        "example": "I bought a small wooden souvenir as a gift for my friend from Hoi An."
       },
       {
         "en": "step out of their comfort zones",
         "vi": "bước ra khỏi vùng an toàn của họ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Traveling encourages people to step out of their comfort zones and try new things."
       },
       {
         "en": "stimulate economic growth",
         "vi": "thúc đẩy tăng trưởng kinh tế",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The government hopes that tourism will stimulate economic growth in rural provinces."
       },
       {
         "en": "sunbathe on the soft sand beach under the warm sun",
         "vi": "tắm nắng trên bãi biển cát mịn dưới ánh mặt trời ấm áp",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Visitors love to sunbathe on the soft sand beach under the warm sun in summer."
       },
       {
         "en": "swim in the clear blue ocean",
         "vi": "bơi lội trong làn nước biển trong xanh",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "One of the best holiday activities is to swim in the clear blue ocean."
       },
       {
         "en": "take photos in nature",
         "vi": "chụp ảnh thiên nhiên",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many tourists like to take photos in nature when they visit national parks."
       },
       {
         "en": "the scenery is magnificent",
         "vi": "Cảnh vật thật tráng lệ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "When you reach the top of the mountain, the scenery is magnificent and worth the climb."
       },
       {
         "en": "the service sector",
         "vi": "ngành dịch vụ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Tourism has created thousands of new jobs in the service sector over the last decade."
       },
       {
         "en": "Tourist attraction",
         "vi": "Điểm thu hút khách du lịch",
-        "type": "noun"
+        "type": "noun",
+        "example": "Ha Long Bay is a famous tourist attraction that draws millions of visitors each year."
       },
       {
         "en": "traditional occupations and skills gradually disappear",
         "vi": "các ngành nghề và kỹ năng truyền thống dần biến mất",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "As tourism grows, traditional occupations and skills gradually disappear in many rural villages."
       },
       {
         "en": "transportation activities",
         "vi": "hoạt động giao thông",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Tourism increases transportation activities such as bus tours and domestic flights."
       },
       {
         "en": "Travel abroad",
         "vi": "Du lịch nước ngoài",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "More and more Vietnamese people choose to travel abroad during their summer holidays."
       },
       {
         "en": "Travel agency",
         "vi": "Đại lý du lịch",
-        "type": "noun"
+        "type": "noun",
+        "example": "We booked our holiday through a travel agency that offered a good package deal."
       },
       {
         "en": "unwind and recharge",
         "vi": "thư giãn và nạp lại năng lượng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "A short holiday by the sea is a perfect way to unwind and recharge your energy."
       },
       {
         "en": "Visit famous landmarks",
         "vi": "Tham quan các danh lam thắng cảnh nổi tiếng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "First-time visitors should visit famous landmarks like the Eiffel Tower and the Colosseum."
       },
       {
         "en": "watch sunrise/sunset",
         "vi": "ngắm bình minh/hoàng hôn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many tourists wake up early to watch sunrise over the ocean during their beach holiday."
       },
       {
         "en": "watch the breathtaking sunrise or sunset over the horizon",
         "vi": "ngắm nhìn bình minh hoặc hoàng hôn ngoạn mục trên đường chân trời",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Couples love to watch the breathtaking sunrise or sunset over the horizon at the beach."
       }
     ]
   },
@@ -2021,11 +2255,6 @@ window.VSTEP_VOCAB = [
         "type": "noun"
       },
       {
-        "en": "Stay in shape",
-        "vi": "Giữ dáng",
-        "type": "phrase"
-      },
-      {
         "en": "Take up a sport",
         "vi": "Bắt đầu chơi một môn thể thao",
         "type": "phrase"
@@ -2195,11 +2424,6 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "Explore",
-        "vi": "khám phá",
-        "type": "verb"
-      },
-      {
         "en": "explore new ideas",
         "vi": "khám phá những ý tưởng mới",
         "type": "phrase"
@@ -2335,11 +2559,6 @@ window.VSTEP_VOCAB = [
         "type": "phrase"
       },
       {
-        "en": "skills",
-        "vi": "kỹ năng",
-        "type": "noun"
-      },
-      {
         "en": "Socialize",
         "vi": "Giao lưu",
         "type": "verb"
@@ -2401,252 +2620,302 @@ window.VSTEP_VOCAB = [
       {
         "en": "accountant",
         "vi": "kế toán",
-        "type": "noun"
+        "type": "noun",
+        "example": "My sister works as an accountant for a large international company in the city centre."
       },
       {
         "en": "Application (n)",
         "vi": "Đơn xin việc",
-        "type": "noun"
+        "type": "noun",
+        "example": "I submitted my application online and received a confirmation email the next day."
       },
       {
         "en": "Apply for a job",
         "vi": "xin việc",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "She decided to apply for a job at a local bank after finishing her degree in finance."
       },
       {
         "en": "Balance work and life",
         "vi": "cân bằng công việc và cuộc sống",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It is important to balance work and life to stay healthy and avoid stress."
       },
       {
         "en": "be responsible for",
         "vi": "chịu trách nhiệm về",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "As a project manager, he is responsible for making sure the team finishes on time."
       },
       {
         "en": "be unappreciated",
         "vi": "không được đánh giá cao",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many employees feel unappreciated when their hard work is never recognised by managers."
       },
       {
         "en": "Build a career",
         "vi": "xây dựng sự nghiệp",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Young people should focus on building a career rather than changing jobs every year."
       },
       {
         "en": "Career development",
         "vi": "phát triển nghề nghiệp",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "The company offers training programmes to support career development for all employees."
       },
       {
         "en": "collaborate with other departments",
         "vi": "phối hợp với các phòng ban khác",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Our team often collaborates with other departments to complete large projects on schedule."
       },
       {
         "en": "Colleague",
         "vi": "đồng nghiệp",
-        "type": "noun"
+        "type": "noun",
+        "example": "I usually have lunch with my colleagues in the canteen during the break."
       },
       {
         "en": "communicating with partners",
         "vi": "liên lạc với đối tác",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Good communication skills are essential when communicating with partners from different countries."
       },
       {
         "en": "Develop leadership skills",
         "vi": "phát triển kỹ năng lãnh đạo",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Attending workshops is a great way to develop leadership skills and grow professionally."
       },
       {
         "en": "efforts and contributions are unnoticed",
         "vi": "những nỗ lực và đóng góp không được ghi nhận",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Workers may feel demotivated when their efforts and contributions are unnoticed by their boss."
       },
       {
         "en": "Employment",
         "vi": "việc làm",
-        "type": "noun"
+        "type": "noun",
+        "example": "The government has introduced new policies to create more employment for young graduates."
       },
       {
         "en": "feel demotivated",
         "vi": "cảm thấy mất động lực",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Employees often feel demotivated when they do not receive fair pay or recognition."
       },
       {
         "en": "feel exhausted",
         "vi": "cảm thấy kiệt sức",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "After working for twelve hours without a break, I always feel exhausted and stressed."
       },
       {
         "en": "feel overburdened",
         "vi": "cảm thấy quá tải",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many teachers feel overburdened because they have to grade hundreds of papers every week."
       },
       {
         "en": "Flexible hours",
         "vi": "giờ làm linh hoạt",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "One advantage of this job is that you can enjoy flexible hours and work from home."
       },
       {
         "en": "Gain experience",
         "vi": "Tích lũy kinh nghiệm",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Internships are a great opportunity for students to gain experience before graduating."
       },
       {
         "en": "have a satisfying work experience",
         "vi": "có trải nghiệm làm việc hài lòng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Workers tend to have a satisfying work experience when their efforts are recognised."
       },
       {
         "en": "have opportunities for promotion",
         "vi": "có cơ hội thăng tiến",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Employees who perform well usually have opportunities for promotion within two or three years."
       },
       {
         "en": "hold a bachelor's degree in",
         "vi": "có bằng cử nhân về",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "To apply for this position, you must hold a bachelor's degree in business administration."
       },
       {
         "en": "hold a master's degree in",
         "vi": "có bằng thạc sĩ về",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "She holds a master's degree in marketing, which helped her get the manager position."
       },
       {
         "en": "huge workload",
         "vi": "khối lượng công việc lớn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Doctors at public hospitals often deal with a huge workload and very long shifts."
       },
       {
         "en": "Interview",
         "vi": "Phỏng vấn",
-        "type": "noun"
+        "type": "noun",
+        "example": "I was very nervous during the interview, but the questions were not too difficult."
       },
       {
         "en": "Job satisfaction",
         "vi": "sự hài lòng với công việc",
-        "type": "noun"
+        "type": "noun",
+        "example": "Job satisfaction depends not only on salary but also on the working environment."
       },
       {
         "en": "learn from one another's experiences",
         "vi": "học hỏi từ kinh nghiệm của nhau",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Team projects help students learn from one another's experiences and improve their skills."
       },
       {
         "en": "Meet deadlines",
         "vi": "đáp ứng thời hạn",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "A good employee should always manage time effectively to meet deadlines without stress."
       },
       {
         "en": "Network with professionals",
         "vi": "Kết nối với các chuyên gia",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Attending conferences is a good chance to network with professionals in your industry."
       },
       {
         "en": "presentations",
         "vi": "thuyết trình",
-        "type": "noun"
+        "type": "noun",
+        "example": "I have to give two presentations at work every month in front of the whole team."
       },
       {
         "en": "Promotion",
         "vi": "thăng chức",
-        "type": "noun"
+        "type": "noun",
+        "example": "After three years of hard work, she finally got a promotion to senior manager."
       },
       {
         "en": "receive constructive feedback",
         "vi": "nhận được phản hồi mang tính xây dựng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "It is important for employees to receive constructive feedback so they can improve their performance."
       },
       {
         "en": "repeat the same tasks",
         "vi": "công việc lặp đi lặp lại",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Factory workers often repeat the same tasks every day, which can be very boring."
       },
       {
         "en": "run the business smoothly",
         "vi": "vận hành doanh nghiệp suôn sẻ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "A good manager knows how to run the business smoothly even during difficult times."
       },
       {
         "en": "Salary",
         "vi": "mức lương",
-        "type": "noun"
+        "type": "noun",
+        "example": "The salary for this position is quite competitive compared to other companies in the area."
       },
       {
         "en": "Skills",
         "vi": "kỹ năng",
-        "type": "noun"
+        "type": "noun",
+        "example": "Communication and teamwork are essential skills that every professional should develop over time."
       },
       {
         "en": "solve problems",
         "vi": "giải quyết vấn đề",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "A good leader should be able to solve problems quickly and make fair decisions."
       },
       {
         "en": "solving clients' problems",
         "vi": "giải quyết các vấn đề của khách hàng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Our customer service team is always ready to help with solving clients' problems efficiently."
       },
       {
         "en": "Take a break",
         "vi": "nghỉ ngơi",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "You should take a break every two hours to stay focused and avoid getting tired."
       },
       {
         "en": "take on challenging tasks",
         "vi": "đảm nhận các nhiệm vụ đầy thử thách",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Ambitious employees are always willing to take on challenging tasks to prove their abilities."
       },
       {
         "en": "the workload is overwhelming",
         "vi": "khối lượng công việc quá tải",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many nurses say the workload is overwhelming during the flu season at city hospitals."
       },
       {
         "en": "third-year student",
         "vi": "sinh viên năm ba",
-        "type": "noun"
+        "type": "noun",
+        "example": "As a third-year student, she is already looking for an internship at a technology company."
       },
       {
         "en": "utilize my specialized knowledge and skills in my job",
         "vi": "ứng dụng kiến thức và kỹ năng chuyên môn vào công việc",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "I want a position where I can utilize my specialized knowledge and skills in my job."
       },
       {
         "en": "work as an accountant",
         "vi": "làm kế toán",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "My brother decided to work as an accountant after he graduated from the university."
       },
       {
         "en": "Work on a project",
         "vi": "làm việc trên một dự án",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "We are currently working on a project to develop a new mobile app for customers."
       },
       {
         "en": "Work overtime",
         "vi": "làm thêm giờ",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "I often have to work overtime to meet project deadlines at the end of the month."
       },
       {
         "en": "work part-time on weekends",
         "vi": "làm việc bán thời gian vào cuối tuần",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Many university students choose to work part-time on weekends to earn some extra money."
       },
       {
         "en": "work with friendly and supportive coworkers",
         "vi": "làm việc với đồng nghiệp thân thiện và hỗ trợ lẫn nhau",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "I am lucky to work with friendly and supportive coworkers who always help me when needed."
       },
       {
         "en": "working with clients",
         "vi": "làm việc với khách hàng",
-        "type": "phrase"
+        "type": "phrase",
+        "example": "Working with clients requires patience, good communication, and a positive attitude at all times."
       },
       {
         "en": "workplace",
         "vi": "nơi làm việc",
-        "type": "noun"
+        "type": "noun",
+        "example": "A clean and safe workplace helps employees stay healthy and work more productively every day."
       }
     ]
   },
@@ -2686,11 +2955,6 @@ window.VSTEP_VOCAB = [
         "en": "Build a strong relationship",
         "vi": "Xây dựng mối quan hệ bền vững",
         "type": "phrase"
-      },
-      {
-        "en": "Colleague",
-        "vi": "Đồng nghiệp",
-        "type": "noun"
       },
       {
         "en": "Conflict",
@@ -3352,11 +3616,6 @@ window.VSTEP_VOCAB = [
       {
         "en": "punish those who commit crimes",
         "vi": "phạt những người phạm tội",
-        "type": "phrase"
-      },
-      {
-        "en": "Raise awareness",
-        "vi": "Nâng cao nhận thức",
         "type": "phrase"
       },
       {
