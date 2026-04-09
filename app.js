@@ -1,5 +1,6 @@
 const THEME_ORDER = [
-  "grammar", "linking-words",
+  "grammar", "linking-words", "phrasal-verbs",
+  "writing-task1", "writing-task2",
   "environment", "education", "technology", "health", "community",
   "work", "city", "transport", "people", "travel",
   "countryside", "food", "sports", "hobbies",
@@ -180,7 +181,7 @@ function getThemeById(id) {
 
 function isListOnlyTheme(themeOrId) {
   const id = typeof themeOrId === "string" ? themeOrId : themeOrId?.id;
-  return ["grammar", "linking-words"].includes(id);
+  return ["grammar", "linking-words", "writing-task1", "writing-task2"].includes(id);
 }
 
 function getVisibleWords() {
