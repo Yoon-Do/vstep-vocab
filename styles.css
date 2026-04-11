@@ -475,30 +475,24 @@ input, button, textarea, select {
 
 .tpl-group-header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: baseline;
   gap: 12px;
-  padding: 14px 20px;
-  background: linear-gradient(135deg, rgba(163, 75, 42, 0.07), rgba(29, 107, 98, 0.07));
+  padding: 16px 22px;
+  background: linear-gradient(135deg, rgba(163, 75, 42, 0.08), rgba(29, 107, 98, 0.08));
   border-bottom: 1px solid var(--line);
 }
 
 .tpl-group-title {
   font-weight: 800;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
 
-.tpl-group-count {
-  font-size: 12px;
-  font-weight: 700;
+.tpl-group-subtitle {
+  font-size: 12.5px;
   color: var(--muted);
-  background: rgba(255,255,255,0.72);
-  padding: 3px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  white-space: nowrap;
+  font-weight: 500;
 }
 
 .tpl-group-body {
@@ -506,97 +500,61 @@ input, button, textarea, select {
   gap: 0;
 }
 
-.tpl-row {
+.tpl-line {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: start;
-  padding: 16px 20px;
+  grid-template-columns: 140px 1fr;
+  gap: 0;
   border-bottom: 1px solid rgba(53, 37, 28, 0.06);
-  transition: background 0.15s;
 }
 
-.tpl-row:last-child {
+.tpl-line:last-child {
   border-bottom: none;
 }
 
-.tpl-row:hover {
-  background: rgba(163, 75, 42, 0.04);
-}
-
-.tpl-main {
-  min-width: 0;
-}
-
-.tpl-en {
+.tpl-line-label {
+  padding: 14px 16px 14px 22px;
+  font-size: 11.5px;
   font-weight: 700;
-  font-size: 16px;
-  color: var(--ink);
-  line-height: 1.5;
-  margin-bottom: 4px;
-}
-
-.tpl-vi {
-  font-size: 13.5px;
-  color: var(--muted);
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-.tpl-example {
-  display: flex;
-  gap: 8px;
-  align-items: baseline;
-  background: rgba(255,255,255,0.6);
-  border: 1px solid rgba(53, 37, 28, 0.07);
-  border-radius: 12px;
-  padding: 10px 13px;
-}
-
-.tpl-example-label {
-  flex-shrink: 0;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--accent-2);
-  background: rgba(29, 107, 98, 0.1);
-  padding: 2px 7px;
-  border-radius: 999px;
-  line-height: 1.8;
-}
-
-.tpl-example-text {
-  font-size: 13.5px;
-  color: var(--ink);
-  line-height: 1.6;
-  font-style: italic;
-}
-
-.tpl-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-top: 2px;
-}
-
-.tpl-actions .tiny-btn {
-  width: 36px;
-  height: 36px;
-  flex: none;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: rgba(163, 75, 42, 0.04);
+  border-right: 1px solid rgba(53, 37, 28, 0.07);
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  padding: 0;
+  line-height: 1.4;
+}
+
+.tpl-line-text {
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.tpl-line-text [class*="["],
+.tpl-line-text {
+  /* highlight các phần [CHỖ ĐIỀN] */
 }
 
 @media (max-width: 600px) {
-  .tpl-en { font-size: 14.5px; }
-  .tpl-row { padding: 14px 16px; gap: 10px; }
-  .tpl-group-header { padding: 12px 16px; }
-  .tpl-actions { flex-direction: row; }
+  .tpl-line {
+    grid-template-columns: 1fr;
+  }
+  .tpl-line-label {
+    padding: 10px 16px 6px 16px;
+    border-right: none;
+    border-bottom: none;
+    background: none;
+  }
+  .tpl-line-text {
+    padding: 2px 16px 14px 16px;
+    font-size: 14px;
+  }
+  .tpl-group-header { padding: 13px 16px; }
 }
+/* ──────────────────────────────────────────────────────── */
 /* ──────────────────────────────────────────────────────── */
 
 .quiz-view {

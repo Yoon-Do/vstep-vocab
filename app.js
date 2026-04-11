@@ -437,60 +437,36 @@ function isWritingTemplateTheme(themeId) {
 }
 
 function renderWritingTemplate(words) {
-  if (!words.length) {
-    els.listView.innerHTML = `<div class="panel" style="padding:24px">Không có mẫu câu nào khớp bộ lọc hiện tại.</div>`;
+  const theme = getThemeById(state.activeTheme);
+  const templates = theme.templates || [];
+
+  if (!templates.length) {
+    els.listView.innerHTML = `<div class="panel" style="padding:24px">Không có template nào.</div>`;
     return;
   }
 
-  const themeId = words[0]?.themeId;
-  const groupKey = themeId === "writing-task1" ? "letterType" : "essayType";
-
-  // Group words by template type
-  const groups = new Map();
-  words.forEach((word, index) => {
-    const key = word[groupKey] || "Khác";
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push({ word, index });
-  });
-
-  els.listView.innerHTML = [...groups.entries()].map(([groupName, items]) => {
-    const rows = items.map(({ word, index }) => {
-      const mastered = state.mastered.has(keyFor(word));
-      const favorite = state.favorites.has(keyFor(word));
-      return `
-        <div class="tpl-row" data-index="${index}">
-          <div class="tpl-main">
-            <div class="tpl-en">${word.en}</div>
-            <div class="tpl-vi">${word.vi}</div>
-            ${word.example ? `
-              <div class="tpl-example">
-                <span class="tpl-example-label">Ví dụ</span>
-                <span class="tpl-example-text">${word.example}</span>
-              </div>
-            ` : ""}
-          </div>
-          <div class="tpl-actions">
-            <button class="tiny-btn ${favorite ? "active" : ""}" data-action="favorite" data-index="${index}" title="Lưu">${favorite ? "★" : "☆"}</button>
-            <button class="tiny-btn ${mastered ? "active" : ""}" data-action="master" data-index="${index}" title="Thuộc">${mastered ? "✓" : "○"}</button>
-          </div>
-        </div>
-      `;
-    }).join("");
+  els.listView.innerHTML = templates.map(tpl => {
+    const linesHtml = tpl.lines.map(line => `
+      <div class="tpl-line">
+        <div class="tpl-line-label">${line.label}</div>
+        <div class="tpl-line-text">${line.text}</div>
+      </div>
+    `).join("");
 
     return `
       <div class="tpl-group">
         <div class="tpl-group-header">
-          <span class="tpl-group-title">${groupName}</span>
-          <span class="tpl-group-count">${items.length} mẫu câu</span>
+          <div>
+            <span class="tpl-group-title">${tpl.title}</span>
+            <span class="tpl-group-subtitle">${tpl.subtitle}</span>
+          </div>
         </div>
         <div class="tpl-group-body">
-          ${rows}
+          ${linesHtml}
         </div>
       </div>
     `;
   }).join("");
-
-  bindWordActionButtons(els.listView, words);
 }
 
 

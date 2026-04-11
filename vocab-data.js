@@ -4868,6 +4868,113 @@ window.VSTEP_VOCAB = [
         "letterType": "🎉 Thư mời",
         "example": "Please let me know whether you will be able to come by this Friday."
       }
+    ],
+    "templates": [
+      {
+        "id": "t1-info",
+        "title": "📩 Thư cung cấp thông tin",
+        "subtitle": "Information Letter",
+        "lines": [
+          { "label": "Mở đầu (thân mật)", "text": "How have you been recently? I am fine and I hope you and your family are well, too." },
+          { "label": "Mở đầu (trang trọng)", "text": "I am writing to provide you with some information about [CHỦ ĐỀ]." },
+          { "label": "Ý 1", "text": "Firstly, I would like to tell you that [THÔNG TIN 1]." },
+          { "label": "Ý 2", "text": "Secondly, it might be useful for you to know that [THÔNG TIN 2]." },
+          { "label": "Kết nội dung", "text": "I hope my information will be useful for you. Do not hesitate to contact me if you have any questions or need more details." },
+          { "label": "Kết thư", "text": "I am looking forward to hearing from you soon." }
+        ]
+      },
+      {
+        "id": "t1-request",
+        "title": "❓ Thư yêu cầu thông tin",
+        "subtitle": "Request Letter",
+        "lines": [
+          { "label": "Mở đầu (informal)", "text": "I am writing to ask for some information about [CHỦ ĐỀ]." },
+          { "label": "Mở đầu (formal)", "text": "I am writing to request some information about [CHỦ ĐỀ] / feedback about [VẤN ĐỀ]." },
+          { "label": "Câu hỏi 1", "text": "Could you let me know about [ĐIỀU MUỐN BIẾT 1]?" },
+          { "label": "Câu hỏi 2", "text": "I would be grateful if you could [ĐIỀU MUỐN BIẾT 2]." },
+          { "label": "Kết thư", "text": "Thank you for taking the time to answer my questions. I am looking forward to hearing from you soon." }
+        ]
+      },
+      {
+        "id": "t1-apology",
+        "title": "🙏 Thư xin lỗi",
+        "subtitle": "Apology Letter",
+        "lines": [
+          { "label": "Mở đầu", "text": "I am writing to apologize for [HÀNH ĐỘNG GÂY LỖI]." },
+          { "label": "Giải thích", "text": "I would like to express my sincere apology because I [LÝ DO / GIẢI THÍCH]." },
+          { "label": "Cam kết", "text": "I can assure you that I will not let the same mistake happen again." },
+          { "label": "Kết thư", "text": "Once again, I am truly sorry for my actions. I hope you will forgive me. I am looking forward to hearing from you soon." }
+        ]
+      },
+      {
+        "id": "t1-complaint",
+        "title": "😤 Thư phàn nàn",
+        "subtitle": "Complaint Letter",
+        "lines": [
+          { "label": "Mở đầu", "text": "I am writing to complain about the poor service that I recently experienced at your [ĐỊA ĐIỂM / DỊCH VỤ]." },
+          { "label": "Nội dung phàn nàn", "text": "I was not happy with the [VẤN ĐỀ]. I must admit that this really made me angry." },
+          { "label": "Nhận xét", "text": "I felt that this situation could have been handled better by your staff." },
+          { "label": "Kết thư", "text": "I hope my feedback will be useful for you and help improve your services. I am looking forward to hearing from you soon." }
+        ]
+      },
+      {
+        "id": "t1-thanks",
+        "title": "🌸 Thư cảm ơn",
+        "subtitle": "Thank-you Letter",
+        "lines": [
+          { "label": "Mở đầu", "text": "I am writing this letter to extend my sincere thanks to you for [HÀNH ĐỘNG / SỰ GIÚP ĐỠ]." },
+          { "label": "Khen ngợi", "text": "How considerate and wonderful of you to [HÀNH ĐỘNG CỤ THỂ]." },
+          { "label": "Cảm xúc", "text": "I will cherish this memory forever. Thank you so much for everything." },
+          { "label": "Kết thư", "text": "Please have no hesitation in writing to me should you want me to do something for you. I am looking forward to hearing from you soon." }
+        ]
+      },
+      {
+        "id": "t1-job",
+        "title": "💼 Thư xin việc",
+        "subtitle": "Job Application Letter",
+        "lines": [
+          { "label": "Mở đầu", "text": "I have recently seen recruitment news on [NGUỒN] for the position of [VỊ TRÍ] and I would like to apply with interest." },
+          { "label": "Học vấn & kinh nghiệm", "text": "I completed my bachelor's degree with a major in [NGÀNH] in [NĂM]. After graduation, I worked as a [CHỨC VỤ] at [CÔNG TY]." },
+          { "label": "Phẩm chất", "text": "I am a positive, motivated and hard-working person who is keen to learn and contribute to the team." },
+          { "label": "Hồ sơ", "text": "Please consider the enclosed resume to know more about my professionalism, background and skills." },
+          { "label": "Kết thư", "text": "I look forward to discussing my application with you further at your earliest convenience." }
+        ]
+      },
+      {
+        "id": "t1-advice",
+        "title": "💡 Thư lời khuyên",
+        "subtitle": "Advice Letter",
+        "lines": [
+          { "label": "Mở đầu", "text": "I am writing to give you some advice about [VẤN ĐỀ]." },
+          { "label": "Lời khuyên 1", "text": "If I were you, I would [LỜI KHUYÊN 1]." },
+          { "label": "Lời khuyên 2", "text": "I strongly recommend that you [LỜI KHUYÊN 2] / I would suggest that [GỢI Ý]." },
+          { "label": "Lời khuyên 3", "text": "It might be a good idea to [GỢI Ý NHẸ] / You might want to consider [PHƯƠNG ÁN]." },
+          { "label": "Kết thư", "text": "I hope you find my advice useful and feel free to ask if you need more help. I am looking forward to hearing from you soon." }
+        ]
+      },
+      {
+        "id": "t1-invite",
+        "title": "🎉 Thư mời",
+        "subtitle": "Invitation Letter",
+        "lines": [
+          { "label": "Mở đầu", "text": "I am writing to invite you to [SỰ KIỆN / DỊP]." },
+          { "label": "Câu mời trang trọng", "text": "It would be a great pleasure to have you join us at [ĐỊA ĐIỂM / SỰ KIỆN]." },
+          { "label": "Thông tin sự kiện", "text": "The event will take place on [NGÀY] at [ĐỊA ĐIỂM]. We would love it if you could attend." },
+          { "label": "Kết thư", "text": "Please let me know whether you will be able to come by [NGÀY]. I am looking forward to hearing from you soon." }
+        ]
+      },
+      {
+        "id": "t1-openclose",
+        "title": "✍️ Mở & Kết thư (dùng chung)",
+        "subtitle": "Opening & Closing",
+        "lines": [
+          { "label": "Lời chào mở (formal)", "text": "Dear Mr./Mrs. [Tên] / Dear Sir or Madam," },
+          { "label": "Lời chào mở (informal)", "text": "Dear [Tên]," },
+          { "label": "Lời chào kết", "text": "Best regards, / Warm regards, / Yours sincerely," },
+          { "label": "Câu kết thư phổ biến", "text": "I am looking forward to hearing from you soon." },
+          { "label": "Câu mời hỏi thêm", "text": "Do not hesitate to contact me if you have any questions or need more details." }
+        ]
+      }
     ]
   },
   {
@@ -5128,6 +5235,77 @@ window.VSTEP_VOCAB = [
         "type": "study",
         "essayType": "🗣️ Discussion Essay",
         "example": "Some people think children should learn foreign languages at primary school. Others believe it is better to start at secondary school. Discuss both views and give your own opinion."
+      }
+    ],
+    "templates": [
+      {
+        "id": "t2-advdis",
+        "title": "⚖️ Advantages & Disadvantages",
+        "subtitle": "Dạng lợi ích – bất lợi",
+        "lines": [
+          { "label": "Mở bài", "text": "In contemporary times, the topic of [CHỦ ĐỀ] has been becoming more and more prevalent to the general public." },
+          { "label": "Giới thiệu nội dung", "text": "This essay will discuss the advantages and disadvantages of such a situation and draw a conclusion." },
+          { "label": "Thân bài 1 – Lợi ích", "text": "On the one hand, the major advantage of [CHỦ ĐỀ] is [LỢI ÍCH]. This means that [GIẢI THÍCH]. For example, [VÍ DỤ]. The example provided above has supported the point that [LỢI ÍCH] is the main advantage of [CHỦ ĐỀ]." },
+          { "label": "Thân bài 2 – Bất lợi", "text": "On the other hand, the important disadvantage is [BẤT LỢI]. In other words, [GIẢI THÍCH]. For instance, [VÍ DỤ]. The evidence illustrated above has indicated that [BẤT LỢI] is the significant disadvantage of [CHỦ ĐỀ]." },
+          { "label": "Kết bài", "text": "In conclusion, [VIẾT LẠI CHỦ ĐỀ]. I think the main advantage of [CHỦ ĐỀ] is [LỢI ÍCH], and the significant disadvantage is [BẤT LỢI]." }
+        ]
+      },
+      {
+        "id": "t2-causeeffect",
+        "title": "🔍 Causes & Effects",
+        "subtitle": "Dạng nguyên nhân – kết quả",
+        "lines": [
+          { "label": "Mở bài", "text": "In contemporary times, the topic of [CHỦ ĐỀ] has been becoming more and more prevalent to the general public." },
+          { "label": "Giới thiệu nội dung", "text": "This essay will discuss the causes and effects of such a situation and draw a conclusion." },
+          { "label": "Thân bài 1 – Nguyên nhân", "text": "On the one hand, the major cause of [CHỦ ĐỀ] is [NGUYÊN NHÂN]. This means that [GIẢI THÍCH]. For example, [VÍ DỤ]. The example provided above has supported the point that [NGUYÊN NHÂN] is the main cause of [CHỦ ĐỀ]." },
+          { "label": "Thân bài 2 – Kết quả", "text": "On the other hand, the significant effect is [KẾT QUẢ]. In other words, [GIẢI THÍCH]. For instance, [VÍ DỤ]. The evidence illustrated above has indicated that [KẾT QUẢ] is the significant effect of [CHỦ ĐỀ]." },
+          { "label": "Kết bài", "text": "In conclusion, [VIẾT LẠI CHỦ ĐỀ]. I think the main cause of [CHỦ ĐỀ] is [NGUYÊN NHÂN], and the significant effect is [KẾT QUẢ]." }
+        ]
+      },
+      {
+        "id": "t2-causesolution",
+        "title": "🛠️ Causes & Solutions",
+        "subtitle": "Dạng nguyên nhân – giải pháp",
+        "lines": [
+          { "label": "Mở bài", "text": "In contemporary times, the topic of [CHỦ ĐỀ] has been becoming more and more prevalent to the general public." },
+          { "label": "Giới thiệu nội dung", "text": "This essay will discuss the causes and suggest solutions to such a situation and draw a conclusion." },
+          { "label": "Thân bài 1 – Nguyên nhân", "text": "On the one hand, the major cause of [CHỦ ĐỀ] is [NGUYÊN NHÂN]. This means that [GIẢI THÍCH]. For example, [VÍ DỤ]. The example provided above has supported the point that [NGUYÊN NHÂN] is the main cause of [CHỦ ĐỀ]." },
+          { "label": "Thân bài 2 – Giải pháp", "text": "On the other hand, an effective solution is [GIẢI PHÁP]. In other words, [GIẢI THÍCH]. For instance, [VÍ DỤ]. The evidence illustrated above has indicated that [GIẢI PHÁP] is the significant solution to [CHỦ ĐỀ]." },
+          { "label": "Kết bài", "text": "In conclusion, [VIẾT LẠI CHỦ ĐỀ]. I think the main cause of [CHỦ ĐỀ] is [NGUYÊN NHÂN], and the significant solution is [GIẢI PHÁP]." }
+        ]
+      },
+      {
+        "id": "t2-opinion",
+        "title": "💬 Opinion Essay",
+        "subtitle": "Dạng nêu quan điểm cá nhân",
+        "lines": [
+          { "label": "Mở bài", "text": "In today's society, [CHỦ ĐỀ] has become an essential part of the rising debate in the present world, including in Vietnam. It is widely debated whether [VẤN ĐỀ TRANH LUẬN]. Personally, I strongly agree that [QUAN ĐIỂM CỦA BẠN]. This essay will provide some reasons and relevant examples to support my arguments." },
+          { "label": "Thân bài 1", "text": "First and foremost, it should be recognized that [LÝ DO 1]. This means that [GIẢI THÍCH]. For example, [VÍ DỤ]." },
+          { "label": "Thân bài 2", "text": "Another interesting point is that [LÝ DO 2]. This is because of the fact that [GIẢI THÍCH]. For instance, [VÍ DỤ]." },
+          { "label": "Kết bài", "text": "To conclude, this essay argued that [VIẾT LẠI QUAN ĐIỂM]. However, everything has two sides, and this situation is no exception. Therefore, people should have further consideration on this issue." }
+        ]
+      },
+      {
+        "id": "t2-argumentative",
+        "title": "🥊 Argumentative Essay",
+        "subtitle": "Dạng lập luận 2 phía – chọn 1",
+        "lines": [
+          { "label": "Mở bài", "text": "In today's society, [CHỦ ĐỀ] has become an essential part of the rising debate in the present world, including in Vietnam. It is widely debated whether [VẤN ĐỀ]. This essay will discuss both perspectives and provide my personal view." },
+          { "label": "Thân bài 1 – Quan điểm mình chọn", "text": "On the one hand, I am among those who support the idea that [QUAN ĐIỂM ĐỒNG Ý]. This means that [GIẢI THÍCH]. For example, [VÍ DỤ]." },
+          { "label": "Thân bài 2 – Quan điểm đối lập", "text": "On the other hand, some other individuals might hold the opposing idea that [QUAN ĐIỂM ĐỐI LẬP]. In other words, [GIẢI THÍCH]. For instance, [VÍ DỤ]." },
+          { "label": "Kết bài", "text": "In conclusion, although [QUAN ĐIỂM KHÔNG ĐỒNG Ý], I believe that [QUAN ĐIỂM MÌNH ĐỒNG Ý]. However, everything has its two sides, and this phenomenon is not an exception. Therefore, people should have further consideration on this issue." }
+        ]
+      },
+      {
+        "id": "t2-discussion",
+        "title": "🗣️ Discussion Essay",
+        "subtitle": "Dạng thảo luận 2 phía + ý kiến",
+        "lines": [
+          { "label": "Mở bài", "text": "It is widely argued that [QUAN ĐIỂM 1], while others contend that [QUAN ĐIỂM 2]. This essay will discuss both perspectives before presenting my own view." },
+          { "label": "Thân bài 1 – Quan điểm 1", "text": "Those who support [QUAN ĐIỂM 1] argue that [LÝ DO]. This is because [GIẢI THÍCH]. For instance, [VÍ DỤ]." },
+          { "label": "Thân bài 2 – Quan điểm 2", "text": "On the other hand, those who believe [QUAN ĐIỂM 2] claim that [LÝ DO]. In other words, [GIẢI THÍCH]. For example, [VÍ DỤ]." },
+          { "label": "Kết bài", "text": "In conclusion, while both views have their merits, I personally believe that [QUAN ĐIỂM BẠN CHỌN] because [LÝ DO NGẮN GỌN]. Therefore, people should have further consideration on this issue." }
+        ]
       }
     ]
   }
