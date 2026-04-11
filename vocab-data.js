@@ -4585,246 +4585,287 @@ window.VSTEP_VOCAB = [
         "en": "How have you been recently?",
         "vi": "Mở đầu thư thân mật – hỏi thăm người nhận.",
         "type": "study",
+        "letterType": "📩 Thư cung cấp thông tin",
         "example": "How have you been recently? I am fine and I hope you and your family are well, too."
       },
       {
         "en": "I am writing to answer all of your questions in your letter.",
         "vi": "Mở đầu thư cung cấp thông tin (informal).",
         "type": "study",
+        "letterType": "📩 Thư cung cấp thông tin",
         "example": "I am writing to answer all of your questions in your letter."
       },
       {
         "en": "I am writing to provide you with some information about…",
         "vi": "Mở đầu thư cung cấp thông tin (formal).",
         "type": "study",
+        "letterType": "📩 Thư cung cấp thông tin",
         "example": "I am writing to provide you with some information about the upcoming event."
       },
       {
         "en": "Firstly, I would like to tell you that…",
         "vi": "Mở ý đầu tiên trong thư cung cấp thông tin.",
         "type": "study",
+        "letterType": "📩 Thư cung cấp thông tin",
         "example": "Firstly, I would like to tell you that the registration deadline is next Friday."
       },
       {
         "en": "Secondly, it might be useful for you to know that…",
         "vi": "Dẫn ý thứ hai – thêm thông tin hữu ích.",
         "type": "study",
+        "letterType": "📩 Thư cung cấp thông tin",
         "example": "Secondly, it might be useful for you to know that accommodation is included."
       },
       {
         "en": "I hope my information will be useful for you.",
         "vi": "Câu kết thúc phần nội dung – thư cung cấp thông tin.",
         "type": "study",
+        "letterType": "📩 Thư cung cấp thông tin",
         "example": "I hope my information will be useful for you. Do not hesitate to contact me if you have any questions."
       },
       {
         "en": "Do not hesitate to contact me if you have any questions or need more details.",
         "vi": "Câu mời hỏi thêm – dùng trong cả thư trang trọng và thân mật.",
         "type": "study",
+        "letterType": "📩 Thư cung cấp thông tin",
         "example": "Do not hesitate to contact me if you have any questions or need more details."
       },
       {
         "en": "I am looking forward to hearing from you soon.",
         "vi": "Câu kết thư – dùng trong hầu hết các loại thư.",
         "type": "study",
+        "letterType": "📩 Thư cung cấp thông tin",
         "example": "I am looking forward to hearing from you soon."
       },
       {
         "en": "I am writing to ask for some information about…",
         "vi": "Mở đầu thư yêu cầu thông tin (informal).",
         "type": "study",
+        "letterType": "❓ Thư yêu cầu thông tin",
         "example": "I am writing to ask for some information about the scholarship program."
       },
       {
         "en": "I am writing to request some information about… / feedback about…",
         "vi": "Mở đầu thư yêu cầu thông tin (formal).",
         "type": "study",
+        "letterType": "❓ Thư yêu cầu thông tin",
         "example": "I am writing to request some information about the application process."
       },
       {
         "en": "Could you let me know about…?",
         "vi": "Hỏi lịch sự trong thư yêu cầu thông tin.",
         "type": "study",
+        "letterType": "❓ Thư yêu cầu thông tin",
         "example": "Could you let me know about the available dates for the course?"
       },
       {
         "en": "I would be grateful if you could…",
         "vi": "Yêu cầu lịch sự – dùng trong thư trang trọng.",
         "type": "study",
+        "letterType": "❓ Thư yêu cầu thông tin",
         "example": "I would be grateful if you could send me the application form."
       },
       {
         "en": "Thank you for taking the time to answer my questions.",
         "vi": "Câu cảm ơn cuối thư yêu cầu thông tin.",
         "type": "study",
+        "letterType": "❓ Thư yêu cầu thông tin",
         "example": "Thank you for taking the time to answer my questions."
       },
       {
         "en": "I am writing to apologize for…",
         "vi": "Mở đầu thư xin lỗi.",
         "type": "study",
+        "letterType": "🙏 Thư xin lỗi",
         "example": "I am writing to apologize for missing our appointment yesterday."
       },
       {
         "en": "I would like to express my sincere apology because I…",
         "vi": "Câu xin lỗi trang trọng trong thân thư.",
         "type": "study",
+        "letterType": "🙏 Thư xin lỗi",
         "example": "I would like to express my sincere apology because I forgot our meeting."
       },
       {
         "en": "I can assure you that I will not let the same mistake happen again.",
         "vi": "Cam kết không tái phạm – cuối thư xin lỗi.",
         "type": "study",
+        "letterType": "🙏 Thư xin lỗi",
         "example": "Once again, I am truly sorry. I can assure you that I will not let the same mistake happen again."
       },
       {
         "en": "Once again, I am truly sorry for my actions. I hope you will forgive me.",
         "vi": "Câu kết thư xin lỗi – nhấn mạnh sự hối tiếc.",
         "type": "study",
+        "letterType": "🙏 Thư xin lỗi",
         "example": "Once again, I am truly sorry for my actions. I hope you will forgive me."
       },
       {
         "en": "I am writing to complain about the poor service that I recently experienced at your…",
         "vi": "Mở đầu thư phàn nàn.",
         "type": "study",
+        "letterType": "😤 Thư phàn nàn",
         "example": "I am writing to complain about the poor service that I recently experienced at your restaurant."
       },
       {
         "en": "I was not happy with the… I must admit that this really made me angry.",
         "vi": "Trình bày nội dung phàn nàn trong thân thư.",
         "type": "study",
+        "letterType": "😤 Thư phàn nàn",
         "example": "I was not happy with the food quality. I must admit that this really made me angry."
       },
       {
         "en": "I felt that this situation could have been handled better.",
         "vi": "Bày tỏ sự không hài lòng về cách xử lý – thư phàn nàn.",
         "type": "study",
+        "letterType": "😤 Thư phàn nàn",
         "example": "I felt that this situation could have been handled better by your staff."
       },
       {
         "en": "I hope my feedback will be useful for you.",
         "vi": "Câu kết thư phàn nàn – mang tính xây dựng.",
         "type": "study",
+        "letterType": "😤 Thư phàn nàn",
         "example": "I hope my feedback will be useful for you and help improve your services."
       },
       {
         "en": "I am writing this letter to extend my sincere thanks to…",
         "vi": "Mở đầu thư cảm ơn.",
         "type": "study",
+        "letterType": "🌸 Thư cảm ơn",
         "example": "I am writing this letter to extend my sincere thanks to you for your generous help."
       },
       {
         "en": "How considerate and wonderful of you to…",
         "vi": "Khen ngợi hành động của người nhận – thư cảm ơn.",
         "type": "study",
+        "letterType": "🌸 Thư cảm ơn",
         "example": "How considerate and wonderful of you to help me with my studies."
       },
       {
         "en": "I will cherish this memory forever.",
         "vi": "Câu cảm xúc trong thư cảm ơn.",
         "type": "study",
+        "letterType": "🌸 Thư cảm ơn",
         "example": "I will cherish this memory forever. Thank you so much for everything."
       },
       {
         "en": "Please have no hesitation in writing to me should you want me to do something for you.",
         "vi": "Câu đề nghị giúp lại – cuối thư cảm ơn.",
         "type": "study",
+        "letterType": "🌸 Thư cảm ơn",
         "example": "Please have no hesitation in writing to me should you want me to do something for you."
       },
       {
         "en": "I have recently seen recruitment news on… for the position of… and I would like to apply with interest.",
         "vi": "Mở đầu thư xin việc – nêu nguồn thông tin và vị trí ứng tuyển.",
         "type": "study",
+        "letterType": "💼 Thư xin việc",
         "example": "I have recently seen recruitment news on Career.vn for the position of Marketing Executive and I would like to apply with interest."
       },
       {
         "en": "I completed my bachelor's degree with a major in… in… After graduation, I worked as a… at…",
         "vi": "Trình bày học vấn và kinh nghiệm – thư xin việc.",
         "type": "study",
+        "letterType": "💼 Thư xin việc",
         "example": "I completed my bachelor's degree with a major in Business in 2022. After graduation, I worked as a sales assistant at ABC Company."
       },
       {
         "en": "I am a positive, motivated and hard-working person who is keen to learn and contribute.",
         "vi": "Tự giới thiệu phẩm chất – thư xin việc.",
         "type": "study",
+        "letterType": "💼 Thư xin việc",
         "example": "I am a positive, motivated and hard-working person who is keen to learn and contribute to the team."
       },
       {
         "en": "Please consider the enclosed resume to know more about my professionalism, background and skills.",
         "vi": "Câu giới thiệu hồ sơ đính kèm – thư xin việc.",
         "type": "study",
+        "letterType": "💼 Thư xin việc",
         "example": "Please consider the enclosed resume to know more about my professionalism, background and skills."
       },
       {
         "en": "I look forward to discussing my application with you further.",
         "vi": "Câu kết thư xin việc – thể hiện sự mong muốn phỏng vấn.",
         "type": "study",
+        "letterType": "💼 Thư xin việc",
         "example": "I look forward to discussing my application with you further at your earliest convenience."
       },
       {
         "en": "Dear Mr./Mrs. [Name] / Sir or Madam,",
         "vi": "Lời chào mở thư trang trọng (formal).",
         "type": "study",
+        "letterType": "✍️ Mở & Kết thư (dùng chung)",
         "example": "Dear Sir or Madam, I am writing to request some information about your services."
       },
       {
         "en": "Best regards, / Warm regards,",
         "vi": "Lời chào kết thư – dùng trong cả thư thân mật và trang trọng.",
         "type": "study",
+        "letterType": "✍️ Mở & Kết thư (dùng chung)",
         "example": "I am looking forward to hearing from you soon. Best regards, [Your name]"
       },
       {
         "en": "I am writing to give you some advice about…",
         "vi": "Mở đầu thư lời khuyên (informal/formal).",
         "type": "study",
+        "letterType": "💡 Thư lời khuyên",
         "example": "I am writing to give you some advice about how to prepare for your new job."
       },
       {
         "en": "If I were you, I would…",
         "vi": "Cấu trúc đưa ra lời khuyên – thư lời khuyên.",
         "type": "study",
+        "letterType": "💡 Thư lời khuyên",
         "example": "If I were you, I would start preparing at least two months before the exam."
       },
       {
         "en": "I strongly recommend that you… / I would suggest that…",
         "vi": "Câu gợi ý trang trọng – thư lời khuyên.",
         "type": "study",
+        "letterType": "💡 Thư lời khuyên",
         "example": "I strongly recommend that you take an English course before applying for the position."
       },
       {
         "en": "It might be a good idea to… / You might want to consider…",
         "vi": "Gợi ý nhẹ nhàng, lịch sự – thư lời khuyên.",
         "type": "study",
+        "letterType": "💡 Thư lời khuyên",
         "example": "It might be a good idea to visit the city before making your final decision."
       },
       {
         "en": "I hope you find my advice useful and feel free to ask if you need more help.",
         "vi": "Câu kết thư lời khuyên – thân mật.",
         "type": "study",
+        "letterType": "💡 Thư lời khuyên",
         "example": "I hope you find my advice useful and feel free to ask if you need more help."
       },
       {
         "en": "I am writing to invite you to…",
         "vi": "Mở đầu thư mời (informal/formal).",
         "type": "study",
+        "letterType": "🎉 Thư mời",
         "example": "I am writing to invite you to our annual company dinner next Friday."
       },
       {
         "en": "It would be a great pleasure to have you join us at…",
         "vi": "Câu mời trang trọng – thư mời.",
         "type": "study",
+        "letterType": "🎉 Thư mời",
         "example": "It would be a great pleasure to have you join us at the celebration event."
       },
       {
         "en": "The event will take place on [date] at [location]. We would love it if you could attend.",
         "vi": "Nêu thông tin sự kiện trong thư mời.",
         "type": "study",
+        "letterType": "🎉 Thư mời",
         "example": "The event will take place on Saturday at the Grand Hotel. We would love it if you could attend."
       },
       {
         "en": "Please let me know whether you will be able to come by [date].",
         "vi": "Câu xác nhận tham dự – cuối thư mời.",
         "type": "study",
+        "letterType": "🎉 Thư mời",
         "example": "Please let me know whether you will be able to come by this Friday."
       }
     ]
@@ -4840,217 +4881,253 @@ window.VSTEP_VOCAB = [
         "en": "In contemporary times, the topic of [CHỦ ĐỀ] has been becoming more and more prevalent to the general public.",
         "vi": "Câu mở bài – dẫn dắt chủ đề (dùng cho mọi dạng bài).",
         "type": "study",
+        "essayType": "🧩 Câu dùng chung mọi dạng",
         "example": "In contemporary times, the topic of online learning has been becoming more and more prevalent to the general public."
-      },
-      {
-        "en": "This essay will discuss the advantages and disadvantages of such a situation and draw a conclusion.",
-        "vi": "Câu giới thiệu nội dung bài – dạng Advantages & Disadvantages.",
-        "type": "study",
-        "example": "This essay will discuss the advantages and disadvantages of working from home and draw a conclusion."
-      },
-      {
-        "en": "This essay will discuss the causes and effects of such a situation and draw a conclusion.",
-        "vi": "Câu giới thiệu nội dung bài – dạng Causes & Effects.",
-        "type": "study",
-        "example": "This essay will discuss the causes and effects of air pollution and draw a conclusion."
-      },
-      {
-        "en": "This essay will discuss the causes and suggest solutions to such a situation and draw a conclusion.",
-        "vi": "Câu giới thiệu nội dung bài – dạng Causes & Solutions.",
-        "type": "study",
-        "example": "This essay will discuss the causes of youth unemployment and suggest solutions and draw a conclusion."
-      },
-      {
-        "en": "On the one hand, the major advantage of… is… This means that…",
-        "vi": "Mở đoạn thân bài 1 – dạng Advantages & Disadvantages.",
-        "type": "study",
-        "example": "On the one hand, the major advantage of online learning is flexibility. This means that students can study at their own pace."
-      },
-      {
-        "en": "On the other hand, the important disadvantage is… In other words,…",
-        "vi": "Mở đoạn thân bài 2 – dạng Advantages & Disadvantages.",
-        "type": "study",
-        "example": "On the other hand, the important disadvantage is the lack of direct interaction. In other words, students may feel isolated."
-      },
-      {
-        "en": "On the one hand, the major cause of… is… This means that…",
-        "vi": "Mở đoạn thân bài 1 – dạng Causes & Effects / Causes & Solutions.",
-        "type": "study",
-        "example": "On the one hand, the major cause of obesity is an unhealthy diet. This means that people consume too much junk food."
-      },
-      {
-        "en": "The example provided above has supported the point that… is the main [advantage/cause] of…",
-        "vi": "Câu kết đoạn thân bài 1 – tổng kết ví dụ vừa nêu.",
-        "type": "study",
-        "example": "The example provided above has supported the point that flexibility is the main advantage of online learning."
-      },
-      {
-        "en": "The evidence illustrated above has indicated that… is the significant [disadvantage/effect/solution] of…",
-        "vi": "Câu kết đoạn thân bài 2 – tổng kết bằng chứng vừa nêu.",
-        "type": "study",
-        "example": "The evidence illustrated above has indicated that social isolation is the significant disadvantage of remote work."
       },
       {
         "en": "For example, … / For instance, …",
         "vi": "Câu dẫn ví dụ – dùng trong tất cả các đoạn thân bài.",
         "type": "study",
+        "essayType": "🧩 Câu dùng chung mọi dạng",
         "example": "For example, many universities now offer fully online degrees that students can complete from home."
-      },
-      {
-        "en": "In conclusion, [VIẾT LẠI ĐỀ]. I think the main [advantage/cause] of… is…, and the significant [disadvantage/effect/suggestion] is…",
-        "vi": "Câu kết bài – dạng Advantages & Disadvantages / Causes & Effects / Causes & Solutions.",
-        "type": "study",
-        "example": "In conclusion, online learning has both benefits and drawbacks. I think the main advantage is flexibility, and the significant disadvantage is the lack of social interaction."
-      },
-      {
-        "en": "One major [cause/effect/solution] of… is… This means that…",
-        "vi": "Mở đoạn thân bài – khi đề chỉ hỏi 1 vế (chỉ causes / chỉ effects / chỉ solutions).",
-        "type": "study",
-        "example": "One major cause of traffic congestion is the overuse of private vehicles. This means that too many cars are on the road at the same time."
-      },
-      {
-        "en": "Another important [cause/effect/solution] is… In other words,…",
-        "vi": "Đoạn thân bài 2 – khi đề chỉ hỏi 1 vế.",
-        "type": "study",
-        "example": "Another important solution is investing in public transport. In other words, the government should build more buses and metro lines."
-      },
-      {
-        "en": "In today's society, [TOPIC] has become an essential part of the rising debate in the present world, including in Vietnam.",
-        "vi": "Câu mở bài – dạng Opinion / Argumentative Essay.",
-        "type": "study",
-        "example": "In today's society, the use of social media has become an essential part of the rising debate in the present world, including in Vietnam."
-      },
-      {
-        "en": "It is widely debated whether [QUAN ĐIỂM ĐƯỢC BÀN LUẬN].",
-        "vi": "Câu giới thiệu vấn đề tranh luận – mở bài Opinion / Argumentative.",
-        "type": "study",
-        "example": "It is widely debated whether social media has a positive or negative impact on young people."
-      },
-      {
-        "en": "Personally, I strongly agree that [QUAN ĐIỂM BẠN ĐỒNG Ý]. This essay will provide some reasons and relevant examples to support my arguments.",
-        "vi": "Câu nêu quan điểm và giới thiệu nội dung – mở bài Opinion.",
-        "type": "study",
-        "example": "Personally, I strongly agree that social media has more benefits than drawbacks. This essay will provide some reasons and relevant examples to support my arguments."
-      },
-      {
-        "en": "First and foremost, it should be recognized that [LÝ DO 1]. This means that…",
-        "vi": "Mở đoạn thân bài 1 – dạng Opinion Essay.",
-        "type": "study",
-        "example": "First and foremost, it should be recognized that social media helps people stay connected. This means that friends and family can communicate instantly regardless of distance."
-      },
-      {
-        "en": "Another interesting point is that [LÝ DO 2]. This is because of the fact that [GIẢI THÍCH].",
-        "vi": "Mở đoạn thân bài 2 – dạng Opinion Essay.",
-        "type": "study",
-        "example": "Another interesting point is that social media supports learning. This is because of the fact that educational content is widely available on platforms like YouTube."
-      },
-      {
-        "en": "To conclude, this essay argued that [VIẾT LẠI QUAN ĐIỂM CỦA BẠN]. However, everything has two sides, and this situation is no exception.",
-        "vi": "Câu kết bài – dạng Opinion Essay.",
-        "type": "study",
-        "example": "To conclude, this essay argued that social media brings more benefits than harms. However, everything has two sides, and this situation is no exception."
-      },
-      {
-        "en": "Therefore, people should have further consideration on this issue.",
-        "vi": "Câu kết cuối cùng – dùng cho cả Opinion và Argumentative Essay.",
-        "type": "study",
-        "example": "Therefore, people should have further consideration on this issue before making any conclusions."
-      },
-      {
-        "en": "On the one hand, I am among those who support the idea that [QUAN ĐIỂM ĐỒNG Ý]. This means that… [GIẢI THÍCH].",
-        "vi": "Mở đoạn thân bài 1 – dạng Argumentative Essay (quan điểm mình chọn).",
-        "type": "study",
-        "example": "On the one hand, I am among those who support the idea that technology improves education. This means that students can access a wider range of learning materials online."
-      },
-      {
-        "en": "On the other hand, some other individuals might hold the opposing idea that [QUAN ĐIỂM ĐỐI LẬP]. In other words,…",
-        "vi": "Mở đoạn thân bài 2 – dạng Argumentative Essay (quan điểm đối lập).",
-        "type": "study",
-        "example": "On the other hand, some other individuals might hold the opposing idea that technology distracts students. In other words, devices can reduce focus in the classroom."
-      },
-      {
-        "en": "In conclusion, although [QUAN ĐIỂM KHÔNG ĐỒNG Ý], I believe that [QUAN ĐIỂM MÌNH ĐỒNG Ý].",
-        "vi": "Câu kết bài – dạng Argumentative Essay.",
-        "type": "study",
-        "example": "In conclusion, although technology can be a distraction, I believe that it ultimately brings more benefits to education than drawbacks."
-      },
-      {
-        "en": "However, everything has its two sides, and this phenomenon is not an exception.",
-        "vi": "Câu nhượng bộ – dùng trong kết bài Argumentative Essay.",
-        "type": "study",
-        "example": "However, everything has its two sides, and this phenomenon is not an exception. Therefore, a balanced approach is needed."
       },
       {
         "en": "In addition / Moreover / Furthermore",
         "vi": "Từ nối thêm ý – dùng giữa các đoạn hoặc giữa các câu trong thân bài.",
         "type": "study",
+        "essayType": "🧩 Câu dùng chung mọi dạng",
         "example": "In addition, the government should invest more in renewable energy to combat climate change."
       },
       {
         "en": "This is because of the fact that…",
         "vi": "Câu giải thích nguyên nhân – dùng sau câu nêu lý do.",
         "type": "study",
+        "essayType": "🧩 Câu dùng chung mọi dạng",
         "example": "This is because of the fact that pollution levels have risen significantly over the past decade."
+      },
+      {
+        "en": "It is undeniable that… / There is no doubt that…",
+        "vi": "Câu nhấn mạnh luận điểm mạnh mẽ – dùng trong thân bài mọi dạng.",
+        "type": "study",
+        "essayType": "🧩 Câu dùng chung mọi dạng",
+        "example": "It is undeniable that climate change poses a serious threat to biodiversity worldwide."
+      },
+      {
+        "en": "【PHÂN BIỆT 4 DẠNG】 Opinion = 1 phía | Discussion = 2 phía + ý kiến | Adv-Dis = lợi/hại | Cause-Solution = nguyên nhân + giải pháp",
+        "vi": "Bảng nhận biết nhanh 4 dạng bài Task 2: Opinion / Discussion / Advantages-Disadvantages / Cause-Solution.",
+        "type": "study",
+        "essayType": "🧩 Câu dùng chung mọi dạng",
+        "example": "Opinion: Do you agree? → chọn 1 phía | Discussion: Discuss both views → viết cả 2 | Adv-Dis: advantages and disadvantages? → lợi + hại | Cause: What are the causes? Suggest solutions → nguyên nhân + giải pháp"
+      },
+      {
+        "en": "This essay will discuss the advantages and disadvantages of such a situation and draw a conclusion.",
+        "vi": "Câu giới thiệu nội dung bài – dạng Advantages & Disadvantages.",
+        "type": "study",
+        "essayType": "⚖️ Advantages & Disadvantages",
+        "example": "This essay will discuss the advantages and disadvantages of working from home and draw a conclusion."
+      },
+      {
+        "en": "On the one hand, the major advantage of… is… This means that…",
+        "vi": "Mở đoạn thân bài 1 – dạng Advantages & Disadvantages.",
+        "type": "study",
+        "essayType": "⚖️ Advantages & Disadvantages",
+        "example": "On the one hand, the major advantage of online learning is flexibility. This means that students can study at their own pace."
+      },
+      {
+        "en": "On the other hand, the important disadvantage is… In other words,…",
+        "vi": "Mở đoạn thân bài 2 – dạng Advantages & Disadvantages.",
+        "type": "study",
+        "essayType": "⚖️ Advantages & Disadvantages",
+        "example": "On the other hand, the important disadvantage is the lack of direct interaction. In other words, students may feel isolated."
+      },
+      {
+        "en": "Do the advantages outweigh the disadvantages?",
+        "vi": "Biến thể đặc biệt của Adv-Dis: hỏi xem lợi ích có VƯỢT TRỘI hơn bất lợi không → cần nêu rõ quan điểm trong kết bài.",
+        "type": "study",
+        "essayType": "⚖️ Advantages & Disadvantages",
+        "example": "Do the advantages of studying abroad outweigh the disadvantages? → Kết bài: I believe the advantages outweigh the disadvantages because…"
+      },
+      {
+        "en": "The example provided above has supported the point that… is the main [advantage/cause] of…",
+        "vi": "Câu kết đoạn thân bài 1 – tổng kết ví dụ vừa nêu.",
+        "type": "study",
+        "essayType": "⚖️ Advantages & Disadvantages",
+        "example": "The example provided above has supported the point that flexibility is the main advantage of online learning."
+      },
+      {
+        "en": "The evidence illustrated above has indicated that… is the significant [disadvantage/effect/solution] of…",
+        "vi": "Câu kết đoạn thân bài 2 – tổng kết bằng chứng vừa nêu.",
+        "type": "study",
+        "essayType": "⚖️ Advantages & Disadvantages",
+        "example": "The evidence illustrated above has indicated that social isolation is the significant disadvantage of remote work."
+      },
+      {
+        "en": "In conclusion, [VIẾT LẠI ĐỀ]. I think the main [advantage/cause] of… is…, and the significant [disadvantage/effect/suggestion] is…",
+        "vi": "Câu kết bài – dạng Advantages & Disadvantages / Causes & Effects / Causes & Solutions.",
+        "type": "study",
+        "essayType": "⚖️ Advantages & Disadvantages",
+        "example": "In conclusion, online learning has both benefits and drawbacks. I think the main advantage is flexibility, and the significant disadvantage is the lack of social interaction."
+      },
+      {
+        "en": "This essay will discuss the causes and effects of such a situation and draw a conclusion.",
+        "vi": "Câu giới thiệu nội dung bài – dạng Causes & Effects.",
+        "type": "study",
+        "essayType": "🔍 Causes & Effects / Causes & Solutions",
+        "example": "This essay will discuss the causes and effects of air pollution and draw a conclusion."
+      },
+      {
+        "en": "This essay will discuss the causes and suggest solutions to such a situation and draw a conclusion.",
+        "vi": "Câu giới thiệu nội dung bài – dạng Causes & Solutions.",
+        "type": "study",
+        "essayType": "🔍 Causes & Effects / Causes & Solutions",
+        "example": "This essay will discuss the causes of youth unemployment and suggest solutions and draw a conclusion."
+      },
+      {
+        "en": "On the one hand, the major cause of… is… This means that…",
+        "vi": "Mở đoạn thân bài 1 – dạng Causes & Effects / Causes & Solutions.",
+        "type": "study",
+        "essayType": "🔍 Causes & Effects / Causes & Solutions",
+        "example": "On the one hand, the major cause of obesity is an unhealthy diet. This means that people consume too much junk food."
+      },
+      {
+        "en": "One major [cause/effect/solution] of… is… This means that…",
+        "vi": "Mở đoạn thân bài – khi đề chỉ hỏi 1 vế (chỉ causes / chỉ effects / chỉ solutions).",
+        "type": "study",
+        "essayType": "🔍 Causes & Effects / Causes & Solutions",
+        "example": "One major cause of traffic congestion is the overuse of private vehicles. This means that too many cars are on the road at the same time."
+      },
+      {
+        "en": "Another important [cause/effect/solution] is… In other words,…",
+        "vi": "Đoạn thân bài 2 – khi đề chỉ hỏi 1 vế.",
+        "type": "study",
+        "essayType": "🔍 Causes & Effects / Causes & Solutions",
+        "example": "Another important solution is investing in public transport. In other words, the government should build more buses and metro lines."
+      },
+      {
+        "en": "In today's society, [TOPIC] has become an essential part of the rising debate in the present world, including in Vietnam.",
+        "vi": "Câu mở bài – dạng Opinion / Argumentative Essay.",
+        "type": "study",
+        "essayType": "💬 Opinion Essay",
+        "example": "In today's society, the use of social media has become an essential part of the rising debate in the present world, including in Vietnam."
+      },
+      {
+        "en": "It is widely debated whether [QUAN ĐIỂM ĐƯỢC BÀN LUẬN].",
+        "vi": "Câu giới thiệu vấn đề tranh luận – mở bài Opinion / Argumentative.",
+        "type": "study",
+        "essayType": "💬 Opinion Essay",
+        "example": "It is widely debated whether social media has a positive or negative impact on young people."
+      },
+      {
+        "en": "Personally, I strongly agree that [QUAN ĐIỂM BẠN ĐỒNG Ý]. This essay will provide some reasons and relevant examples to support my arguments.",
+        "vi": "Câu nêu quan điểm và giới thiệu nội dung – mở bài Opinion.",
+        "type": "study",
+        "essayType": "💬 Opinion Essay",
+        "example": "Personally, I strongly agree that social media has more benefits than drawbacks. This essay will provide some reasons and relevant examples to support my arguments."
+      },
+      {
+        "en": "First and foremost, it should be recognized that [LÝ DO 1]. This means that…",
+        "vi": "Mở đoạn thân bài 1 – dạng Opinion Essay.",
+        "type": "study",
+        "essayType": "💬 Opinion Essay",
+        "example": "First and foremost, it should be recognized that social media helps people stay connected. This means that friends and family can communicate instantly regardless of distance."
+      },
+      {
+        "en": "Another interesting point is that [LÝ DO 2]. This is because of the fact that [GIẢI THÍCH].",
+        "vi": "Mở đoạn thân bài 2 – dạng Opinion Essay.",
+        "type": "study",
+        "essayType": "💬 Opinion Essay",
+        "example": "Another interesting point is that social media supports learning. This is because of the fact that educational content is widely available on platforms like YouTube."
+      },
+      {
+        "en": "To conclude, this essay argued that [VIẾT LẠI QUAN ĐIỂM CỦA BẠN]. However, everything has two sides, and this situation is no exception.",
+        "vi": "Câu kết bài – dạng Opinion Essay.",
+        "type": "study",
+        "essayType": "💬 Opinion Essay",
+        "example": "To conclude, this essay argued that social media brings more benefits than harms. However, everything has two sides, and this situation is no exception."
+      },
+      {
+        "en": "Therefore, people should have further consideration on this issue.",
+        "vi": "Câu kết cuối cùng – dùng cho cả Opinion và Argumentative Essay.",
+        "type": "study",
+        "essayType": "💬 Opinion Essay",
+        "example": "Therefore, people should have further consideration on this issue before making any conclusions."
+      },
+      {
+        "en": "On the one hand, I am among those who support the idea that [QUAN ĐIỂM ĐỒNG Ý]. This means that… [GIẢI THÍCH].",
+        "vi": "Mở đoạn thân bài 1 – dạng Argumentative Essay (quan điểm mình chọn).",
+        "type": "study",
+        "essayType": "🥊 Argumentative Essay",
+        "example": "On the one hand, I am among those who support the idea that technology improves education. This means that students can access a wider range of learning materials online."
+      },
+      {
+        "en": "On the other hand, some other individuals might hold the opposing idea that [QUAN ĐIỂM ĐỐI LẬP]. In other words,…",
+        "vi": "Mở đoạn thân bài 2 – dạng Argumentative Essay (quan điểm đối lập).",
+        "type": "study",
+        "essayType": "🥊 Argumentative Essay",
+        "example": "On the other hand, some other individuals might hold the opposing idea that technology distracts students. In other words, devices can reduce focus in the classroom."
+      },
+      {
+        "en": "In conclusion, although [QUAN ĐIỂM KHÔNG ĐỒNG Ý], I believe that [QUAN ĐIỂM MÌNH ĐỒNG Ý].",
+        "vi": "Câu kết bài – dạng Argumentative Essay.",
+        "type": "study",
+        "essayType": "🥊 Argumentative Essay",
+        "example": "In conclusion, although technology can be a distraction, I believe that it ultimately brings more benefits to education than drawbacks."
+      },
+      {
+        "en": "However, everything has its two sides, and this phenomenon is not an exception.",
+        "vi": "Câu nhượng bộ – dùng trong kết bài Argumentative Essay.",
+        "type": "study",
+        "essayType": "🥊 Argumentative Essay",
+        "example": "However, everything has its two sides, and this phenomenon is not an exception. Therefore, a balanced approach is needed."
+      },
+      {
+        "en": "Although [QUAN ĐIỂM ĐỐI LẬP] has some validity, I am convinced that [QUAN ĐIỂM CỦA BẠN] for the following reasons.",
+        "vi": "Câu nhượng bộ (concession) + giữ vững lập trường – dùng trong Opinion hoặc Discussion.",
+        "type": "study",
+        "essayType": "🥊 Argumentative Essay",
+        "example": "Although living in the city has some validity in terms of convenience, I am convinced that rural life is healthier for the following reasons."
       },
       {
         "en": "【DẠNG 4: DISCUSSION ESSAY】 Discuss both views and give your own opinion.",
         "vi": "Nhận biết dạng Discussion: đề hỏi 'Discuss both views', 'Some people think... others think...'",
         "type": "study",
+        "essayType": "🗣️ Discussion Essay",
         "example": "Some people think technology makes life easier. Others believe it causes more stress. Discuss both views and give your opinion."
       },
       {
         "en": "It is widely argued that [QUAN ĐIỂM 1], while others contend that [QUAN ĐIỂM 2]. This essay will discuss both perspectives before presenting my own view.",
         "vi": "Mở bài – Discussion Essay: giới thiệu 2 quan điểm + báo sẽ thảo luận cả hai.",
         "type": "study",
+        "essayType": "🗣️ Discussion Essay",
         "example": "It is widely argued that technology improves productivity, while others contend that it leads to addiction. This essay will discuss both perspectives before presenting my own view."
       },
       {
         "en": "Those who support [QUAN ĐIỂM 1] argue that… This is because… For instance,…",
         "vi": "Thân bài 1 – trình bày quan điểm thứ nhất (mà bạn KHÔNG nhất thiết đồng ý).",
         "type": "study",
+        "essayType": "🗣️ Discussion Essay",
         "example": "Those who support online learning argue that it offers greater flexibility. This is because students can study at any time. For instance, many working adults take courses online in the evenings."
       },
       {
         "en": "On the other hand, those who believe [QUAN ĐIỂM 2] claim that… In other words,… For example,…",
         "vi": "Thân bài 2 – trình bày quan điểm đối lập.",
         "type": "study",
+        "essayType": "🗣️ Discussion Essay",
         "example": "On the other hand, those who believe in face-to-face learning claim that interaction is essential. In other words, students learn better when they can ask questions directly. For example, classroom discussions build critical thinking skills."
       },
       {
         "en": "In conclusion, while both views have their merits, I personally believe that [QUAN ĐIỂM BẠN CHỌN] because [LÝ DO NGẮN GỌN].",
         "vi": "Kết bài – Discussion Essay: thừa nhận cả hai quan điểm rồi nêu lập trường cá nhân.",
         "type": "study",
+        "essayType": "🗣️ Discussion Essay",
         "example": "In conclusion, while both views have their merits, I personally believe that blended learning is the most effective approach because it combines the benefits of both methods."
       },
       {
         "en": "Discuss both views and give your own opinion. / Some people think… Others believe… To what extent do you agree?",
         "vi": "Cách nhận biết đề Discussion: chứa 'both views', 'some… others…', 'discuss both sides'.",
         "type": "study",
+        "essayType": "🗣️ Discussion Essay",
         "example": "Some people think children should learn foreign languages at primary school. Others believe it is better to start at secondary school. Discuss both views and give your own opinion."
-      },
-      {
-        "en": "【PHÂN BIỆT 4 DẠNG】 Opinion = 1 phía | Discussion = 2 phía + ý kiến | Adv-Dis = lợi/hại | Cause-Solution = nguyên nhân + giải pháp",
-        "vi": "Bảng nhận biết nhanh 4 dạng bài Task 2: Opinion / Discussion / Advantages-Disadvantages / Cause-Solution.",
-        "type": "study",
-        "example": "Opinion: Do you agree? → chọn 1 phía | Discussion: Discuss both views → viết cả 2 | Adv-Dis: advantages and disadvantages? → lợi + hại | Cause: What are the causes? Suggest solutions → nguyên nhân + giải pháp"
-      },
-      {
-        "en": "Do the advantages outweigh the disadvantages?",
-        "vi": "Biến thể đặc biệt của Adv-Dis: hỏi xem lợi ích có VƯỢT TRỘI hơn bất lợi không → cần nêu rõ quan điểm trong kết bài.",
-        "type": "study",
-        "example": "Do the advantages of studying abroad outweigh the disadvantages? → Kết bài: I believe the advantages outweigh the disadvantages because…"
-      },
-      {
-        "en": "Although [QUAN ĐIỂM ĐỐI LẬP] has some validity, I am convinced that [QUAN ĐIỂM CỦA BẠN] for the following reasons.",
-        "vi": "Câu nhượng bộ (concession) + giữ vững lập trường – dùng trong Opinion hoặc Discussion.",
-        "type": "study",
-        "example": "Although living in the city has some validity in terms of convenience, I am convinced that rural life is healthier for the following reasons."
-      },
-      {
-        "en": "It is undeniable that… / There is no doubt that…",
-        "vi": "Câu nhấn mạnh luận điểm mạnh mẽ – dùng trong thân bài mọi dạng.",
-        "type": "study",
-        "example": "It is undeniable that climate change poses a serious threat to biodiversity worldwide."
       }
     ]
   }

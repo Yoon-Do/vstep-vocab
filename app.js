@@ -432,6 +432,68 @@ function renderCards(words) {
   bindWordActionButtons(els.cardsView, words);
 }
 
+function isWritingTemplateTheme(themeId) {
+  return ["writing-task1", "writing-task2"].includes(themeId);
+}
+
+function renderWritingTemplate(words) {
+  if (!words.length) {
+    els.listView.innerHTML = `<div class="panel" style="padding:24px">Không có mẫu câu nào khớp bộ lọc hiện tại.</div>`;
+    return;
+  }
+
+  const themeId = words[0]?.themeId;
+  const groupKey = themeId === "writing-task1" ? "letterType" : "essayType";
+
+  // Group words by template type
+  const groups = new Map();
+  words.forEach((word, index) => {
+    const key = word[groupKey] || "Khác";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push({ word, index });
+  });
+
+  els.listView.innerHTML = [...groups.entries()].map(([groupName, items]) => {
+    const rows = items.map(({ word, index }) => {
+      const mastered = state.mastered.has(keyFor(word));
+      const favorite = state.favorites.has(keyFor(word));
+      return `
+        <div class="tpl-row" data-index="${index}">
+          <div class="tpl-main">
+            <div class="tpl-en">${word.en}</div>
+            <div class="tpl-vi">${word.vi}</div>
+            ${word.example ? `
+              <div class="tpl-example">
+                <span class="tpl-example-label">Ví dụ</span>
+                <span class="tpl-example-text">${word.example}</span>
+              </div>
+            ` : ""}
+          </div>
+          <div class="tpl-actions">
+            <button class="tiny-btn ${favorite ? "active" : ""}" data-action="favorite" data-index="${index}" title="Lưu">${favorite ? "★" : "☆"}</button>
+            <button class="tiny-btn ${mastered ? "active" : ""}" data-action="master" data-index="${index}" title="Thuộc">${mastered ? "✓" : "○"}</button>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    return `
+      <div class="tpl-group">
+        <div class="tpl-group-header">
+          <span class="tpl-group-title">${groupName}</span>
+          <span class="tpl-group-count">${items.length} mẫu câu</span>
+        </div>
+        <div class="tpl-group-body">
+          ${rows}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  bindWordActionButtons(els.listView, words);
+}
+
+
 function renderList(words) {
   if (!words.length) {
     els.listView.innerHTML = `<div class="panel" style="padding:24px">Không có từ nào khớp bộ lọc hiện tại.</div>`;
@@ -825,7 +887,11 @@ function render() {
   const words = getVisibleWords();
   renderSummary(words);
   renderCards(words);
-  renderList(words);
+  if (isWritingTemplateTheme(state.activeTheme)) {
+    renderWritingTemplate(words);
+  } else {
+    renderList(words);
+  }
   renderQuiz();
   switchView(state.view);
 }
