@@ -1019,7 +1019,7 @@ function bindGlobalEvents() {
   els.viewSwitch.forEach(btn => {
     btn.addEventListener("click", () => {
       const theme = getThemeById(state.activeTheme);
-      const nextView = isListOnlyTheme(theme) ? "list" : btn.dataset.view;
+      const nextView = (isListOnlyTheme(theme) && btn.dataset.view !== "speaking") ? "list" : btn.dataset.view;
       if (nextView === "quiz" && !state.quiz.items.length) {
         state.quiz = { index: 0, score: 0, items: createQuizItems(), wrongKeys: [] };
       }
@@ -1031,7 +1031,7 @@ function bindGlobalEvents() {
   document.querySelectorAll(".bnav-btn[data-view]").forEach(btn => {
     btn.addEventListener("click", () => {
       const theme = getThemeById(state.activeTheme);
-      const nextView = isListOnlyTheme(theme) ? "list" : btn.dataset.view;
+      const nextView = (isListOnlyTheme(theme) && btn.dataset.view !== "speaking") ? "list" : btn.dataset.view;
       if (nextView === "quiz" && !state.quiz.items.length) {
         state.quiz = { index: 0, score: 0, items: createQuizItems(), wrongKeys: [] };
       }
