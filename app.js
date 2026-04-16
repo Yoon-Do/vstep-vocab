@@ -249,11 +249,12 @@ function persist() {
 
 function switchView(nextView) {
   const theme = getThemeById(state.activeTheme);
-  const forcedView = isListOnlyTheme(theme) ? "list" : nextView;
+  const forcedView = (isListOnlyTheme(theme) && nextView !== "speaking") ? "list" : nextView;
   state.view = forcedView;
 
   els.viewSwitch.forEach(btn => {
-    const isDisabled = isListOnlyTheme(theme) && btn.dataset.view !== "list";
+    const isSpeakingBtn = btn.dataset.view === "speaking";
+    const isDisabled = isListOnlyTheme(theme) && !isSpeakingBtn && btn.dataset.view !== "list";
     btn.classList.toggle("active", btn.dataset.view === forcedView);
     btn.classList.toggle("hidden", isDisabled);
   });
