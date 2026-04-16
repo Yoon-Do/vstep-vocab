@@ -105,10 +105,12 @@ const els = {
 function speak(text) {
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel();
-  const utt = new SpeechSynthesisUtterance(text);
-  utt.lang = "en-US";
-  utt.rate = 0.9;
-  window.speechSynthesis.speak(utt);
+  setTimeout(() => {
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.lang = "en-US";
+    utt.rate = 0.9;
+    window.speechSynthesis.speak(utt);
+  }, 100);
 }
 
 function keyFor(word) {
