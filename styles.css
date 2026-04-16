@@ -778,6 +778,128 @@ input, button, textarea, select {
 
 .hidden { display: none !important; }
 
+/* ── Speaking View ──────────────────────────────────────────── */
+.speaking-view {
+  display: grid;
+  gap: 16px;
+}
+
+.spk-intro {
+  padding: 20px 24px;
+}
+
+.spk-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.spk-part-badge {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.spk-tip {
+  padding: 10px 22px;
+  font-size: 13.5px;
+  color: var(--accent-2);
+  background: rgba(29, 107, 98, 0.07);
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+}
+
+.spk-example {
+  padding: 16px 22px;
+  background: rgba(29, 107, 98, 0.05);
+  border-top: 1px solid var(--line);
+}
+
+.spk-example-q {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-2);
+  margin-bottom: 8px;
+}
+
+.spk-example-a {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink);
+  font-style: italic;
+}
+
+.spk-connectors-box {
+  background: rgba(255, 252, 246, 0.94);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.spk-connectors-title {
+  padding: 14px 22px;
+  font-weight: 800;
+  font-size: 15px;
+  background: linear-gradient(135deg, rgba(163, 75, 42, 0.08), rgba(29, 107, 98, 0.08));
+  border-bottom: 1px solid var(--line);
+}
+
+.spk-connectors-grid {
+  display: grid;
+  gap: 0;
+}
+
+.spk-connector-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  border-bottom: 1px solid rgba(53, 37, 28, 0.06);
+}
+
+.spk-connector-item:last-child {
+  border-bottom: none;
+}
+
+.spk-connector-label {
+  padding: 12px 16px 12px 22px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: rgba(163, 75, 42, 0.04);
+  border-right: 1px solid rgba(53, 37, 28, 0.07);
+  display: flex;
+  align-items: center;
+}
+
+.spk-connector-text {
+  padding: 12px 20px;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .spk-connector-item {
+    grid-template-columns: 1fr;
+  }
+  .spk-connector-label {
+    padding: 10px 16px 4px 16px;
+    border-right: none;
+    background: none;
+  }
+  .spk-connector-text {
+    padding: 2px 16px 12px 16px;
+  }
+}
+
 /* ── Drawer backdrop ────────────────────────────────────────── */
 .drawer-backdrop {
   display: none;

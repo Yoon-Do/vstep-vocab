@@ -94,6 +94,7 @@ const els = {
   cardsView: document.getElementById("cardsView"),
   listView: document.getElementById("listView"),
   quizView: document.getElementById("quizView"),
+  speakingView: document.getElementById("speakingView"),
   summaryBar: document.getElementById("summaryBar"),
   searchInput: document.getElementById("searchInput"),
   shuffleBtn: document.getElementById("shuffleBtn"),
@@ -268,6 +269,7 @@ function switchView(nextView) {
   els.cardsView.classList.toggle("hidden", forcedView !== "cards");
   els.listView.classList.toggle("hidden", forcedView !== "list");
   els.quizView.classList.toggle("hidden", forcedView !== "quiz");
+  els.speakingView.classList.toggle("hidden", forcedView !== "speaking");
 }
 
 function renderThemes() {
@@ -487,6 +489,122 @@ function renderWritingTemplate(words) {
       </div>
     `;
   }).join("");
+}
+
+const SPEAKING_TEMPLATES = [
+  {
+    part: "Part 1",
+    title: "Tương tác xã hội",
+    subtitle: "3 phút · Trả lời 3–6 câu hỏi về 2 chủ đề quen thuộc",
+    tip: "Giữ mỗi câu trả lời 2–4 câu. Tự nhiên, không cần dài.",
+    lines: [
+      { label: "Mở đầu", text: `"Well, personally speaking, I think…" <br>"To be honest, I really enjoy…" <br>"I'd say that…"` },
+      { label: "Trả lời + Lý do", text: `"I prefer [X] because…" <br>"In my case, [X] because…"` },
+      { label: "Ví dụ / Chi tiết", text: `"For example,…" <br>"Actually, I often…"` },
+      { label: "Từ nối hay dùng", text: `Actually &nbsp;·&nbsp; In my case &nbsp;·&nbsp; Personally speaking &nbsp;·&nbsp; I suppose &nbsp;·&nbsp; It depends &nbsp;·&nbsp; As for me` },
+    ],
+    example: {
+      q: "What do you often do in your free time?",
+      a: `"Well, personally speaking, I really enjoy reading books in my free time. I find it a great way to relax after a long day. For example, I usually spend an hour reading before bed every night."`
+    }
+  },
+  {
+    part: "Part 2",
+    title: "Thảo luận giải pháp",
+    subtitle: "4 phút · 1' chuẩn bị + 3' nói · Chọn 1 trong 3 giải pháp",
+    tip: "Chọn giải pháp dễ bảo vệ nhất (không cần là giải pháp mình thích thật). Ghi nháp ưu/nhược của cả 3 trong 1 phút chuẩn bị.",
+    lines: [
+      { label: "Introduction", text: `"I'm considering [paraphrase tình huống] among three options: [A], [B], and [C]. From my perspective, <strong>[A]</strong> is the most ideal choice for several reasons."` },
+      { label: "Body – Bảo vệ A", text: `"In the first place, [A] allows/enables… [lý do 1]" <br>"Also, it enables… [lý do 2]" <br>"What's more, it would be perfect because…"` },
+      { label: "Body – Phản biện B, C", text: `"I will explain the reasons why I reject the other two options." <br>"Some people believe that [B]… However, as for me, [nhược điểm B]." <br>"Besides, [C] isn't my preferred alternative because [nhược điểm C]."` },
+      { label: "Conclusion", text: `"I have to admit that [A] has a variety of advantages for [tình huống]." <br>"All things considered, I'd go for <strong>[A]</strong> for the above reasons."` },
+    ],
+    example: {
+      q: "Your class is going out to celebrate end of term. Three options: cinema, barbecue, karaoke.",
+      a: `"I'm considering where my class should go among three options: the cinema, a barbecue, or karaoke. From my perspective, a <strong>barbecue</strong> is the most ideal choice. In the first place, it provides plenty of opportunities for socializing, which is perfect for a class celebration. Also, it creates a casual atmosphere where everyone feels comfortable. Some people believe the cinema is good, however it limits interaction. Besides, karaoke isn't my preferred alternative because not everyone may feel comfortable singing. All things considered, I'd go for a barbecue."`
+    }
+  },
+  {
+    part: "Part 3",
+    title: "Phát triển chủ đề",
+    subtitle: "5 phút · 1' chuẩn bị + 3' trình bày + follow-up",
+    tip: "Dùng 3 ý gợi ý trong sơ đồ tư duy. Mỗi ý cần: Point → Reason → Example.",
+    lines: [
+      { label: "Introduction", text: `"Today, I'd like to talk about <strong>[topic]</strong>." <br>"This is a topic I find particularly important because…"` },
+      { label: "Ý 1", text: `"First of all, [idea 1]. This is because [lý do]. For example, [ví dụ cụ thể]."` },
+      { label: "Ý 2", text: `"Secondly, [idea 2]. As a result, / This means that [phân tích]."` },
+      { label: "Ý 3", text: `"Last but not least, [idea 3]. [Lý do + ví dụ]."` },
+      { label: "Conclusion", text: `"In conclusion, I believe [topic] is significant because [tóm tắt lý do chính]. Overall, [restate main point]."` },
+      { label: "Follow-up", text: `"That's an interesting question. I think…" <br>"Well, from my perspective…" <br>"I believe… because… For example…"` },
+    ],
+    example: null
+  }
+];
+
+function renderSpeakingTemplate() {
+  const connectorsHtml = `
+    <div class="spk-connectors-box">
+      <div class="spk-connectors-title">🔗 Từ nối quan trọng</div>
+      <div class="spk-connectors-grid">
+        ${[
+          ["Chọn giải pháp", "I strongly believe · I would opt for · My preferred choice is"],
+          ["Đưa lý do", "The most important reason is… · This is because… · Due to…"],
+          ["Thêm ý", "Moreover · In addition · What's more · Not only that"],
+          ["Phản biện", "Although… · However… · Despite its advantages…"],
+          ["Kết luận", "To sum up · All things considered · Therefore, I'd go with…"],
+          ["Mở đầu tự nhiên", "Well… · To be honest… · That's a great question…"],
+        ].map(([label, text]) => `
+          <div class="spk-connector-item">
+            <span class="spk-connector-label">${label}</span>
+            <span class="spk-connector-text">${text}</span>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+
+  const partsHtml = SPEAKING_TEMPLATES.map(tpl => {
+    const linesHtml = tpl.lines.map(line => `
+      <div class="tpl-line">
+        <div class="tpl-line-label">${line.label}</div>
+        <div class="tpl-line-text">${line.text}</div>
+      </div>
+    `).join("");
+
+    const exampleHtml = tpl.example ? `
+      <div class="spk-example">
+        <div class="spk-example-q">📌 ${tpl.example.q}</div>
+        <div class="spk-example-a">${tpl.example.a}</div>
+      </div>
+    ` : "";
+
+    return `
+      <div class="tpl-group">
+        <div class="tpl-group-header spk-header">
+          <div class="spk-part-badge">${tpl.part}</div>
+          <div>
+            <span class="tpl-group-title">${tpl.title}</span>
+            <span class="tpl-group-subtitle">${tpl.subtitle}</span>
+          </div>
+        </div>
+        ${tpl.tip ? `<div class="spk-tip">💡 ${tpl.tip}</div>` : ""}
+        <div class="tpl-group-body">
+          ${linesHtml}
+        </div>
+        ${exampleHtml}
+      </div>
+    `;
+  }).join("");
+
+  els.speakingView.innerHTML = `
+    <div class="spk-intro panel">
+      <p class="eyebrow">Speaking Templates</p>
+      <h2 style="margin:4px 0 6px;font-family:var(--font-display)">🗣 VSTEP Speaking</h2>
+      <p class="muted" style="margin:0">3 phần · ~12 phút · Thi trên máy tính, ghi âm qua micro</p>
+    </div>
+    ${partsHtml}
+    ${connectorsHtml}
+  `;
 }
 
 
@@ -935,6 +1053,7 @@ function render() {
     renderList(words);
   }
   renderQuiz();
+  renderSpeakingTemplate();
   switchView(state.view);
 }
 
