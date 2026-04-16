@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VSTEP Mindmap</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --ink: #1f1b18;
+      --muted: #6f655d;
+      --accent: #a34b2a;
+      --paper: rgba(255,252,246,0.96);
+      --font: "Be Vietnam Pro","SF Pro Text","Helvetica Neue","Segoe UI",sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: linear-gradient(180deg, #f8f3ea 0%, #efe7dc 100%);
+      color: var(--ink);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    #topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      background: var(--paper);
+      border-bottom: 1px solid rgba(53,37,28,0.12);
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    #topbar h1 { font-size: 16px; font-weight: 700; }
+    #topbar .muted { font-size: 13px; color: var(--muted); }
+    .back-btn {
+      text-decoration: none;
+      font-size: 13px;
+      padding: 5px 12px;
+      border: 1px solid rgba(53,37,28,0.2);
+      border-radius: 8px;
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .back-btn:hover { background: rgba(163,75,42,0.08); }
+    .filter-chips { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+    .chip {
+      font-size: 12px;
+      padding: 4px 10px;
+      border: 1px solid rgba(53,37,28,0.2);
+      border-radius: 20px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--font);
+      transition: all 0.15s;
+    }
+    .chip.active { background: var(--accent); color: white; border-color: transparent; }
+    #canvas-wrap {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      cursor: grab;
+    }
+    #canvas-wrap.dragging { cursor: grabbing; }
+    svg { width: 100%; height: 100%; }
+    .hint {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--paper);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(53,37,28,0.1);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    #tooltip {
+      position: absolute;
+      background: var(--paper);
+      border: 1px solid rgba(53,37,28,0.15);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 13px;
+      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(64,42,25,0.15);
+      max-width: 220px;
+      display: none;
+      z-index: 10;
+    }
+    #tooltip .t-en { font-weight: 700; margin-bottom: 2px; }
+    #tooltip .t-vi { color: var(--accent); }
+    #tooltip .t-meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<div id="topbar">
+  <a class="back-btn" href="index.html">← Trang chính</a>
+  <div>
+    <h1>🗺 VSTEP Mindmap</h1>
+    <div class="muted">Toàn bộ từ vựng theo chủ đề · Click chủ đề để mở rộng · Click từ để nghe</div>
+  </div>
+  <div class="filter-chips">
+    <button class="chip active" data-filter="all">Tất cả</button>
+    <button class="chip" data-filter="priority">Ưu tiên</button>
+    <button class="chip" data-filter="mastered">Đã thuộc</button>
+    <button class="chip" data-filter="favorites">Đánh dấu</button>
+  </div>
+</div>
+
+<div id="canvas-wrap">
+  <svg id="svg"></svg>
+  <div class="hint">Scroll để zoom · Kéo để di chuyển · Click chủ đề để mở/đóng từ</div>
+  <div id="tooltip">
+    <div class="t-en" id="tt-en"></div>
+    <div class="t-vi" id="tt-vi"></div>
+    <div class="t-meta" id="tt-meta"></div>
+  </div>
+</div>
+
+<script src="./vocab-data.js"></script>
+<script>
+const THEME_COLORS = [
+  "#a34b2a","#1d6b62","#9c6a10","#5b4fcf","#2d7a9a",
+  "#b54d6a","#3a7a3a","#7a4b2a","#4a6b9c","#8a5b2a",
+  "#2a7a6a","#9c4a5b","#6a7a2a","#4a4a9c","#7a2a6a",
+  "#2a5b7a","#9c7a2a","#4a9c4a","#7a2a2a","#2a7a9c",
+  "#9c2a9c","#5b9c2a","#2a4a7a"
+];
+
+const HIGH_VALUE = new Set([
+  "infrastructure","destination","public transport","reduce air pollution from vehicle emissions",
+  "high cost of living","economic hub","career opportunity","higher-paying job",
+  "essential services","constructive feedback","specialized knowledge","tuition fee",
+  "global warming","greenhouse gas emissions","biodiversity","climate change",
+  "environmental degradation","renewable energy","carbon emissions","deforestation",
+  "privacy concern","personal data","discrimination","raise awareness","promote equality"
+]);
+
+function scoreWord(word, themeId) {
+  if (themeId === "grammar" || themeId === "linking-words") return 10;
+  const text = word.en.toLowerCase();
+  let s = 0;
+  if (HIGH_VALUE.has(text)) s += 6;
+  if (word.type === "phrase") s += 2;
+  return s;
+}
+
+function getBand(score, themeId) {
+  if (themeId === "grammar") return "Grammar";
+  if (themeId === "linking-words") return "Linker";
+  if (score >= 8) return "Ưu tiên cao";
+  if (score >= 2) return "Rất nên học";
+  return "Cốt lõi";
+}
+
+const storage = {
+  get(key, fb) { try { const r = localStorage.getItem(key); return r ? JSON.parse(r) : fb; } catch { return fb; } }
+};
+const mastered = new Set(storage.get("vstep-mastered", []));
+const favorites = new Set(storage.get("vstep-favorites", []));
+
+function keyFor(word, themeId) { return `${themeId}::${word.en.toLowerCase()}`; }
+
+const allThemes = window.VSTEP_VOCAB || [];
+let currentFilter = "all";
+
+// ── SVG pan/zoom state ───────────────────────────────────────────────────────
+let vx = 0, vy = 0, vz = 1;
+let dragging = false, lastX = 0, lastY = 0;
+let expandedThemes = new Set();
+let hoveredWord = null;
+
+const svg = document.getElementById("svg");
+const wrap = document.getElementById("canvas-wrap");
+const tooltip = document.getElementById("tooltip");
+
+// ── Layout helpers ───────────────────────────────────────────────────────────
+const CX = 0, CY = 0, CR = 260; // center, theme ring radius
+const WORD_R_BASE = 120; // word ring radius from theme node
+
+function themePos(i, total) {
+  const angle = (2 * Math.PI * i / total) - Math.PI / 2;
+  return { x: CX + CR * Math.cos(angle), y: CY + CR * Math.sin(angle), angle };
+}
+
+function wordPos(themeX, themeY, themeAngle, i, total) {
+  // spread words in a fan away from center
+  const spread = Math.min(Math.PI * 0.9, total * 0.18);
+  const startAngle = themeAngle - spread / 2;
+  const step = total > 1 ? spread / (total - 1) : 0;
+  const angle = startAngle + step * i;
+  const r = WORD_R_BASE + Math.floor(i / 8) * 60;
+  return {
+    x: themeX + r * Math.cos(angle),
+    y: themeY + r * Math.sin(angle)
+  };
+}
+
+// ── SVG element helpers ──────────────────────────────────────────────────────
+function svgEl(tag, attrs) {
+  const el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+  return el;
+}
+
+function speak(text) {
+  if (!window.speechSynthesis) return;
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = "en-US"; utt.rate = 0.9;
+  if (window.speechSynthesis.speaking) {
+    window.speechSynthesis.cancel();
+    setTimeout(() => window.speechSynthesis.speak(utt), 250);
+  } else {
+    window.speechSynthesis.speak(utt);
+  }
+}
+
+// ── Main render ──────────────────────────────────────────────────────────────
+function getFilteredWords(theme) {
+  return theme.words.filter(w => {
+    const k = keyFor(w, theme.id);
+    const score = scoreWord(w, theme.id);
+    if (currentFilter === "priority") return score >= 2 || theme.id === "grammar" || theme.id === "linking-words";
+    if (currentFilter === "mastered") return mastered.has(k);
+    if (currentFilter === "favorites") return favorites.has(k);
+    return true;
+  });
+}
+
+function render() {
+  svg.innerHTML = "";
+  const g = svgEl("g", { id: "root" });
+  svg.appendChild(g);
+  applyTransform();
+
+  const total = allThemes.length;
+
+  // Center node
+  const centerG = svgEl("g", { cursor: "default" });
+  const cCircle = svgEl("circle", { cx: CX, cy: CY, r: 52, fill: "#1f1b18", opacity: "0.92" });
+  const cText1 = svgEl("text", { x: CX, y: CY - 8, "text-anchor": "middle", fill: "white", "font-size": "13", "font-weight": "700", "font-family": "inherit" });
+  cText1.textContent = "VSTEP";
+  const cText2 = svgEl("text", { x: CX, y: CY + 10, "text-anchor": "middle", fill: "rgba(255,255,255,0.7)", "font-size": "11", "font-family": "inherit" });
+  cText2.textContent = "Vocabulary";
+  const cText3 = svgEl("text", { x: CX, y: CY + 26, "text-anchor": "middle", fill: "rgba(255,255,255,0.5)", "font-size": "10", "font-family": "inherit" });
+  const totalWords = allThemes.reduce((s, t) => s + t.words.length, 0);
+  cText3.textContent = `${totalWords} từ`;
+  centerG.append(cCircle, cText1, cText2, cText3);
+  g.appendChild(centerG);
+
+  allThemes.forEach((theme, i) => {
+    const color = THEME_COLORS[i % THEME_COLORS.length];
+    const { x: tx, y: ty, angle } = themePos(i, total);
+    const words = getFilteredWords(theme);
+    const expanded = expandedThemes.has(theme.id);
+
+    // Line center → theme
+    const line = svgEl("line", {
+      x1: CX, y1: CY, x2: tx, y2: ty,
+      stroke: color, "stroke-width": "2", "stroke-opacity": "0.4"
+    });
+    g.insertBefore(line, centerG);
+
+    // Word nodes
+    if (expanded && words.length) {
+      words.forEach((word, wi) => {
+        const { x: wx, y: wy } = wordPos(tx, ty, angle, wi, words.length);
+        const score = scoreWord(word, theme.id);
+        const band = getBand(score, theme.id);
+        const k = keyFor(word, theme.id);
+        const isMastered = mastered.has(k);
+        const isFav = favorites.has(k);
+
+        const wLine = svgEl("line", {
+          x1: tx, y1: ty, x2: wx, y2: wy,
+          stroke: color, "stroke-width": "1", "stroke-opacity": "0.25"
+        });
+        g.insertBefore(wLine, centerG);
+
+        const wg = svgEl("g", { cursor: "pointer" });
+        const wr = score >= 8 ? 28 : score >= 2 ? 24 : 20;
+        const wCircle = svgEl("circle", {
+          cx: wx, cy: wy, r: wr,
+          fill: isMastered ? color : "rgba(255,252,246,0.95)",
+          stroke: color,
+          "stroke-width": score >= 8 ? "2.5" : "1.5",
+          opacity: isMastered ? "0.9" : "1"
+        });
+        const shortEn = word.en.length > 14 ? word.en.slice(0, 13) + "…" : word.en;
+        const wText = svgEl("text", {
+          x: wx, y: wy + 1,
+          "text-anchor": "middle",
+          "dominant-baseline": "middle",
+          fill: isMastered ? "white" : "#1f1b18",
+          "font-size": score >= 8 ? "9.5" : "8.5",
+          "font-weight": score >= 8 ? "700" : "400",
+          "font-family": "inherit",
+          "pointer-events": "none"
+        });
+        wText.textContent = shortEn;
+
+        if (isFav) {
+          const star = svgEl("text", {
+            x: wx + wr - 5, y: wy - wr + 5,
+            "text-anchor": "middle", "font-size": "9", "pointer-events": "none"
+          });
+          star.textContent = "★";
+          wg.appendChild(star);
+        }
+
+        wg.append(wCircle, wText);
+
+        wg.addEventListener("click", e => {
+          e.stopPropagation();
+          speak(word.en);
+        });
+        wg.addEventListener("mouseenter", e => {
+          showTooltip(e, word, band, isMastered, isFav);
+        });
+        wg.addEventListener("mousemove", e => moveTooltip(e));
+        wg.addEventListener("mouseleave", hideTooltip);
+        g.appendChild(wg);
+      });
+    }
+
+    // Theme node
+    const tg = svgEl("g", { cursor: "pointer" });
+    const tr = 38;
+    const tCircle = svgEl("circle", {
+      cx: tx, cy: ty, r: tr,
+      fill: expanded ? color : "rgba(255,252,246,0.95)",
+      stroke: color,
+      "stroke-width": "2.5"
+    });
+    const tIcon = svgEl("text", {
+      x: tx, y: ty - 8,
+      "text-anchor": "middle", "font-size": "16", "pointer-events": "none"
+    });
+    tIcon.textContent = theme.icon;
+    const tLabel = svgEl("text", {
+      x: tx, y: ty + 8,
+      "text-anchor": "middle",
+      fill: expanded ? "white" : "#1f1b18",
+      "font-size": "9", "font-weight": "700", "font-family": "inherit",
+      "pointer-events": "none"
+    });
+    const shortTitle = theme.viTitle.length > 12 ? theme.viTitle.slice(0, 11) + "…" : theme.viTitle;
+    tLabel.textContent = shortTitle;
+    const tCount = svgEl("text", {
+      x: tx, y: ty + 19,
+      "text-anchor": "middle",
+      fill: expanded ? "rgba(255,255,255,0.7)" : "#6f655d",
+      "font-size": "8", "font-family": "inherit",
+      "pointer-events": "none"
+    });
+    tCount.textContent = `${words.length} từ`;
+
+    tg.append(tCircle, tIcon, tLabel, tCount);
+    tg.addEventListener("click", e => {
+      e.stopPropagation();
+      if (expandedThemes.has(theme.id)) expandedThemes.delete(theme.id);
+      else expandedThemes.add(theme.id);
+      render();
+    });
+    g.appendChild(tg);
+  });
+}
+
+function applyTransform() {
+  const g = document.getElementById("root");
+  if (!g) return;
+  const w = wrap.clientWidth, h = wrap.clientHeight;
+  g.setAttribute("transform", `translate(${w/2 + vx}, ${h/2 + vy}) scale(${vz})`);
+}
+
+// ── Tooltip ──────────────────────────────────────────────────────────────────
+function showTooltip(e, word, band, isMastered, isFav) {
+  document.getElementById("tt-en").textContent = word.en;
+  document.getElementById("tt-vi").textContent = word.vi;
+  const meta = [word.type, band, isMastered ? "✓ Đã thuộc" : "", isFav ? "★ Đã lưu" : ""].filter(Boolean).join(" · ");
+  document.getElementById("tt-meta").textContent = meta;
+  tooltip.style.display = "block";
+  moveTooltip(e);
+}
+function moveTooltip(e) {
+  let x = e.clientX + 14, y = e.clientY + 14;
+  if (x + 230 > window.innerWidth) x = e.clientX - 230;
+  if (y + 100 > window.innerHeight) y = e.clientY - 90;
+  tooltip.style.left = x + "px";
+  tooltip.style.top = y + "px";
+}
+function hideTooltip() { tooltip.style.display = "none"; }
+
+// ── Pan ──────────────────────────────────────────────────────────────────────
+wrap.addEventListener("mousedown", e => {
+  if (e.button !== 0) return;
+  dragging = true; lastX = e.clientX; lastY = e.clientY;
+  wrap.classList.add("dragging");
+});
+window.addEventListener("mousemove", e => {
+  if (!dragging) return;
+  vx += e.clientX - lastX; vy += e.clientY - lastY;
+  lastX = e.clientX; lastY = e.clientY;
+  applyTransform();
+});
+window.addEventListener("mouseup", () => { dragging = false; wrap.classList.remove("dragging"); });
+
+// ── Zoom ─────────────────────────────────────────────────────────────────────
+wrap.addEventListener("wheel", e => {
+  e.preventDefault();
+  const delta = e.deltaY > 0 ? 0.9 : 1.1;
+  vz = Math.max(0.2, Math.min(3, vz * delta));
+  applyTransform();
+}, { passive: false });
+
+// ── Touch pan/zoom ────────────────────────────────────────────────────────────
+let lastTouchDist = null;
+wrap.addEventListener("touchstart", e => {
+  if (e.touches.length === 1) { lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; }
+  if (e.touches.length === 2) {
+    lastTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+  }
+}, { passive: true });
+wrap.addEventListener("touchmove", e => {
+  if (e.touches.length === 1) {
+    vx += e.touches[0].clientX - lastX; vy += e.touches[0].clientY - lastY;
+    lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+    applyTransform();
+  }
+  if (e.touches.length === 2 && lastTouchDist) {
+    const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+    vz = Math.max(0.2, Math.min(3, vz * (dist / lastTouchDist)));
+    lastTouchDist = dist;
+    applyTransform();
+  }
+}, { passive: true });
+
+// ── Filter chips ─────────────────────────────────────────────────────────────
+document.querySelectorAll(".chip").forEach(btn => {
+  btn.addEventListener("click", () => {
+    currentFilter = btn.dataset.filter;
+    document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c === btn));
+    render();
+  });
+});
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+window.addEventListener("resize", applyTransform);
+render();
+</script>
+</body>
+</html>
