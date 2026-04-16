@@ -823,7 +823,48 @@ function initMobileDrawer() {
   });
 }
 
+function exportData() {
+  const data = {
+    mastered: [...state.mastered],
+    favorites: [...state.favorites],
+    wrongCounts: state.wrongCounts,
+    quizMode: state.quizMode
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "vstep-progress.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function importData(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.mastered) state.mastered = new Set(data.mastered);
+      if (data.favorites) state.favorites = new Set(data.favorites);
+      if (data.wrongCounts) state.wrongCounts = data.wrongCounts;
+      if (data.quizMode) state.quizMode = data.quizMode;
+      persist();
+      render();
+      alert(`Nhập thành công! ${state.mastered.size} từ đã thuộc, ${state.favorites.size} từ đã lưu.`);
+    } catch {
+      alert("File không hợp lệ, vui lòng chọn file vstep-progress.json đúng định dạng.");
+    }
+  };
+  reader.readAsText(file);
+}
+
 function bindGlobalEvents() {
+  document.getElementById("exportBtn")?.addEventListener("click", exportData);
+  document.getElementById("importFile")?.addEventListener("change", e => {
+    if (e.target.files[0]) importData(e.target.files[0]);
+    e.target.value = "";
+  });
+
   els.searchInput.addEventListener("input", e => {
     state.search = e.target.value;
     render();
