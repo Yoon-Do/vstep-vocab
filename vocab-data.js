@@ -610,12 +610,6 @@ window.VSTEP_VOCAB = [
         "example": "Lifting weights at the gym is a great way to build muscle."
       },
       {
-        "en": "build muscles",
-        "vi": "xây dựng cơ bắp",
-        "type": "phrase",
-        "example": "Eating enough protein is important if you want to build muscles."
-      },
-      {
         "en": "cancer",
         "vi": "ung thư",
         "type": "noun",
@@ -2249,12 +2243,6 @@ window.VSTEP_VOCAB = [
         "vi": "Độ ẩm",
         "type": "noun",
         "example": "The humidity in Ho Chi Minh City is very high during the rainy season."
-      },
-      {
-        "en": "Look forward to",
-        "vi": "mong chờ",
-        "type": "phrase",
-        "example": "I always look forward to the weekend when I can relax with my family."
       },
       {
         "en": "Overcast",

@@ -102,6 +102,15 @@ const els = {
   viewSwitch: [...document.querySelectorAll(".view-switch .seg")]
 };
 
+function speak(text) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = "en-US";
+  utt.rate = 0.9;
+  window.speechSynthesis.speak(utt);
+}
+
 function keyFor(word) {
   return `${word.themeId}::${word.en.toLowerCase()}`;
 }
@@ -355,6 +364,13 @@ function bindWordActionButtons(root, words) {
       toggleFavorite(words[Number(btn.dataset.index)]);
     });
   });
+
+  root.querySelectorAll("[data-action='speak']").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      speak(btn.dataset.text);
+    });
+  });
 }
 
 function renderBadges(word) {
@@ -391,7 +407,7 @@ function renderCards(words) {
             <div>
               ${renderBadges(word)}
               ${booster ? `<span class="word-note">${word.themeId === "grammar" ? "Khung cần thuộc" : "Cụm nối cần nhớ"}</span>` : ""}
-              <p class="word-front">${word.en}</p>
+              <p class="word-front">${word.en} <button class="speak-btn" data-action="speak" data-text="${word.en.replace(/"/g, "&quot;")}">🔊</button></p>
               ${renderTagRow(word)}
               <div class="word-meta">${booster ? `Mục tiêu: dùng để hoàn thành câu và nối ý tự nhiên.` : `Loại từ: ${word.type} · Điểm ưu tiên: ${word.score}`}</div>
             </div>
@@ -483,7 +499,7 @@ function renderList(words) {
     return `
       <div class="list-row ${booster ? "study-list-row" : ""}">
         <div>
-          <div class="en">${word.en}</div>
+          <div class="en">${word.en} <button class="speak-btn" data-action="speak" data-text="${word.en.replace(/"/g, "&quot;")}">🔊</button></div>
           <div class="list-meta">
             <span class="theme-pill">${word.icon} ${word.themeViTitle}</span>
           </div>
@@ -634,7 +650,7 @@ function renderQuiz() {
       <div class="progress"><div class="progress-bar" style="width:${progress}%"></div></div>
 
       <p class="eyebrow">${modeHint}</p>
-      <div class="quiz-word">${promptWord}</div>
+      <div class="quiz-word">${promptWord}${(!isFill && !isViEn) ? ` <button class="speak-btn" data-action="speak" data-text="${current.word.en.replace(/"/g, "&quot;")}">🔊</button>` : ""}</div>
       <p class="quiz-hint">${current.word.bandLabel} · ${current.word.skillTags.join(" + ") || "Cốt lõi"}</p>
 
       ${isFill ? `
@@ -660,6 +676,11 @@ function renderQuiz() {
       </div>
     </div>
   `;
+
+  // Bind speak buttons in quiz
+  els.quizView.querySelectorAll("[data-action='speak']").forEach(btn => {
+    btn.addEventListener("click", e => { e.stopPropagation(); speak(btn.dataset.text); });
+  });
 
   // Mode tab switching — restart quiz with new mode
   els.quizView.querySelectorAll(".mode-tab").forEach(btn => {
