@@ -34,38 +34,26 @@
       border-radius: 8px;
       color: #1f1b18;
       background: transparent;
-      cursor: pointer;
       white-space: nowrap;
     }
     .back-btn:hover { background: rgba(163,75,42,0.08); }
     .filter-chips { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
     .chip {
-      font-size: 12px;
-      padding: 4px 10px;
+      font-size: 12px; padding: 4px 10px;
       border: 1px solid rgba(53,37,28,0.2);
-      border-radius: 20px;
-      cursor: pointer;
-      background: transparent;
-      color: #1f1b18;
-      font-family: inherit;
-      transition: all 0.15s;
+      border-radius: 20px; cursor: pointer;
+      background: transparent; color: #1f1b18;
+      font-family: inherit; transition: all 0.15s;
     }
     .chip.active { background: #a34b2a; color: white; border-color: transparent; }
     #mm-wrap { flex: 1; position: relative; }
     #mm-wrap svg { width: 100%; height: 100%; }
     .hint {
-      position: absolute;
-      bottom: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 12px;
-      color: #6f655d;
-      background: rgba(255,252,246,0.9);
-      padding: 4px 14px;
-      border-radius: 20px;
-      border: 1px solid rgba(53,37,28,0.1);
-      pointer-events: none;
-      white-space: nowrap;
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      font-size: 12px; color: #6f655d;
+      background: rgba(255,252,246,0.9); padding: 4px 14px;
+      border-radius: 20px; border: 1px solid rgba(53,37,28,0.1);
+      pointer-events: none; white-space: nowrap;
     }
   </style>
 </head>
@@ -75,7 +63,7 @@
   <a class="back-btn" href="index.html">← Trang chính</a>
   <div>
     <h1>🗺 VSTEP Mindmap</h1>
-    <div class="muted">Click node để mở rộng · Scroll zoom · Kéo di chuyển · Click từ để nghe phát âm</div>
+    <div class="muted">Click node để mở/đóng · Scroll zoom · Kéo di chuyển · Click từ để nghe</div>
   </div>
   <div class="filter-chips">
     <button class="chip active" data-filter="all">Tất cả</button>
@@ -90,174 +78,159 @@
   <div class="hint">Ctrl+Click để mở/đóng toàn bộ nhánh</div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.18.12/dist/browser/index.js"></script>
+<!-- markmap standalone bundle bao gồm cả transformer + view -->
+<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18.12"></script>
 <script src="./vocab-data.js"></script>
 <script>
-const { Markmap, loadCSS, loadJS } = window.markmap;
-const { Transformer } = window.markmap;
+window.addEventListener("load", function() {
+  const storage = {
+    get(key, fb) { try { const r = localStorage.getItem(key); return r ? JSON.parse(r) : fb; } catch { return fb; } }
+  };
+  const mastered = new Set(storage.get("vstep-mastered", []));
+  const favorites = new Set(storage.get("vstep-favorites", []));
 
-const storage = {
-  get(key, fb) { try { const r = localStorage.getItem(key); return r ? JSON.parse(r) : fb; } catch { return fb; } }
-};
-const mastered = new Set(storage.get("vstep-mastered", []));
-const favorites = new Set(storage.get("vstep-favorites", []));
+  function keyFor(w, id) { return `${id}::${w.en.toLowerCase()}`; }
 
-function keyFor(word, themeId) { return `${themeId}::${word.en.toLowerCase()}`; }
+  const HIGH_VALUE = new Set([
+    "infrastructure","destination","public transport","high cost of living","economic hub",
+    "career opportunity","constructive feedback","specialized knowledge","tuition fee",
+    "global warming","greenhouse gas emissions","biodiversity","climate change",
+    "environmental degradation","renewable energy","carbon emissions","deforestation",
+    "privacy concern","personal data","discrimination","raise awareness"
+  ]);
 
-const HIGH_VALUE = new Set([
-  "infrastructure","destination","public transport","high cost of living","economic hub",
-  "career opportunity","constructive feedback","specialized knowledge","tuition fee",
-  "global warming","greenhouse gas emissions","biodiversity","climate change",
-  "environmental degradation","renewable energy","carbon emissions","deforestation",
-  "privacy concern","personal data","discrimination","raise awareness"
-]);
+  function score(w, id) {
+    if (["grammar","linking-words"].includes(id)) return 10;
+    let s = 0;
+    if (HIGH_VALUE.has(w.en.toLowerCase())) s += 6;
+    if (w.type === "phrase") s += 2;
+    return s;
+  }
 
-function scoreWord(word, themeId) {
-  if (["grammar","linking-words"].includes(themeId)) return 10;
-  const text = word.en.toLowerCase();
-  let s = 0;
-  if (HIGH_VALUE.has(text)) s += 6;
-  if (word.type === "phrase") s += 2;
-  return s;
-}
+  let currentFilter = "all";
+  let mm = null;
 
-let currentFilter = "all";
-let mm = null;
+  function filtered(theme) {
+    return theme.words.filter(w => {
+      const k = keyFor(w, theme.id);
+      const s = score(w, theme.id);
+      if (currentFilter === "priority") return s >= 2 || ["grammar","linking-words"].includes(theme.id);
+      if (currentFilter === "mastered") return mastered.has(k);
+      if (currentFilter === "favorites") return favorites.has(k);
+      return true;
+    });
+  }
 
-function getFilteredWords(theme) {
-  return theme.words.filter(w => {
-    const k = keyFor(w, theme.id);
-    const score = scoreWord(w, theme.id);
-    if (currentFilter === "priority") return score >= 2 || ["grammar","linking-words"].includes(theme.id);
-    if (currentFilter === "mastered") return mastered.has(k);
-    if (currentFilter === "favorites") return favorites.has(k);
-    return true;
-  });
-}
+  function buildMd() {
+    const allThemes = window.VSTEP_VOCAB || [];
+    let md = "# 📚 VSTEP Vocabulary\n\n";
+    const groups = [
+      { label: "✍️ Writing & Grammar", ids: ["grammar","linking-words","phrasal-verbs","writing-task1","writing-task2"] },
+      { label: "🌍 Xã hội & Môi trường",  ids: ["environment","community","city","countryside"] },
+      { label: "📖 Học tập & Công việc",   ids: ["education","technology","work","foreign-language"] },
+      { label: "🏃 Sức khỏe & Thể thao",  ids: ["health","sports","food","hobbies"] },
+      { label: "🌏 Du lịch & Cuộc sống",  ids: ["transport","travel","accommodation","weather","people","art"] },
+    ];
+    const usedIds = new Set(groups.flatMap(g => g.ids));
+    const otherIds = allThemes.map(t => t.id).filter(id => !usedIds.has(id));
+    if (otherIds.length) groups.push({ label: "📦 Khác", ids: otherIds });
 
-function buildMarkdown() {
-  const allThemes = window.VSTEP_VOCAB || [];
-  let md = "# 📚 VSTEP Vocabulary\n\n";
-
-  const groups = [
-    { label: "✍️ Writing & Grammar", ids: ["grammar","linking-words","phrasal-verbs","writing-task1","writing-task2"] },
-    { label: "🌍 Xã hội & Môi trường", ids: ["environment","community","city","countryside"] },
-    { label: "📖 Học tập & Công việc", ids: ["education","technology","work","foreign-language"] },
-    { label: "🏃 Sức khỏe & Thể thao", ids: ["health","sports","food","hobbies"] },
-    { label: "🌏 Du lịch & Cuộc sống", ids: ["transport","travel","accommodation","weather","people","art"] },
-  ];
-
-  const allIds = allThemes.map(t => t.id);
-  const usedIds = new Set(groups.flatMap(g => g.ids));
-  const otherIds = allIds.filter(id => !usedIds.has(id));
-  if (otherIds.length) groups.push({ label: "📦 Khác", ids: otherIds });
-
-  for (const group of groups) {
-    const themes = group.ids.map(id => allThemes.find(t => t.id === id)).filter(Boolean);
-    if (!themes.length) continue;
-    md += `## ${group.label}\n\n`;
-
-    for (const theme of themes) {
-      const words = getFilteredWords(theme);
-      if (!words.length) continue;
-      md += `### ${theme.icon} ${theme.viTitle} (${words.length})\n\n`;
-
-      const high = words.filter(w => scoreWord(w, theme.id) >= 6);
-      const mid  = words.filter(w => { const s = scoreWord(w, theme.id); return s >= 2 && s < 6; });
-      const low  = words.filter(w => scoreWord(w, theme.id) < 2);
-
-      if (high.length) {
-        md += `#### ⭐ Ưu tiên cao\n\n`;
-        high.forEach(w => {
-          const k = keyFor(w, theme.id);
-          const flag = mastered.has(k) ? " ✓" : favorites.has(k) ? " ★" : "";
-          md += `- **${w.en}**${flag} — ${w.vi}\n`;
-        });
-        md += "\n";
-      }
-      if (mid.length) {
-        md += `#### 💡 Nên học\n\n`;
-        mid.forEach(w => {
-          const k = keyFor(w, theme.id);
-          const flag = mastered.has(k) ? " ✓" : favorites.has(k) ? " ★" : "";
-          md += `- ${w.en}${flag} — ${w.vi}\n`;
-        });
-        md += "\n";
-      }
-      if (low.length) {
-        md += `#### 📝 Cốt lõi\n\n`;
-        low.forEach(w => {
-          const k = keyFor(w, theme.id);
-          const flag = mastered.has(k) ? " ✓" : favorites.has(k) ? " ★" : "";
-          md += `- ${w.en}${flag} — ${w.vi}\n`;
-        });
-        md += "\n";
+    for (const group of groups) {
+      const themes = group.ids.map(id => allThemes.find(t => t.id === id)).filter(Boolean);
+      if (!themes.length) continue;
+      md += `## ${group.label}\n\n`;
+      for (const theme of themes) {
+        const words = filtered(theme);
+        if (!words.length) continue;
+        md += `### ${theme.icon} ${theme.viTitle} (${words.length})\n\n`;
+        const high = words.filter(w => score(w, theme.id) >= 6);
+        const mid  = words.filter(w => { const s = score(w, theme.id); return s >= 2 && s < 6; });
+        const low  = words.filter(w => score(w, theme.id) < 2);
+        if (high.length) {
+          md += `#### ⭐ Ưu tiên cao\n\n`;
+          high.forEach(w => {
+            const f = mastered.has(keyFor(w,theme.id)) ? " ✓" : favorites.has(keyFor(w,theme.id)) ? " ★" : "";
+            md += `- **${w.en}**${f} — ${w.vi}\n`;
+          });
+          md += "\n";
+        }
+        if (mid.length) {
+          md += `#### 💡 Nên học\n\n`;
+          mid.forEach(w => {
+            const f = mastered.has(keyFor(w,theme.id)) ? " ✓" : favorites.has(keyFor(w,theme.id)) ? " ★" : "";
+            md += `- ${w.en}${f} — ${w.vi}\n`;
+          });
+          md += "\n";
+        }
+        if (low.length) {
+          md += `#### 📝 Cốt lõi\n\n`;
+          low.forEach(w => {
+            const f = mastered.has(keyFor(w,theme.id)) ? " ✓" : favorites.has(keyFor(w,theme.id)) ? " ★" : "";
+            md += `- ${w.en}${f} — ${w.vi}\n`;
+          });
+          md += "\n";
+        }
       }
     }
+    return md;
   }
-  return md;
-}
 
-function speak(text) {
-  if (!window.speechSynthesis) return;
-  const utt = new SpeechSynthesisUtterance(text);
-  utt.lang = "en-US"; utt.rate = 0.9;
-  if (window.speechSynthesis.speaking) {
-    window.speechSynthesis.cancel();
-    setTimeout(() => window.speechSynthesis.speak(utt), 250);
-  } else {
-    window.speechSynthesis.speak(utt);
+  function speak(text) {
+    if (!window.speechSynthesis) return;
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.lang = "en-US"; utt.rate = 0.9;
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+      setTimeout(() => window.speechSynthesis.speak(utt), 250);
+    } else {
+      window.speechSynthesis.speak(utt);
+    }
   }
-}
 
-function bindSpeakOnClick() {
-  document.getElementById("markmap").addEventListener("click", e => {
-    const text = e.target.closest("text");
-    if (!text) return;
-    const content = text.textContent || "";
-    const match = content.match(/^[*\s]*([\w\s'',\-\/]+?)\s*[✓★]?\s*—/);
-    if (match) speak(match[1].trim().replace(/\*+/g, ""));
+  function renderMarkmap() {
+    const { Transformer, Markmap, loadCSS, loadJS } = window.markmap;
+    const transformer = new Transformer();
+    const { root, features } = transformer.transform(buildMd());
+    const { styles, scripts } = transformer.getUsedAssets(features);
+    if (styles) loadCSS(styles);
+    if (scripts) loadJS(scripts, { getMarkmap: () => window.markmap });
+
+    const svg = document.getElementById("markmap");
+    if (mm) {
+      mm.setData(root);
+      mm.fit();
+    } else {
+      mm = Markmap.create(svg, {
+        colorFreezeLevel: 2,
+        duration: 400,
+        maxWidth: 300,
+        spacingVertical: 8,
+        spacingHorizontal: 60,
+        paddingX: 12,
+        zoom: true,
+        pan: true,
+      }, root);
+
+      svg.addEventListener("click", e => {
+        const el = e.target.closest("text");
+        if (!el) return;
+        const content = el.textContent || "";
+        const match = content.match(/^[*\s]*([\w\s'',\-\/]+?)\s*[✓★]?\s*—/);
+        if (match) speak(match[1].trim().replace(/\*+/g, ""));
+      });
+    }
+  }
+
+  document.querySelectorAll(".chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentFilter = btn.dataset.filter;
+      document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c === btn));
+      renderMarkmap();
+    });
   });
-}
 
-function renderMarkmap() {
-  const transformer = new Transformer();
-  const md = buildMarkdown();
-  const { root, features } = transformer.transform(md);
-  const { styles, scripts } = transformer.getUsedAssets(features);
-  if (styles) loadCSS(styles);
-  if (scripts) loadJS(scripts, { getMarkmap: () => window.markmap });
-
-  const svg = document.getElementById("markmap");
-  if (mm) {
-    mm.setData(root);
-    mm.fit();
-  } else {
-    mm = Markmap.create(svg, {
-      colorFreezeLevel: 2,
-      duration: 400,
-      maxWidth: 300,
-      spacingVertical: 8,
-      spacingHorizontal: 60,
-      paddingX: 12,
-      zoom: true,
-      pan: true,
-    }, root);
-    bindSpeakOnClick();
-  }
-}
-
-document.querySelectorAll(".chip").forEach(btn => {
-  btn.addEventListener("click", () => {
-    currentFilter = btn.dataset.filter;
-    document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c === btn));
-    renderMarkmap();
-  });
+  renderMarkmap();
 });
-
-renderMarkmap();
 </script>
 </body>
 </html>
