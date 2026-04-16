@@ -104,13 +104,15 @@ const els = {
 
 function speak(text) {
   if (!window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-  setTimeout(() => {
-    const utt = new SpeechSynthesisUtterance(text);
-    utt.lang = "en-US";
-    utt.rate = 0.9;
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = "en-US";
+  utt.rate = 0.9;
+  if (window.speechSynthesis.speaking) {
+    window.speechSynthesis.cancel();
+    setTimeout(() => window.speechSynthesis.speak(utt), 250);
+  } else {
     window.speechSynthesis.speak(utt);
-  }, 100);
+  }
 }
 
 function keyFor(word) {
