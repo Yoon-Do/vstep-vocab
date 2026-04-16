@@ -204,12 +204,14 @@ window.addEventListener("load", function() {
         colorFreezeLevel: 2,
         duration: 400,
         maxWidth: 300,
+        initialExpandLevel: 2,
         spacingVertical: 8,
         spacingHorizontal: 60,
         paddingX: 12,
         zoom: true,
         pan: true,
       }, root);
+      setTimeout(() => mm.fit(), 500);
 
       svg.addEventListener("click", e => {
         const el = e.target.closest("text");
