@@ -274,19 +274,30 @@ function switchView(nextView) {
 }
 
 function renderThemes() {
+  const speakingActive = state.view === "speaking" ? "active" : "";
+  const speakingBtn = `
+    <button class="theme-btn ${speakingActive}" id="speakingNavBtn">
+      <div class="theme-title">🗣 Speaking</div>
+      <div class="theme-meta">Speaking Templates · 3 phần · ~12 phút</div>
+    </button>
+  `;
+
   els.themeList.innerHTML = allThemes.map(theme => {
-    const active = theme.id === state.activeTheme ? "active" : "";
+    const active = (theme.id === state.activeTheme && state.view !== "speaking") ? "active" : "";
     const enriched = withThemeWords(theme);
     const high = enriched.filter(item => item.priority || item.score >= 5).length;
-    return `
+    const btn = `
       <button class="theme-btn ${active}" data-theme="${theme.id}">
         <div class="theme-title">${theme.icon} ${theme.viTitle}</div>
         <div class="theme-meta">${theme.title} · ${theme.words.length} từ · ${high} từ mạnh</div>
       </button>
     `;
+    // Inject Speaking tab after writing-task2
+    if (theme.id === "writing-task2") return btn + speakingBtn;
+    return btn;
   }).join("");
 
-  els.themeList.querySelectorAll(".theme-btn").forEach(btn => {
+  els.themeList.querySelectorAll(".theme-btn[data-theme]").forEach(btn => {
     btn.addEventListener("click", () => {
       state.activeTheme = btn.dataset.theme;
       if (isListOnlyTheme(state.activeTheme)) state.view = "list";
@@ -294,6 +305,14 @@ function renderThemes() {
       render();
     });
   });
+
+  const speakingNavBtn = document.getElementById("speakingNavBtn");
+  if (speakingNavBtn) {
+    speakingNavBtn.addEventListener("click", () => {
+      switchView("speaking");
+      render();
+    });
+  }
 
   // Update mobile topbar label
   const activeTh = getThemeById(state.activeTheme);
@@ -492,6 +511,109 @@ function renderWritingTemplate(words) {
   }).join("");
 }
 
+const REAL_EXAM_SETS = [
+  {
+    id: 1,
+    label: "ĐH Ngoại ngữ ĐHQGHN · 18/08/2024",
+    part1: [
+      { topic: "Advertisements", questions: ["Have you ever bought something because of an ad?", "Which do you prefer: TV ads or internet ads?", "What kind of ads do you dislike?"] },
+      { topic: "Dictionary", questions: ["Have you ever used a dictionary?", "Do you prefer paper or electronic dictionaries?", "How does a dictionary help you learn English?"] },
+    ],
+    part2: { situation: "What is the best way to spend your free time?", options: ["Chat with friends", "Read books", "Do exercises"] },
+    part3: { topic: "Benefits of online shopping", ideas: ["Time-saving", "Widely available", "Competitive prices"] },
+  },
+  {
+    id: 2,
+    label: "ĐH Cần Thơ · 23/02/2024",
+    part1: [
+      { topic: "Childhood", questions: ["Did you like your childhood?", "What did you usually do?", "Did you have many friends?"] },
+      { topic: "Airplane", questions: ["Do you travel by plane often?", "What do you like about flying?", "What do you dislike about flying?"] },
+    ],
+    part2: { situation: "What would you donate to children in mountainous areas?", options: ["Money", "Clothes", "School supplies"] },
+    part3: { topic: "Advantages of traveling by plane", ideas: ["Convenient", "Comfortable", "Fast"] },
+  },
+  {
+    id: 3,
+    label: "HV Báo chí & Tuyên truyền · 16–17/01/2024",
+    part1: [
+      { topic: "Meals", questions: ["What is your favorite meal of the day?", "Do you prefer eating at home?", "Why do you prefer eating at home or outside?"] },
+      { topic: "Emergency services", questions: ["Is the ambulance service effective in your area?", "What problems exist with emergency services?", "How could it be improved?"] },
+    ],
+    part2: { situation: "Who would you prefer to spend the weekend with?", options: ["Family", "Friends", "Alone"] },
+    part3: { topic: "Advantages of traveling", ideas: ["Making new friends", "Relaxation", "New experiences"] },
+  },
+  {
+    id: 4,
+    label: "ĐH Sư phạm HCM · 19/04/2025",
+    part1: [
+      { topic: "Social events", questions: ["How often do you attend social events?", "What is your favorite type of social event?", "Do you prefer small or large gatherings?"] },
+      { topic: "Cooking", questions: ["How often do you cook at home?", "What is your favorite dish to cook?", "When did you learn to cook?"] },
+    ],
+    part2: { situation: "How would you plan a short family trip?", options: ["Plan everything yourself", "Hire a travel agency", "Ask a friend who's been there"] },
+    part3: { topic: "Benefits of playing team sports", ideas: ["Teamwork skills", "Physical fitness", "Social bonds"] },
+  },
+  {
+    id: 5,
+    label: "ĐH Hà Nội · 24/04/2025",
+    part1: [
+      { topic: "Study", questions: ["What are your study habits?", "What is your favorite subject?", "Do you prefer studying alone or in groups?"] },
+      { topic: "Work", questions: ["What is your current job?", "What is your dream job?", "How do you balance work and life?"] },
+    ],
+    part2: { situation: "Which school would you choose for a 6-year-old starting Grade 1?", options: ["Public school", "Private school", "International school"] },
+    part3: { topic: "Benefits of investing in art", ideas: ["Cultural enrichment", "Economic value", "Creative development"] },
+  },
+  {
+    id: 6,
+    label: "ĐH Cần Thơ · 20/04/2025",
+    part1: [
+      { topic: "Days of the week", questions: ["What is your favorite day of the week?", "What is your least favorite day?", "Why?"] },
+      { topic: "Numbers", questions: ["Do you have a favorite number?", "Why is that your favorite number?", "What number do most people like and why?"] },
+    ],
+    part2: { situation: "Where would you prefer to buy clothes?", options: ["Shopping mall", "Online", "Open-air market"] },
+    part3: { topic: "How to make a good first impression at a job interview", ideas: ["Appearance & dress code", "Body language", "Communication skills"] },
+  },
+  {
+    id: 7,
+    label: "ĐH Ngoại ngữ ĐHQGHN · 21/05/2025",
+    part1: [
+      { topic: "Meals", questions: ["What is the most important meal of the day?", "Why is it the most important?", "Who do you usually eat with?"] },
+      { topic: "Happiness", questions: ["What makes you happy?", "How do you maintain a positive mood?", "Do you think happiness depends on money?"] },
+    ],
+    part2: { situation: "Which Asian restaurant would you choose to try with friends?", options: ["Japanese", "Thai", "Chinese"] },
+    part3: { topic: "Children's obesity", ideas: ["Unhealthy meals", "Impact on physical health", "Stress and mental health"] },
+  },
+  {
+    id: 8,
+    label: "ĐH Ngân Hàng · 23/05/2025",
+    part1: [
+      { topic: "Daily routine", questions: ["What does your typical day look like?", "What are your morning habits?", "What do you do after work or school?"] },
+      { topic: "Hobbies", questions: ["What are your hobbies?", "How much time do you spend on them?", "How did you first get interested?"] },
+    ],
+    part2: { situation: "How should your group travel together on a trip?", options: ["Train", "Plane", "Coach (xe khách)"] },
+    part3: { topic: "Benefits of AI in modern life", ideas: ["Improving exercise & health", "Enhancing learning", "Supporting teaching"] },
+  },
+  {
+    id: 9,
+    label: "ĐH Cần Thơ · 10/06/2025",
+    part1: [
+      { topic: "Happiness", questions: ["What things bring you happiness?", "How do you maintain happiness in daily life?", "Does happiness depend on others?"] },
+      { topic: "Health", questions: ["How do you keep yourself healthy?", "What are common health problems today?", "What advice would you give?"] },
+    ],
+    part2: { situation: "Which destination would you choose for a vacation?", options: ["Ancient town", "Coastal area", "Mountainous area"] },
+    part3: { topic: "Why women can be good leaders", ideas: ["Emotional intelligence", "Multitasking ability", "Collaborative leadership"] },
+  },
+  {
+    id: 10,
+    label: "ĐH Hà Nội · 24/06/2025",
+    part1: [
+      { topic: "Daily routine", questions: ["What is your morning routine?", "What productive habits do you have?", "What do you do before bed?"] },
+      { topic: "Free time", questions: ["What do you usually do in your free time?", "Do you prefer spending it alone or with others?", "Why?"] },
+    ],
+    part2: { situation: "How would you travel from Hanoi to Ho Chi Minh City?", options: ["Train", "Coach", "Plane"] },
+    part3: { topic: "Benefits of AI in daily life", ideas: ["Health & exercise tracking", "Personalized learning", "AI-assisted teaching"] },
+  },
+];
+
 const SPEAKING_TEMPLATES = [
   {
     part: "Part 1",
@@ -597,6 +719,51 @@ function renderSpeakingTemplate() {
     `;
   }).join("");
 
+  const examSetsHtml = `
+    <div class="spk-exams-header panel" style="margin-top:24px">
+      <p class="eyebrow">Đề Thi Thật</p>
+      <h2 style="margin:4px 0 6px;font-family:var(--font-display)">📋 10 Đề Thi Thật Chọn Lọc</h2>
+      <p class="muted" style="margin:0">2024–2025 · Đa dạng trường · Bấm giờ: P1=3' · P2=4' · P3=5'</p>
+    </div>
+    ${REAL_EXAM_SETS.map(ex => `
+      <div class="tpl-group spk-exam-set">
+        <div class="tpl-group-header spk-header">
+          <div class="spk-part-badge">Đề ${ex.id}</div>
+          <div>
+            <span class="tpl-group-title">${ex.label}</span>
+          </div>
+        </div>
+        <div class="tpl-group-body">
+          <div class="tpl-line">
+            <div class="tpl-line-label">Part 1</div>
+            <div class="tpl-line-text">
+              ${ex.part1.map(t => `
+                <div style="margin-bottom:6px">
+                  <strong>${t.topic}:</strong><br>
+                  ${t.questions.map((q, i) => `Q${i+1}: ${q}`).join(" &nbsp;·&nbsp; ")}
+                </div>
+              `).join("")}
+            </div>
+          </div>
+          <div class="tpl-line">
+            <div class="tpl-line-label">Part 2</div>
+            <div class="tpl-line-text">
+              <em>${ex.part2.situation}</em><br>
+              <span style="opacity:.8">① ${ex.part2.options[0]} &nbsp;|&nbsp; ② ${ex.part2.options[1]} &nbsp;|&nbsp; ③ ${ex.part2.options[2]}</span>
+            </div>
+          </div>
+          <div class="tpl-line">
+            <div class="tpl-line-label">Part 3</div>
+            <div class="tpl-line-text">
+              <strong>${ex.part3.topic}</strong><br>
+              <span style="opacity:.8">${ex.part3.ideas.join(" · ")}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join("")}
+  `;
+
   els.speakingView.innerHTML = `
     <div class="spk-intro panel">
       <p class="eyebrow">Speaking Templates</p>
@@ -605,6 +772,7 @@ function renderSpeakingTemplate() {
     </div>
     ${partsHtml}
     ${connectorsHtml}
+    ${examSetsHtml}
   `;
 }
 
