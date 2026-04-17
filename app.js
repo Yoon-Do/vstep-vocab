@@ -95,6 +95,7 @@ const els = {
   listView: document.getElementById("listView"),
   quizView: document.getElementById("quizView"),
   speakingView: document.getElementById("speakingView"),
+  writingView: document.getElementById("writingView"),
   summaryBar: document.getElementById("summaryBar"),
   searchInput: document.getElementById("searchInput"),
   shuffleBtn: document.getElementById("shuffleBtn"),
@@ -249,7 +250,7 @@ function persist() {
 
 function switchView(nextView) {
   const theme = getThemeById(state.activeTheme);
-  const forcedView = (isListOnlyTheme(theme) && nextView !== "speaking") ? "list" : nextView;
+  const forcedView = (isListOnlyTheme(theme) && nextView !== "speaking" && nextView !== "writing") ? "list" : nextView;
   state.view = forcedView;
 
   els.viewSwitch.forEach(btn => {
@@ -271,6 +272,7 @@ function switchView(nextView) {
   els.listView.classList.toggle("hidden", forcedView !== "list");
   els.quizView.classList.toggle("hidden", forcedView !== "quiz");
   els.speakingView.classList.toggle("hidden", forcedView !== "speaking");
+  els.writingView.classList.toggle("hidden", forcedView !== "writing");
 }
 
 function renderThemes() {
@@ -279,6 +281,13 @@ function renderThemes() {
     <button class="theme-btn ${speakingActive}" id="speakingNavBtn">
       <div class="theme-title">🗣 Speaking</div>
       <div class="theme-meta">Speaking Templates · 3 phần · ~12 phút</div>
+    </button>
+  `;
+  const writingActive = state.view === "writing" ? "active" : "";
+  const writingNavBtn = `
+    <button class="theme-btn ${writingActive}" id="writingNavBtn">
+      <div class="theme-title">✍️ Writing</div>
+      <div class="theme-meta">10 đề thật · Task 1 + Task 2 · 60 phút</div>
     </button>
   `;
 
@@ -292,8 +301,8 @@ function renderThemes() {
         <div class="theme-meta">${theme.title} · ${theme.words.length} từ · ${high} từ mạnh</div>
       </button>
     `;
-    // Inject Speaking tab after writing-task2
-    if (theme.id === "writing-task2") return btn + speakingBtn;
+    // Inject Speaking tab after writing-task2, then Writing tab after Speaking
+    if (theme.id === "writing-task2") return btn + speakingBtn + writingNavBtn;
     return btn;
   }).join("");
 
@@ -311,6 +320,15 @@ function renderThemes() {
     speakingNavBtn.addEventListener("click", () => {
       switchView("speaking");
       render();
+    });
+  }
+
+  const writingNavBtnEl = document.getElementById("writingNavBtn");
+  if (writingNavBtnEl) {
+    writingNavBtnEl.addEventListener("click", () => {
+      switchView("writing");
+      renderWritingTab();
+      renderThemes();
     });
   }
 
@@ -613,6 +631,234 @@ const REAL_EXAM_SETS = [
     part3: { topic: "Benefits of AI in daily life", ideas: ["Health & exercise tracking", "Personalized learning", "AI-assisted teaching"] },
   },
 ];
+
+// ─── WRITING EXAM DATA ───────────────────────────────────────────────────────
+
+const WRITING_EXAM_SETS = [
+  {
+    id: 1,
+    label: "HV Báo chí & Tuyên truyền · 16–17/01/2024",
+    task1: {
+      type: "Formal",
+      prompt: `You are a regular customer at the local sports center. The manager, Mr. Robert Smith, emailed asking: why you chose the center, whether you're satisfied with the facilities, what you're unhappy with, and what new services you'd like to see.\n→ Write a formal email responding to Mr. Smith. (~120 words)`,
+    },
+    task2: {
+      topic: "🚇 Giao thông đô thị",
+      type: "Opinion / Problem–Solution",
+      prompt: `One way to solve the problem of congestion in cities is to build sky trains which run overhead rather than on or under the ground. Discuss the extent to which you agree or disagree with this solution. What other solutions can you suggest?`,
+    },
+  },
+  {
+    id: 2,
+    label: "ĐH Cần Thơ · 23/02/2024",
+    task1: {
+      type: "Formal",
+      prompt: `You received an email from a center manager. He missed your call and understands you are unsatisfied with your current course and want to change. He asks: what course you're studying and why you're unsatisfied.\n→ Write a formal email responding to the manager. (~120 words)`,
+    },
+    task2: {
+      topic: "📰 Báo in vs Internet",
+      type: "Opinion Essay",
+      prompt: `With the rising popularity of the Internet, many people now prefer online resources over printed newspapers, magazines and books. People wonder whether traditional printed media will survive. Write an essay to express your opinion on the future of printed media.`,
+    },
+  },
+  {
+    id: 3,
+    label: "ĐH KHXH&NV · 12/03/2024",
+    task1: {
+      type: "Informal",
+      prompt: `Write a letter to your friend Helen asking about her piano class schedule. Give her suggestions on how to practice and share motivations to inspire her learning journey. (~120 words)`,
+    },
+    task2: {
+      topic: "🌍 Chảy máu chất xám",
+      type: "Causes–Solutions",
+      prompt: `A growing number of professionals, including doctors and teachers, are leaving their own poorer countries to work in developed countries. What are the reasons behind this trend? What solutions can be proposed to address this issue?`,
+    },
+  },
+  {
+    id: 4,
+    label: "ĐH Văn Lang · 12/04/2025",
+    task1: {
+      type: "Informal",
+      prompt: `Write a letter to a friend who is about to take a gap year before university. Give advice on what they should prepare during that year. (~120 words)`,
+    },
+    task2: {
+      topic: "📱 Mạng xã hội",
+      type: "Causes–Effects",
+      prompt: `In recent years, social media platforms such as Facebook, TikTok, and Instagram have become increasingly popular. Many people share their personal lives online. However, some argue that seeing the idealized lives of others on social media can make them feel worse about themselves. Do you agree or disagree that viewing others' seemingly perfect lives online negatively affects self-esteem? Give reasons and examples to support your view.`,
+    },
+  },
+  {
+    id: 5,
+    label: "ĐH Ngoại ngữ ĐH Đà Nẵng · 14–15/08/2024",
+    task1: {
+      type: "Informal",
+      prompt: `Your pen-friend Lisa is preparing for a language test in 2 months. Her weakest skill is Listening. She asks: how to improve listening, and how to stay calm during the test.\n→ Write an email replying to Lisa. (~120 words)`,
+    },
+    task2: {
+      topic: "🎬 Nổi tiếng – Pros & Cons",
+      type: "Advantages–Disadvantages",
+      prompt: `Being famous brings many rewards, but it also comes with significant drawbacks. What are the advantages and disadvantages of being famous? Do the advantages outweigh the disadvantages? Give reasons and examples to support your answer.`,
+    },
+  },
+  {
+    id: 6,
+    label: "ĐH Cần Thơ · 18/04/2025",
+    task1: {
+      type: "Informal",
+      prompt: `Write a letter to Ms. Kim asking for advice: between piano and guitar, which should you learn? Should you learn alone or in a group? Ask for tips to learn an instrument faster. (~120 words)`,
+    },
+    task2: {
+      topic: "👨‍👩‍👧 Gia đình hạt nhân",
+      type: "Advantages–Disadvantages",
+      prompt: `A nuclear family (parents and children only, without extended relatives) is becoming the most common family structure in modern society. Discuss the advantages and disadvantages of living in a nuclear family. Give your own opinion.`,
+    },
+  },
+  {
+    id: 7,
+    label: "ĐH Cần Thơ · 20/04/2025",
+    task1: {
+      type: "Informal",
+      prompt: `Write a letter to a friend giving advice on managing time effectively: how to organize a study schedule, how to meet deadlines, and whether they should join clubs to improve soft skills. (~120 words)`,
+    },
+    task2: {
+      topic: "🌐 Học ngoại ngữ",
+      type: "Causes–Solutions",
+      prompt: `Foreign language education is increasingly important in today's world. However, many students still struggle to achieve proficiency. Discuss the causes of poor foreign language learning outcomes and propose solutions to promote more effective foreign language education.`,
+    },
+  },
+  {
+    id: 8,
+    label: "ĐH Bách Khoa Hà Nội · 05/04/2025",
+    task1: {
+      type: "Informal",
+      prompt: `Write a letter to a friend giving advice on organizing outdoor activities for a class of students aged 12–16. Should you prepare meals for the students? Should students record a video or write a reflection after the trip? (~120 words)`,
+    },
+    task2: {
+      topic: "🎮 Trò chơi điện tử & Trẻ em",
+      type: "Causes–Solutions",
+      prompt: `The use of video games among children and teenagers is becoming increasingly widespread. While some argue that games can be educational and entertaining, others believe they have serious negative impacts on children's development. Discuss the negative effects of video games on children and suggest measures to limit these impacts.`,
+    },
+  },
+  {
+    id: 9,
+    label: "ĐH Ngân Hàng · 23/05/2025",
+    task1: {
+      type: "Informal",
+      prompt: `A friend is about to move to a new house. Write a letter sharing practical tips for moving and recommending a suitable moving service. (~120 words)`,
+    },
+    task2: {
+      topic: "⚡ Năng lượng thay thế",
+      type: "Opinion Essay",
+      prompt: `Fossil fuels are running out and becoming increasingly expensive. Many experts propose switching to alternative energy sources such as solar, wind, and hydropower. Discuss whether this transition to alternative energy is truly a positive development. Give your opinion with reasons and examples.`,
+    },
+  },
+  {
+    id: 10,
+    label: "ĐH Cần Thơ · 11/06/2025",
+    task1: {
+      type: "Informal",
+      prompt: `Write a letter to your friend Jane about a traditional festival in your country: where it is held, when it takes place, what happens during the festival, and whether she can join you. (~120 words)`,
+    },
+    task2: {
+      topic: "📚 Học suốt đời (Lifelong Learning)",
+      type: "Advantages–Disadvantages",
+      prompt: `Lifelong learning — the ongoing pursuit of knowledge and skills throughout one's life — is becoming increasingly important in the modern world. Discuss the advantages and challenges of lifelong learning for adults. Give your own opinion on whether people should embrace it.`,
+    },
+  },
+];
+
+// ─── WRITING TAB RENDER ───────────────────────────────────────────────────────
+
+function renderWritingTab() {
+  const els_w = document.getElementById("writingView");
+  if (!els_w) return;
+
+  const topicColors = {
+    "🚇": "#3b82f6", "📰": "#8b5cf6", "🌍": "#10b981", "📱": "#f59e0b",
+    "🎬": "#ef4444", "👨‍👩‍👧": "#06b6d4", "🌐": "#6366f1", "🎮": "#f97316",
+    "⚡": "#84cc16", "📚": "#ec4899",
+  };
+
+  const typeTag = type => {
+    const map = {
+      "Opinion Essay": "#6366f1",
+      "Causes–Solutions": "#f59e0b",
+      "Advantages–Disadvantages": "#10b981",
+      "Causes–Effects": "#ef4444",
+      "Opinion / Problem–Solution": "#3b82f6",
+    };
+    const color = map[type] || "#6b7280";
+    return `<span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;background:${color}22;color:${color};border:1px solid ${color}44">${type}</span>`;
+  };
+
+  const examsHtml = WRITING_EXAM_SETS.map(ex => {
+    const emoji = ex.task2.topic.split(" ")[0];
+    const accent = topicColors[emoji] || "#6366f1";
+    return `
+      <div class="tpl-group" style="border-left:3px solid ${accent}22">
+        <div class="tpl-group-header spk-header">
+          <div class="spk-part-badge" style="background:${accent}22;color:${accent};border:1px solid ${accent}44">Đề ${ex.id}</div>
+          <div>
+            <span class="tpl-group-title">${ex.label}</span>
+          </div>
+        </div>
+        <div class="tpl-group-body">
+          <div class="tpl-line">
+            <div class="tpl-line-label" style="min-width:70px">Task 1<br><span style="font-size:10px;opacity:.6;font-weight:400">${ex.task1.type}</span></div>
+            <div class="tpl-line-text" style="white-space:pre-line">${ex.task1.prompt}</div>
+          </div>
+          <div class="tpl-line">
+            <div class="tpl-line-label" style="min-width:70px">Task 2<br><span style="font-size:10px;opacity:.6;font-weight:400">~250 từ</span></div>
+            <div class="tpl-line-text">
+              <div style="margin-bottom:6px">${ex.task2.topic} &nbsp; ${typeTag(ex.task2.type)}</div>
+              <div>${ex.task2.prompt}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  // Topic coverage summary
+  const topics = WRITING_EXAM_SETS.map(e => e.task2.topic);
+  const typeCounts = {};
+  WRITING_EXAM_SETS.forEach(e => { typeCounts[e.task2.type] = (typeCounts[e.task2.type] || 0) + 1; });
+  const typeRows = Object.entries(typeCounts).map(([t, n]) => `<span style="margin-right:12px">${t}: <strong>${n}</strong></span>`).join("");
+
+  els_w.innerHTML = `
+    <div class="spk-intro panel">
+      <p class="eyebrow">Writing – Đề Thi Thật</p>
+      <h2 style="margin:4px 0 6px;font-family:var(--font-display)">✍️ VSTEP Writing</h2>
+      <p class="muted" style="margin:0 0 10px">2 tasks · 60 phút · Task 1 = 20' (~120 từ) · Task 2 = 40' (~250 từ)</p>
+      <div style="font-size:12px;opacity:.7">${typeRows}</div>
+    </div>
+    <div class="spk-intro panel" style="padding:12px 16px">
+      <div style="font-size:12px;font-weight:600;margin-bottom:6px;opacity:.7">📌 Chủ đề Task 2 đã phủ:</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        ${topics.map(t => `<span style="padding:2px 8px;background:var(--surface-2);border-radius:10px;font-size:12px">${t}</span>`).join("")}
+      </div>
+    </div>
+    ${examsHtml}
+    <div class="spk-connectors-box" style="margin-top:8px">
+      <div class="spk-connectors-title">💡 Từ nối quan trọng cho Task 2</div>
+      <div class="spk-connectors-grid">
+        ${[
+          ["Mở bài", "It is widely acknowledged that… · In recent years, … has become increasingly…"],
+          ["Đưa luận điểm", "First and foremost, … · Another significant point is… · Furthermore,…"],
+          ["Ví dụ", "For instance,… · A clear example of this is… · This is evident in…"],
+          ["Nhượng bộ", "Admittedly,… · While it is true that… · Despite this,…"],
+          ["Kết bài", "In conclusion, … · To sum up, … · All things considered,…"],
+          ["Từ học thuật", "detrimental · beneficial · prevalent · substantially · consequently"],
+        ].map(([label, text]) => `
+          <div class="spk-connector-item">
+            <span class="spk-connector-label">${label}</span>
+            <span class="spk-connector-text">${text}</span>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
 
 const SPEAKING_TEMPLATES = [
   {
