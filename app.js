@@ -310,6 +310,7 @@ function renderThemes() {
     btn.addEventListener("click", () => {
       state.activeTheme = btn.dataset.theme;
       if (isListOnlyTheme(state.activeTheme)) state.view = "list";
+      else if (state.view === "writing" || state.view === "speaking") state.view = "cards";
       state.quiz = { index: 0, score: 0, items: [], wrongKeys: [] };
       render();
     });
